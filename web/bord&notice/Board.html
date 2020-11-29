@@ -5,6 +5,8 @@
         <meta charset="utf-8">
  
         <title>Title Page</title>
+        <link rel="stylesheet" type="text/css" href="..\css\导航栏.css">
+        
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link href="http://libs.baidu.com/fontawesome/4.0.3/css/font-awesome.min.css" rel="stylesheet"> 
         <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
@@ -12,13 +14,35 @@
 
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="new_file.js" ></script>
+        
+<script type="text/javascript" src="new_file.js" ></script>
     
-        <style type="text/css">
-            *{
-                margin: 0px;
-                padding: 0px;
-            }
+<style type="text/css">
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+            /* 导航栏start */
+/* Stackoverflow preview fix, please ignore */
+.navbar {
+    background-color: #ffffff;
+  }
+.navbar-nav {
+    flex-direction: column  ;
+  }
+  
+  .nav-link {
+    padding-right: .5rem !important;
+    padding-left: .5rem !important;
+  }
+  
+  /* Fixes dropdown menus placed on the right side */
+  .ml-auto .dropdown-menu {
+    left: auto !important;
+    right: 0px;
+  }
+/* 导航栏end */
+
             .liuyan{
                 margin-top: 50px;
                 height: 500px;
@@ -125,6 +149,34 @@
     
     </head>
     <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                      <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a class="icon-bar" href="#">方正实训</a>
+                        </li>
+                        <li><a href="#">通知公告</a>
+                        </li>
+                        <li><a href="#">留言板</a>
+                        </li>
+                        <li><a href="#">课程资源</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                          aria-haspopup="true" aria-expanded="false">我的</a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">成绩查看</a>
+                            <a class="dropdown-item" href="#">分组信息</a>
+                            <a class="dropdown-item" href="#">退出登录</a>                  
+                        </div>
+                      </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
         <div class="container">
             <!--第一块-->
             <div class="row">
