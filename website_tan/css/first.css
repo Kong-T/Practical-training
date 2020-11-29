@@ -22,3 +22,33 @@
     right: 0px;
   }
 /* 导航栏end */
+
+/* 底部start */
+footer ul {
+  display: inline-block;
+  list-style: none;
+  width: 75%;
+  padding-left: 4%;
+  vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+  footer ul {
+      padding-left: 0;
+  }
+}
+footer li {
+  padding: 6px 0;
+  font-size: 14px;
+  border-bottom: 1px dashed #bdbdbd;
+}
+
+footer .footer-bar {
+  margin: 15px auto 10px;
+  padding-top: 15px;
+  color: #616161;
+  font-size: 12px;
+  text-align: center;
+  border-top: 1px dashed #bdbdbd;
+}
+/* 底部end */

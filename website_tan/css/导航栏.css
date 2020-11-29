@@ -18,3 +18,19 @@
     right: 0px;
   }
 /* 导航栏end */
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
+  background: gray;
+  background: linear-gradient(to right, hsl(210, 4%, 56%), #2b3135);
+}
+
+#sticky-footer {
+  flex-shrink: none;
+  background: #007bff;
+  background: linear-gradient(to right, #0062E6, #33AEFF);
+}
+
