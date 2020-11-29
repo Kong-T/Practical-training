@@ -96,3 +96,18 @@ ul.nav-tabs.affix {
 .biaoti{
     font-size:20px;
 }
+
+@media (min-width: 768px) {
+    table {
+        display: table;
+    }
+    tr {
+        display: table-row;
+    }
+    td {
+        display: table-cell;
+    }
+    p {
+        max-width: 100% !important;
+    }
+}
