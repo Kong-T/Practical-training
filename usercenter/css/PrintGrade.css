@@ -1,0 +1,29 @@
+
+    .container{
+        width:800px;
+    }
+    button{
+        float:right;
+    }
+
+    table {
+        font-size: 15px;
+        display: table;
+        table-layout:fixed
+    }
+    tr {
+        display: table-row;
+    }
+    td {
+        width: "100px";
+        display: table-cell;
+        text-align:center;
+        padding: 5px 10px; 
+        border: 1px solid rgb(51, 51, 51); 
+        word-break: break-all;
+    }
+    caption{
+      font-family: "黑体",black; 
+      font-size: medium;
+      
+    }
