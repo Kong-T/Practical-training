@@ -1,9 +1,15 @@
 .body {
     padding:0px;
 }
+.exit{
+    float: right;
+    font-size: large;
+    
+  }
 .container {
-    margin-top: 200px;
+    margin-top: 100px;
     text-align:center; 
+    margin-bottom:200px ;
     
 }
 .table {

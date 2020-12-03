@@ -1,0 +1,26 @@
+.body {
+    padding:0px;
+}
+.exit{
+    float: right;
+    font-size: large;
+    
+  }
+.container {
+    margin-top: 100px;
+    text-align:center; 
+    margin-bottom:200px ;
+    
+}
+.exit{
+    float: right;
+    font-size: large;
+    
+  }
+  h3{
+      font-size: large;
+      text-align: center;
+  }
+  p{
+      text-align: center;
+  }

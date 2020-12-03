@@ -1,0 +1,27 @@
+.exit{
+  float: right;
+  font-size: large;
+  
+}
+h3{
+    font-size: large;
+    text-align: center;
+}
+p{
+    text-align: center;
+}
+.page-footer {
+    background: linear-gradient(90deg, #5c5558 0%, #242a39 28%, #2d3543 30%, #231b0b 65%, #5c5857 100%);
+    padding-top: 20px;
+  }
+
+  .list-inline-item {
+    color: #ffffff;
+  }
+
+  .footer-copyright {
+    color: #ffffff;
+  }
+  .tan{
+    height:100px;
+  }

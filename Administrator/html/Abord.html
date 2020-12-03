@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+ 
+        <title>管理员端留言板</title>
+        <link rel="stylesheet" type="text/css" href="..\css\导航栏.css">
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="http://libs.baidu.com/fontawesome/4.0.3/css/font-awesome.min.css" rel="stylesheet"> 
+        <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
+<script type="text/javascript" src="new_file.js" ></script>
+    
+<style type="text/css">
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    .exit{
+    float: right;
+    font-size: large;
+    
+  }
+ .liuyan{
+                margin-top: 50px;
+                height: 500px;
+                border: 1px solid #EEEEEE;
+                background-color: #EEEEEE;
+                box-shadow: 5px 5px 10px #EEEEEE;
+                padding: 50px;
+            }
+.information{
+    margin-top: 50px;
+     height: 500px;
+    border: 1px solid #EEEEEE;
+    background-color: #EEEEEE;
+    box-shadow: 5px 5px 10px #EEEEEE;
+    padding: 50px;
+            }
+            .navbar-default{
+                background-color: ghostwhite;
+            }
+            #nav>li>a{
+                color: white;
+            }
+            #user-fa{
+                display: inline-block;
+                width: 36px;
+                height: 36px;
+                border: 1px solid #EEEEEE;
+                background-color: #EEEEEE;
+                box-shadow: 1px 1px 5px ;
+                border-radius: 18px;
+                text-align: center;
+            }
+            #user-fa>i{
+                font-size: 20px;
+                margin-top: 5px;
+            }
+            #user>a{
+                padding-top: 5px;
+                text-decoration: none;
+            }
+            .edit{
+                padding: 10px;
+                margin-top: 20px;
+                border-bottom: 1px solid  #C7254E;
+            }
+            .edit>a{
+                color: #000000;
+                margin: 2px;
+            }
+            .edit>a:hover{
+                color:#999999;
+                background-color: #D9EDF7;  
+            }
+            #message{
+                width: 100%;
+                height: 100px;
+    
+            }
+            .btn-success{
+                float: right;
+            }
+            .div{
+                margin-top: 25px;
+                margin-bottom: 25px;
+                width: 100%;
+                background-color: #EEEEEE;
+                border: 1px solid #EBEBEB;
+                border-radius: 25px;
+                box-shadow: 1px 1px 8px #333333;
+                color: #000000;
+                height: auto;
+                padding: 50px;
+            }
+            .h4{
+                width: auto;
+                font-size: 25px;
+            }
+            .mess{
+                border: 1px solid #E4B9B9;
+                padding: 15px;
+                box-shadow: 2px 2px 15px #EEEEEE;
+                font-family: "微软雅黑";
+                font-size: medium;
+              
+            }
+            #mess{
+                border: 1px solid #E4B9B9;
+                padding: 15px;
+                box-shadow: 2px 2px 15px #EEEEEE;
+                font-family: "微软雅黑";
+                font-size: medium;
+                width: 100%;
+                float:right;
+            }
+            .form-group>a{
+                color: #000000;
+                margin: 2px;
+            }
+            .form-group>a:hover{
+                color:#999999;
+                background-color: #D9EDF7;  
+            }
+        </style>
+    
+    </head>
+    <body>
+        <div class="jumbotron">
+            <h1>方正实训</h1>
+            <span class="glyphicon glyphicon-bell" style="font-size:20px;"></span><b style="font-size: 20px;">当前位置：<a href="../../administrator/html/main.html"
+                style=" text-decoration:underline">首页</a>/留言板</b>
+            </span>
+            <div class="exit " >
+            <p>退出
+            <a href="../../website_tan/html/first.html"><i class="fa fa-arrow-circle-right" style="font-size:30px"></i></a></p>
+            </div>
+        </div>
+
+        <div class="container">
+            <!--第一块-->
+            <div class="row">
+                <div class="liuyan">
+                    <div id="user">
+                        <span id="user-fa"><i class="fa fa-user"></i></span>
+                        <span href="#" id="usename">ZengXiaoYa</span>
+                    </div>
+                    <div id="usermessage">
+                        <div class="edit">
+                            <a href=""><i class="fa fa-camera"></i></a>
+                            <a href=""><i class="fa fa-pencil"></i></a>
+                            <a href=""><i class="fa fa-map"></i></a>
+                            <a href=""><i class="fa fa-paste"></i></a>
+                        </div>
+                        <div class="content">
+                            <input id="message" class="text-success" type="text">
+
+                            </input>
+                            <button id="btn" class="btn btn-success" onclick="sendMess()">发表</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="information">
+                </div>
+            </div>
+            <!--第二块-->
+            <div class="row">
+                <div class="liuyan">
+                    <div id="usermessage">
+                        
+                    <div id="user">
+                        <span id="user-fa"><i class="fa fa-user"></i></span>
+                        <span href="#" id="usename">Zhou_f
+                        <label for="my-textarea">&nbsp;&nbsp;2020年11月15日19：00</label>
+                        </span>
+                    </div>
+                       
+                    </div>
+                        <textarea id="my-textarea" class="form-control" name="" rows="1">大家都搞快点！！</textarea>
+                        <div id="user">
+                            <span id="user-fa"><i class="fa fa-user"></i></span>
+                            <span href="#" id="usename">ZengXiaoYa</span>
+                        </div>
+                        <div class="content">
+                            <div class="form-group">  
+                                <a href=""><i class="fa fa-camera"></i></a>
+                                <a href=""><i class="fa fa-pencil"></i></a>
+                                <a href=""><i class="fa fa-map"></i></a>
+                                <a href=""><i class="fa fa-paste"></i></a>
+                            </div>
+                        
+                            <input id="mess" class="text-success" type="text">
+
+                            </input>
+                            <button id="btn" class="btn btn-success" onclick="sendMess()">回复</button>
+                        </div>
+                </div>       
+            
+                <div id="information">
+
+                </div>
+            </div>
+<!--第三块-->
+            <div class="row">
+                <div class="liuyan">
+                    <!--发言人-->
+                    <div id="usermessage">
+                        
+                    <div id="user">
+                        <span id="user-fa"><i class="fa fa-user"></i></span>
+                        <span href="#" id="usename">Zhou_f
+                        <label for="my-textarea">&nbsp;&nbsp;2020年11月10日8：00</label>
+                        </span>
+                    </div>  
+
+                    </div>
+                    <textarea id="my-textarea" class="form-control" name="" rows="1">今晚7点B504！！</textarea>
+                    <!--回复第一人-->
+                    <div id="usermessage">
+                        
+                        <div id="user">
+                            <span id="user-fa"><i class="fa fa-user"></i></span>
+                            <span href="#" id="usename">WYH
+                            <label for="my-textarea">&nbsp;&nbsp;2020年11月10日8：01</label>
+                            </span>
+                        </div>  
+                    </div>
+                    <textarea id="my-textarea" class="form-control" name="" rows="1">收到！</textarea>
+
+                    <!--回复第二人-->       
+                    <div id="usermessage">
+                        
+                        <div id="user">
+                            <span id="user-fa"><i class="fa fa-user"></i></span>
+                            <span href="#" id="usename">THJ
+                            <label for="my-textarea">&nbsp;&nbsp;2020年11月10日9：00</label>
+                            </span>
+                        </div> 
+
+                    </div>
+                        <textarea id="my-textarea" class="form-control" name="" rows="1">收到！！</textarea>        
+                    
+                    <div id="usermessage">        
+                        <div id="user">
+                            <span id="user-fa"><i class="fa fa-user"></i></span>
+                            <span href="#" id="usename">ZengXiaoYa</span>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="form-group">  
+                            <a href=""><i class="fa fa-camera"></i></a>
+                            <a href=""><i class="fa fa-pencil"></i></a>
+                            <a href=""><i class="fa fa-map"></i></a>
+                            <a href=""><i class="fa fa-paste"></i></a>
+                        </div>
+                        
+                        <input id="mess" class="text-success" type="text">
+
+                        </input>
+                        <button id="btn" class="btn btn-success" onclick="sendMess()">回复</button>
+                    </div>
+                           
+                   
+             </div>
+                <div id="information">
+
+                </div>
+
+        </div>
+
+
+    </body>
+</html>
