@@ -1,0 +1,16 @@
+.body {
+    padding:0px;
+}
+.container {
+    width:100px;
+    margin-top: 50px;
+    text-align:center; 
+    
+}
+.table {
+    text-align: center;
+}
+.table th {
+    text-align: center;
+    background-color: rgb(233, 235, 236,0.1);
+}

@@ -1,0 +1,32 @@
+.body {
+    padding:0px;
+}
+.container {
+    width: 100px;
+    margin: 0 17px;
+    font-size: 15px;
+    color: #333333;
+    font-family: "Microsoft YaHei";
+    line-height: 45px;
+    margin-top: 100px;
+    overflow: hidden;
+    border :solid 5px rgb(245, 245, 245,0.3);
+    border-radius:15px
+}
+.container ul li {
+    width: 100% !important;
+    overflow: hidden;
+    border-bottom: 1px dashed #e8e8e8;
+}
+.list ul li a {
+    width: 60% !important;
+    float: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+} 
+.pagi {
+    text-align: center;
+    padding-top: 100px;
+}

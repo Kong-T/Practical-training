@@ -1,0 +1,136 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>教师发布题目</title>
+    <link rel="stylesheet" type="text/css" href="..\css\topic_admin.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+
+<body>
+    <div class="container">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>题目名称</th>
+                    <th>选题简介</th>
+                    <th>提交时间</th>
+                    <th>提交者</th>
+                    <th>是否审核通过</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>上机作业管理系统</td>
+                <td>暂无简介</td>
+                <td></td>
+                <td>韩延明</td>
+                <td><input type="checkbox">是
+                    <input type="checkbox" style="margin-left: 10px;">否</td>
+                <script>
+                    $('input').click(function () {
+                        var now = this;
+                        $('input').each(function (i, e) {
+                            if (now !== e) {
+                                $(e).attr('checked', false);
+                            }
+                        })
+                    });
+                </script>
+            </tr>
+            <tr>
+                <td>数字货币资讯管理</td>
+                <td>暂无简介</td>
+                <td></td>
+                <td>韩延明</td>
+                <td><input type="checkbox">是
+                    <input type="checkbox" style="margin-left: 10px;">否</td>
+                <script>
+                    $('input').click(function () {
+                        var now = this;
+                        $('input').each(function (i, e) {
+                            if (now !== e) {
+                                $(e).attr('checked', false);
+                            }
+                        })
+                    });
+                </script>
+            </tr>
+            <tr>
+                <td>高考志愿填报系统</td>
+                <td>暂无简介</td>
+                <td></td>
+                <td>李瑾坤</td>
+                <td><input type="checkbox">是
+                    <input type="checkbox" style="margin-left: 10px;">否</td>
+                <script>
+                    $('input').click(function () {
+                        var now = this;
+                        $('input').each(function (i, e) {
+                            if (now !== e) {
+                                $(e).attr('checked', false);
+                            }
+                        })
+                    });
+                </script>
+            </tr>
+            <tr>
+                <td>在线教学辅助系统</td>
+                <td>暂无简介</td>
+                <td></td>
+                <td>李自力</td>
+                <td><input type="checkbox">是
+                    <input type="checkbox" style="margin-left: 10px;">否</td>
+                <script>
+                    $('input').click(function () {
+                        var now = this;
+                        $('input').each(function (i, e) {
+                            if (now !== e) {
+                                $(e).attr('checked', false);
+                            }
+                        })
+                    });
+                </script>
+            </tr>
+            <tr>
+                <td>实训辅助管理系统</td>
+                <td>暂无简介</td>
+                <td></td>
+                <td>周峰</td>
+                <td><input type="checkbox">是
+                    <input type="checkbox" style="margin-left: 10px;">否</td>
+                <script>
+                    $('input').click(function () {
+                        var now = this;
+                        $('input').each(function (i, e) {
+                            if (now !== e) {
+                                $(e).attr('checked', false);
+                            }
+                        })
+                    });
+                </script>
+            </tr>
+            <tr>
+                <td>网络舆情监控系统</td>
+                <td>暂无简介</td>
+                <td></td>
+                <td>谢志龙、陈斌</td>
+                <td><input type="checkbox">是
+                    <input type="checkbox" style="margin-left: 10px;">否</td>
+                <script>
+                    $('input').click(function () {
+                        var now = this;
+                        $('input').each(function (i, e) {
+                            if (now !== e) {
+                                $(e).attr('checked', false);
+                            }
+                        })
+                    });
+                </script>
+            </tr>
+        </table>
+        <button type="button" class="btn btn-primary" style="margin-top: 30px;" s>确认发布</button> </td>
+    </div>
+</body>
