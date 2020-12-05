@@ -36,12 +36,15 @@
                 <div class="caption">
                     <h3><b>导入名单</b></h3>
                     <p>
-                        <button type="button" class="btn btn-primary popover-show">
-                            <a href="document.html"><b>edit</b></a>
-                            <!--弹窗没研究出来，先搞个简单的页面吧-->
+                        <input type="file" id="btn_file" style="display:none">
+                        <button type="button" class="btn btn-primary popover-show" onclick="inputfile()">上传文件
                         </button>
                     </p>
-
+                    <script type="text/javascript">
+                        function inputfile() {
+                            document.getElementById("btn_file").click();
+                        }
+                    </script>
 
 
                 </div>
