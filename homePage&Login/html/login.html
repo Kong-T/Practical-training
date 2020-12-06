@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/login.css">
+
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="form row">
+            <div class="form-horizontal col-md-offset-3" id="login_form">
+                <h3 class="form-title">LOGIN</h3>
+                <div class="col-md-9">
+                    <div class="form-group">
+                        <i class="fa fa-user fa-lg"></i>
+                        <!-- 添加id -->
+                        <input class="form-control required" type="text" placeholder="Username" id="username"
+                            name="username" autofocus="autofocus" maxlength="20" />
+                    </div>
+                    <div class="form-group">
+                        <i class="fa fa-lock fa-lg"></i>
+                        <!-- 添加id -->
+                        <input class="form-control required" type="password" placeholder="Password" id="password"
+                            name="password" maxlength="8" />
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox">
+                            <input type="checkbox" name="remember" value="1" />记住我
+                        </label>
+                    </div>
+                    <div class="form-group col-md-offset-9">
+                        <a href="..\..\web\bord&notice\notice1.html">
+                            <!-- 添加id -->
+                            <button type="submit" class="btn btn-success pull-right" name="submit" id="btn">登录</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">//这个script为button添加点击事件
+        var btn = document.getElementById('btn');//获取按钮元素
+        // 要传输账号和密码，首先要获取这两个文本框元素，获取之后才能读取里面的内容
+        var username = document.getElementById('username');
+        var password = document.getElementById('password');
+        //为按钮添加点击事件
+        btn.onclick = function () {
+            // 首先创建ajax对象
+            var xhr = new XMLHttpRequest();
+            var nameValue = username.value;//用户点击按钮之后会读取两个文本框元素里的值
+            var passwordValue = password.value;
+            var this_object = {
+                'username': nameValue,
+                'password': passwordValue
+            }
+            //获取到姓名和年龄的值之后，传参是需要拼接成请求参数格式
+
+            // 告诉请求方式和地址 将拼接好的请求参数放到地址后面
+            xhr.open('post', 'http://localhost:8080/login');
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            //发送请求
+            xhr.send(JSON.stringify(this_object));
+            //获取服务器端响应的数据
+            xhr.onload = function () {
+                console.log(xhr.responseText)
+                console.log(typeof xhr.responseText)
+            }
+        }
+    </script>
+</body>
+
+</html>
