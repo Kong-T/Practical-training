@@ -8,6 +8,37 @@
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+   <scrip src="guide_grade.js"></scrip>
+  function topic_release() {
+     var name = $("#topicname").val();                     //选题名
+     var intro = $("#topicintro").val();                     //选题简介
+     $.ajax({
+         type:"POST",
+         url:"http://localhost:8080/login",
+         data:JSON.stringify({"name":topicname,"intro":topicintro}), //将JSON对象转为字符串
+         dataType:"JSON",
+         contentType:"application/json",
+         async:'true',
+
+ beforeSend: function(XMLHttpRequest,settings){
+   //ShowLoading();
+   // console.log($.ajax.data);
+     },
+         success:function(data) {
+          if(data.msg == true){
+                   alert("选题上传成功");}     
+         },
+         error: function(){
+   //请求出错处理
+         console.log("选题上传失败");
+
+ },
+
+     })
+
+ }
+ </script>
 </head>
 
 <body>
@@ -23,7 +54,7 @@
           </li>
           <li class="active"><a href="topicRelease.html">发布题目</a>
           </li>
-          <li><a href="guide_grade.html">录入指导成绩</a>
+          <li><a href="guide_grade.html" onclick="javascript:requestData()">录入指导成绩</a>
           </li>
           <li><a href="report_grade.html">答辩打分</a>
           </li>
@@ -40,14 +71,14 @@
   <div class="container">
     <form action="" method="get">
       <h5>选题名称：</h5>
-      <input type="text" name="name" placeholder="请输入选题名称" />
+      <input type="text" id="topicname" placeholder="请输入选题名称" />
       <br>
       <br>
       <h5>选题简介：</h5>
-      <textarea rows="10" cols="70"></textarea>
+      <textarea rows="10" cols="70" id='topicintro'></textarea>
       <br>
       <br>
-      <button type="button" class="btn btn-primary" style="margin-left: 30%;">提 交</button>
+      <button type="button" onclick = "topic_release()" class="btn btn-primary" style="margin-left: 30%;">提 交</button>
     </form>
 
   </div>

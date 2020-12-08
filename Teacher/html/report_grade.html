@@ -8,6 +8,68 @@
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <scrip src="guide_grade.js"></scrip>
+
+  <script>
+    function requestData()
+    {
+      var name="report_grade";
+        $.ajax({
+            url: "",
+            type: "post",
+            data:name, //点击页面名guide_grade
+            success: function(data){
+                /*这个方法里是ajax发送请求成功之后执行的代码*/
+                showData(data);//我们仅做数据展示
+            },
+            error: function(msg){
+                alert("ajax连接异常："+msg);
+            }
+        });
+    }
+    function showData(data)
+    {
+        var str = "";//定义用于拼接的字符串
+        for (var i = 0; i < data.length; i++)
+        {
+            str = "<tr><td>" + data[i].teamId + "</td><td><input typr=\"text"+"id=\"gradeId\""+i +"placeholder=\"请输入分数\"></td></tr>"
+            $("#tbody").append(str);
+        }
+    }
+  
+    function guideGraderelease() {
+       var teamID = $("#teamID"+i).val();                     //小组id
+       var gradeID = $("#gradeID"+i).val();                     //小组分数
+       $.ajax({
+           type:"POST",
+           url:"http://localhost:8080/login",
+           data:JSON.stringify({"teamID":teamID+i,"gradeID":gradeID+i}), //将JSON对象转为字符串
+           dataType:"JSON",
+           contentType:"application/json",
+           async:'true',
+  
+   beforeSend: function(XMLHttpRequest,settings){
+     //ShowLoading();
+     // console.log($.ajax.data);
+       },
+           success:function(data) {
+            if(data.msg == true){
+                     alert("指导成绩上传成功");}     
+           },
+           error: function(){
+     //请求出错处理
+           console.log("指导成绩上传失败");
+  
+   },
+  
+       })
+  
+   }
+  
+  
+  
+  </Script>
+
 </head>
 
 <body>
@@ -23,7 +85,7 @@
           </li>
           <li><a href="topicRelease.html">发布题目</a>
           </li>
-          <li><a href="guide_grade.html">录入指导成绩</a>
+          <li><a href="guide_grade.html"  onclick="javascript:requestData()">录入指导成绩</a>
           </li>
           <li class="active"><a href="report_grade.html">答辩打分</a>
           </li>
