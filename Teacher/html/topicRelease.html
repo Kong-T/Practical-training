@@ -3,20 +3,22 @@
 <head>
   <meta charset="utf-8">
   <title>教师发布题目</title>
-  <link rel="stylesheet" type="text/css" href="topicRelease.css">
+  <link rel="stylesheet" type="text/css" href="../css/topicRelease.css">
   <link rel="stylesheet" type="text/css" href="../../Student/css/StuNav.css">
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- <script src="guide_grade.js"></script> -->
   <script type="text/javascript">
-   <scrip src="guide_grade.js"></scrip>
   function topic_release() {
      var name = $("#topicname").val();                     //选题名
      var intro = $("#topicintro").val();                     //选题简介
+     console.log("上传的选题"+name);
+     console.log("上传的详细信息"+intro);
      $.ajax({
          type:"POST",
-         url:"http://localhost:8080/login",
-         data:JSON.stringify({"name":topicname,"intro":topicintro}), //将JSON对象转为字符串
+         url:"http://localhost:8080/topicRelease",
+         data:JSON.stringify({"name":name,"intro":intro}), //将JSON对象转为字符串
          dataType:"JSON",
          contentType:"application/json",
          async:'true',
@@ -26,7 +28,7 @@
    // console.log($.ajax.data);
      },
          success:function(data) {
-          if(data.msg == true){
+          if(data == true){
                    alert("选题上传成功");}     
          },
          error: function(){
@@ -42,6 +44,7 @@
 </head>
 
 <body>
+  <div class = "tan"></div>
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="example-navbar-collapse">

@@ -1,15 +1,20 @@
 <html>
 <head>
 <script>
+    win
 function getUrlParam(name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
             var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            console.log(r);
+            console.log(window.location.href);
             if (r != null) return unescape(r[2]); return null; //返回参数值
         }
-        var details = getUrlParam(Notice_details);
+        var details = getUrlParam(Notice_title);
+        console.log(details);
         $("body").append(details);  //这个页面新创建的，没有调格式
 </script>
 </head>
 <body>
+    <div id = ""></div>
 </body>
 </html>

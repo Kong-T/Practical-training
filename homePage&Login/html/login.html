@@ -4,12 +4,60 @@
 <head>
     <meta charset="UTF-8">
     <title>login</title>
+    <link rel="stylesheet" href="../css/login.css">
 
     <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../css/login.css">
+    <script src="..\..\dist\js\bootstrap.min.js" type = "text/javascript"></script>
+    <link rel="shortcut icon" href="#" />
+    <script type="text/javascript">
+       function f() {
+        var name = $("#name").val();                     //用户名
+        var password = $("#password").val();                     //用户名
+        $.ajax({
+            type:"POST",
+            url:"http://localhost:8080/login",
+            data:JSON.stringify({"name":name,"password":password}), //将JSON对象转为字符串
+            dataType:"JSON",
+            contentType:"application/json",
+            async:'true',
+
+		beforeSend: function(XMLHttpRequest,settings){
+			//ShowLoading();
+			// console.log($.ajax.data);
+        },
+            success:function(data) {
+                
+                // alert("success");
+                // console.log("success");
+                console.log(data);       
+                console.log(data.flag);
+                console.log(data.msg);
+                 if(data.flag == 0& data.msg == true){
+                    //  学生
+                      location.href="../../Student/html/notice1.html";
+                  }
+                  else if(data.flag == 1& data.msg == true ){
+                    location.href="../../Teacher/html/Tnotice.html";
+                  }
+                  else if(data == 2& data.msg == true){
+                    location.href="main.html"; 
+                  }
+                  else {
+                      alert("不存在该用户或者密码错误");
+                  }
+            },
+            error: function(){
+			//请求出错处理
+            console.log("error");
+
+		},
+
+        })
+
+    }
+    </script>
 
 
 
@@ -20,63 +68,35 @@
         <div class="form row">
             <div class="form-horizontal col-md-offset-3" id="login_form">
                 <h3 class="form-title">LOGIN</h3>
+
                 <div class="col-md-9">
+
                     <div class="form-group">
                         <i class="fa fa-user fa-lg"></i>
-                        <!-- 添加id -->
-                        <input class="form-control required" type="text" placeholder="Username" id="username"
+                        <input class="form-control required" type="text" placeholder="Username" id="name"
                             name="username" autofocus="autofocus" maxlength="20" />
                     </div>
+
                     <div class="form-group">
                         <i class="fa fa-lock fa-lg"></i>
-                        <!-- 添加id -->
                         <input class="form-control required" type="password" placeholder="Password" id="password"
-                            name="password" maxlength="8" />
+                            name="password" maxlength="9" />
                     </div>
+
                     <div class="form-group">
                         <label class="checkbox">
                             <input type="checkbox" name="remember" value="1" />记住我
                         </label>
                     </div>
+                    
                     <div class="form-group col-md-offset-9">
-                        <a href="..\..\web\bord&notice\notice1.html">
-                            <!-- 添加id -->
-                            <button type="submit" class="btn btn-success pull-right" name="submit" id="btn">登录</button>
-                        </a>
+                            <button id= "login" onclick = "f()" type="submit" class="btn btn-success pull-right" name="submit" >登录</button>
                     </div>
+                    <span id="comtext"></span>
                 </div>
             </div>
         </div>
     </div>
-    <script type="text/javascript">//这个script为button添加点击事件
-        var btn = document.getElementById('btn');//获取按钮元素
-        // 要传输账号和密码，首先要获取这两个文本框元素，获取之后才能读取里面的内容
-        var username = document.getElementById('username');
-        var password = document.getElementById('password');
-        //为按钮添加点击事件
-        btn.onclick = function () {
-            // 首先创建ajax对象
-            var xhr = new XMLHttpRequest();
-            var nameValue = username.value;//用户点击按钮之后会读取两个文本框元素里的值
-            var passwordValue = password.value;
-            var this_object = {
-                'username': nameValue,
-                'password': passwordValue
-            }
-            //获取到姓名和年龄的值之后，传参是需要拼接成请求参数格式
-
-            // 告诉请求方式和地址 将拼接好的请求参数放到地址后面
-            xhr.open('post', 'http://localhost:8080/login');
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            //发送请求
-            xhr.send(JSON.stringify(this_object));
-            //获取服务器端响应的数据
-            xhr.onload = function () {
-                console.log(xhr.responseText)
-                console.log(typeof xhr.responseText)
-            }
-        }
-    </script>
 </body>
 
 </html>

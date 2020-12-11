@@ -1,0 +1,63 @@
+
+
+footer {
+    /* position: absolute;
+    bottom: 0;
+    width: 100%; */
+    /* padding: 15px 0 10px; */
+    padding-top: 3em;
+    background-color: #e9e9e9;
+}
+
+.school-weixin {
+    display: inline-block;
+    width: 20%;
+    vertical-align: middle;
+}
+
+.school-weixin span {
+    display: inline-block;
+    width: 100%;
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+footer ul {
+    display: inline-block;
+    list-style: none;
+    width: 75%;
+    padding-left: 4%;
+    vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+    footer ul {
+        padding-left: 0;
+    }
+}
+
+footer li {
+    padding: 6px 0;
+    font-size: 14px;
+    border-bottom: 1px dashed #bdbdbd;
+}
+
+footer .footer-bar {
+    margin: 15px auto 10px;
+    padding-top: 15px;
+    color: #616161;
+    font-size: 12px;
+    text-align: center;
+    border-top: 1px dashed #bdbdbd;
+}
+
+/* For iPhone4/5/5s */
+
+@media (max-width: 340px) {
+    footer li {
+        font-size: 13px;
+    }
+    footer .footer-bar {
+        font-size: 11px;
+    }
+}
