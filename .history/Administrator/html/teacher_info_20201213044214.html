@@ -71,7 +71,7 @@
         var idID = "id" + btn_now.substr(btn_now.length - 1, 1)
         // console.log(pwID, idID)
         var pw = document.getElementById(pwID).innerHTML //获取密码单元格的值
-        var pw_new = prompt("请输入新密码：", pw);
+        var pw_new = prompt("请输入新密码：", "");
         if (pw_new != null && pw_new != "") {
             document.getElementById(pwID).innerHTML = pw_new;
         }

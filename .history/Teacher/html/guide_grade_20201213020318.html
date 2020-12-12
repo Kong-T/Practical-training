@@ -57,9 +57,11 @@
           "grade":new Array()
         };
        
+
       var str0 = new Array();
       var teamID = new Array();
-
+      var zz = new Array();
+      
       for (var i = 0; i < window.length; i++) {
         str0[i] = "gradeID" + i;                    //成绩id
         teamID[i] = "teamID"+i;   //小组ID
@@ -67,23 +69,29 @@
         // 第三种
         grade.teamid[i]=document.getElementById(teamID[i]).innerText;
         grade.grade[i]=document.getElementById(str0[i]).value;
-      }
-      // console.log("grade"+grade.teamid);
 
+
+      }
+      console.log("grade"+grade.teamid);
+      var guideGrade = "[" + str.substring(0,str.length-1) + "]";//转为json
+      console.log("guideGrade"+guideGrade);
+
+      console.log(JSON.stringify(guideGrade));
       $.ajax({
         type: "POST",
         url: "http://localhost:8080/Tguide_1",
+        // data: JSON.stringify(guideGrade),
+        // data:JSON.stringify(zz),
         data:JSON.stringify(grade),
         dataType: "JSON",
         contentType: "application/json",
         async: 'true',
-        success: function (data) {
-          console.log(data);
+        success: function () {
             alert("指导成绩上传成功");
+          
         },
-        error: function (data) {
+        error: function () {
           //请求出错处理
-          console.log(data);
           console.log("指导成绩上传失败");
 
         },

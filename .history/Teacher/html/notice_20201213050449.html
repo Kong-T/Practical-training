@@ -2,8 +2,6 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-
     <title>通知细则-HTML5</title>
     <style type="text/css">
         body {
@@ -28,17 +26,30 @@
         }
     </style>
     <script>
+        /*getUrlParam(name) {
+                   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+                   var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+                   console.log(r);
+                   console.log(window.location.href);
+                   if (r != null) return unescape(r[2]); return null; //返回参数值
+               }
+               var details = getUrlParam(Notice_title);
+               console.log(details);
+               $("body").append(details);  //这个页面新创建的，没有调格式
+       */
+        
+
 
         window.onload = function () {
             var Notice_title = getUrlParam(Notice_title);
-
-            function getUrlParam(name) {
-                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
-                var r = window.location.search.substr(1).match(reg);  //匹配目标参数
-                console.log("r"+r);
-                console.log(window.location.href);
-                if (r != null) return unescape(r[2]); return null; //返回参数值
-            }
+            
+            function getUrlParam(name){
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            console.log(r);
+            console.log(window.location.href);
+            if (r != null) return unescape(r[2]); return null; //返回参数值
+        }
             $.ajax({
                 url: "http://localhost:8080/All_getnotice_1",
                 type: "post",

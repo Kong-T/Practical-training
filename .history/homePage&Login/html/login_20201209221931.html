@@ -15,7 +15,6 @@
        function f() {
         var name = $("#name").val();                     //用户名
         var password = $("#password").val();                     //用户名
-        console.log(JSON.stringify({"name":name,"password":password}));
         $.ajax({
             type:"POST",
             url:"http://localhost:8080/login",

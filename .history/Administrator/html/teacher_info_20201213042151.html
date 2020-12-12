@@ -49,19 +49,19 @@
                 }
             }
             $("#tbody1").html(str);
-             //管理员操作
-    //给每个按钮绑定事件
-    var btns = document.getElementsByTagName("button");//获取所有btn对象
-    console.log(btns);
-    for (var i = 0; i < btns.length; i++) {
-        console.log(btns[i].id);//输出获取到的每个按钮
-        btns[i].addEventListener("click", change);//给每个按钮绑定change事件
-    }
         }
     }
 </Script>
 <script>
 
+
+    //管理员操作
+    //给每个按钮绑定事件
+    var btns = document.getElementsByTagName("button");//获取所有btn对象
+    for (var i = 0; i < btns.length; i++) {
+        console.log(btns[i].id);//输出获取到的每个按钮
+        btns[i].addEventListener("click", change);//给每个按钮绑定change事件
+    }
 
     function change() {
         var btn_now = this.id;//获取当前被点击的按钮
@@ -80,7 +80,7 @@
         var T_id = document.getElementById(idID).innerHTML//获取这位老师的账号
         $.ajax({
             type: "POST",
-            url: "http://localhost:8080/AdTeacherInfo_1",
+            url: "http://localhost:8080/",
             data: JSON.stringify({ "T_id": T_id, "T_pw": T_pw }), //将JSON对象转为字符串
             dataType: "JSON",
             contentType: "application/json",

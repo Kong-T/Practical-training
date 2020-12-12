@@ -80,7 +80,7 @@
         var T_id = document.getElementById(idID).innerHTML//获取这位老师的账号
         $.ajax({
             type: "POST",
-            url: "http://localhost:8080/AdTeacherInfo_1",
+            url: "http://localhost:8080/",
             data: JSON.stringify({ "T_id": T_id, "T_pw": T_pw }), //将JSON对象转为字符串
             dataType: "JSON",
             contentType: "application/json",
