@@ -38,7 +38,7 @@
        
         var str = "";//定义用于拼接的字符串
         for (var j = 0; j < window.length; j++){
-          str += "<li>" + "<a href = \"notice.html?Notice_title="+data.title[j]+" \" target=\"_blank\">"+data.title[j] + data.time[j] + "</a></li>";
+          str += "<li>" + "<a href = notice.html?Notice_title="+data.title[j]+">"+data.title[j] + data.time[j] + "</a></li>";
           console.log(str);
           $("#ol").html(str);
 
@@ -85,7 +85,11 @@
   <hr />
 
   <ol id = "ol">
-    
+    <li><a href="../../web/bord&notice/note2.html">关于《项目管理与开发实训》课程开课通知</a><a class="date">2020年11月01日</a< /li>
+    <li><a href="../../web/bord&notice/note2.html"> 关于组队通知</a><a class="date">2020年11月16日</a></li>
+    <li><a href="../../web/bord&notice/note2.html">关于选题通知</a><a class="date">2020年11月11日</a></li>
+    <li><a href="../../web/bord&notice/note2.html">关于项目文档及进展安排通知</a><a class="date">2020年11月15日</a></li>
+    <li> <a href="../../web/bord&notice/note2.html">关于答辩通知</a><a class="date">2020年12月16日</a></li>
   </ol>
   <div class="tan"></div>
   <!-- Footer -->

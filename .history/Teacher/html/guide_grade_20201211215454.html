@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<<<<<<< HEAD
   <script type="text/javascript">
     window.onload = function () {
       var name = "guide_grade";
@@ -54,7 +55,7 @@
       var str0 = new Array();
       var teamID = new Array();
       var gradeID = new Array();                  //小组分数
-      var test = [];
+      var test = ;
       var str = "";
       for (var i = 0; i < window.length; i++) {
         str0[i] = "gradeID" + i;                    //成绩id
@@ -66,7 +67,6 @@
         str = str + "{\""+ teamID[i] + "\":" + data[i] + ",\"" + str0[i]  + "\":" + document.getElementById(str0[i]).value + "},";
         console.log("str");
         console.log(str)
-        
       }
       var guideGrade = "[" + str.substring(0,str.length-1) + "]";//转为json
       console.log("guideGrade"+guideGrade);
@@ -97,6 +97,9 @@
 
   </Script>
 
+=======
+  <script src="D:\Practical-training-2\Teacher\JS\guide_grade.js"></Script>
+>>>>>>> 312e6b458c9e9c40e7f29e116ea8105f05b257b9
 </head>
 
 <body>
