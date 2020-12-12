@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>个人中心</title>
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/stu_userCenter.css">
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript"></script>
     <script>
         $(document).ready(function () {
             $("#myNav").affix({
@@ -17,6 +18,121 @@
             });
         });
     </script>
+
+    <script>
+        window.onload = function () {
+            var name = "stu_userCenter";//当前网页名
+            $.ajax({
+                url: "",
+                type: "post",
+                data: name,
+                success: function (data) {
+                    /*这个方法里是ajax发送请求成功之后执行的代码*/
+                    var data=JSON.parse(data);//解析JSON数据
+                    window.length = data.length;//获取一个全局变量 用于表示小组数量
+                    console.log(window.length);
+                    showStudentData(data);//我们仅做数据展示
+                    showTeamData(data);
+                    showTopicData(data);
+                    showTeacherData(data);
+                    showReplyData(data);
+                    showGradeData(data);
+                },
+                error: function (msg) {
+                    alert("ajax连接异常：" + msg);
+                    console.log("error");
+
+                }
+            })
+        }
+        //展示个人简介的方法
+        function showStudentData(data) {
+            var str = "";
+            str = "<tr><td><span class='badge' style='margin-right:10px;'>姓名</span>" + data.data1[0].Student_name
+                + "</td><td><span class='badge' style='margin-right:10px;''>组号</span>" + data.data1[0].Student_id
+                + "</td><td><span class='badge'style='margin-right:10px;'>指导老师</span>"
+                + data.data1[0].Team_id + "</td><td>" + data.data1[0].Teacher_name + "</td></tr>";
+            $("#tab111").html(str);
+
+        }
+        //展示分组信息的界面
+        function showTeamfData(data) {
+            var str = "";
+            for (var i = 0; i < data.data2.length; i++) {
+                str = "<tr><td>" + data.data2[i].Team_id + "</td><td>"  + data.data2[i].Teammate_id + "</td><td>"
+                    + data.data2[i].Teammate_name + "</td></tr>";
+
+            }
+            $("#tbo112").html(str);
+        }
+        //展示选题信息的界面
+        function showTopicData(data) {
+            var str = "";
+            str = "<thead><tr><th><p style='text-align: center'><span>" + data.data3[0].Subject_title
+                + "</span></th><th style='text-align:center'>选题内容</th><th style='text-align:center'>指导老师</th></tr></thead><tbody><tr><td>"
+                + data.data3[0].Details + "</td><td>" +data.data3[0].Tutor + "</td></tr>";
+
+            $("#tab113").html(str);
+        }
+        //展示指导老师信息的界面
+        function showTeacherData(data) {
+            var str = "";
+            if (data.data4[0].Teacher_name == "周峰") {
+                str = "<tbody><tr class='firstRow'><td width='175px' height='175px' text-align='center' valign='top' style='padding: 5px 10px; border: 1px solid rgb(51, 51, 51); word-break: break-all;'><p style='text-align: center'>"
+                    + "<img src='../image/Teacher_img/周峰.PNG' style='width: 100%px; height: 100%px;'></p></td></tr>";
+                $("#tab114").html(str);
+            }
+            else if (data.data4[0].Teacher_name == "王磊") {
+                str = "<tbody><tr class='firstRow'><td width='175px' height='175px' text-align='center' valign='top' style='padding: 5px 10px; border: 1px solid rgb(51, 51, 51); word-break: break-all;'><p style='text-align: center'>"
+                    + "<img src='../image/Teacher_img/王磊.PNG' style='width: 100%px; height: 100%px;'></p></td></tr>";
+                $("#tab114").html(str);
+            }
+            else if (data.data4[0].Teacher_name == "李自力") {
+                str = "<tbody><tr class='firstRow'><td width='175px' height='175px' text-align='center' valign='top' style='padding: 5px 10px; border: 1px solid rgb(51, 51, 51); word-break: break-all;'><p style='text-align: center'>"
+                    + "<img src='../image/Teacher_img/李自力.PNG' style='width: 100%px; height: 100%px;'></p></td></tr>";
+                $("#tab114").html(str);
+            }
+
+            else if (data.data4[0].Teacher_name == "韩延明") {
+                str = "<tbody><tr class='firstRow'><td width='175px' height='175px' text-align='center' valign='top' style='padding: 5px 10px; border: 1px solid rgb(51, 51, 51); word-break: break-all;'><p style='text-align: center'>"
+                    + "<img src='../image/Teacher_img/韩延明.PNG' style='width: 100%px; height: 100%px;'></p></td></tr>";
+                $("#tab114").html(str);
+            }
+            else if (data.data4[0].Teacher_name == "李瑾坤") {
+                str = "<tbody><tr class='firstRow'><td width='175px' height='175px' text-align='center' valign='top' style='padding: 5px 10px; border: 1px solid rgb(51, 51, 51); word-break: break-all;'><p style='text-align: center'>"
+                    + "<img src='../image/Teacher_img/李瑾坤.PNG' style='width: 100%px; height: 100%px;'></p></td></tr>";
+                $("#tab114").html(str);
+            }
+            else if (data.data4[0].Teacher_name== "陈久强") {
+                str = "<tbody><tr class='firstRow'><td width='175px' height='175px' text-align='center' valign='top' style='padding: 5px 10px; border: 1px solid rgb(51, 51, 51); word-break: break-all;'><p style='text-align: center'>"
+                    + "<img src='../image/Teacher_img/陈久强.PNG' style='width: 100%px; height: 100%px;'></p></td></tr>";
+                $("#tab114").html(str);
+            }
+            else {
+                str = "<tbody><tr class='firstRow'><td width='175px' height='175px' text-align='center' valign='top' style='padding: 5px 10px; border: 1px solid rgb(51, 51, 51); word-break: break-all;'><p style='text-align: center'>"
+                    + "<img src='../image/Teacher_img/谢志龙.PNG' style='width: 100%px; height: 100%px;'><img src='../image/Teacher_img/陈斌.PNG' style='width: 100%px; height: 100%px;'></p></td></tr>";
+                $("#tab114").html(str);
+            }
+        }
+        //展示答辩信息的界面
+        function showReplyData(data) {
+            var str = "";
+            str = "<tr><td>" + data.data5[0].Team_id + "</td><td>" + data.data5[0].Reply_place + "</td><td>" + data.data5[0].Reply_time + "</td><td>"
+                + data.data5[0].Teacher1_name + "</td><td>" + data.data5[0].Teacher2_name + "</td><td>" + data.data5[0].Teacher3_name + "</td></tr>";
+            $("#tbo115").html(str);
+
+        }
+        //展示成绩信息的页面
+        function showGradeData(data) {
+            var str = "";
+            str = "<tr><td>" + data.data6[0].Team_id + "</td><td>" + data.data6[0].Guide_grade + "</td><td>" + data.data6[0].Reply_grade + "</td><td>"
+                + data.data6[0].Team_grade + "</td><tr>";
+            $("#tbo116").html(str);
+        }
+
+    </script>
+
+
 </head>
 
 <body data-spy="scroll" data-target="#myScrollspy">
@@ -48,15 +164,8 @@
         <div class="col-xs-9">
             <h2 id="section-1">个人简介</h2>
             <div class="infobox">
-                <table class="info">
-                    <tr>
-                        <td><span class="badge" style="margin-right:10px;">姓名</span>Xuanyi Zhou</td>
-                        <td><span class="badge" style="margin-right:10px;">学号</span>41811023</td>
-                    </tr>
-                    <tr>
-                        <td><span class="badge" style="margin-right:10px;">组号</span>TJ_04</td>
-                        <td><span class="badge" style="margin-right:10px;">指导老师</span>Feng Zhou</td>
-                    </tr>
+                <table class="info" id="tab111">
+
                     <tr>
                         <td><a href="">修改信息</a></td>
                     </tr>
@@ -67,76 +176,24 @@
             <table class="table table-striped table-responsive table-bordered table-hover" style="text-align: center;">
                 <thead>
                     <tr>
-                        <th></th>
+                        <th style="text-align:center">小组编号</th>
                         <th style="text-align:center">学号</th>
                         <th style="text-align:center">姓名</th>
-                        <th style="text-align:center">专业班级</th>
+
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>组长</td>
-                        <td>41811023</td>
-                        <td>zxy</td>
-                        <td>信管一班</td>
-                    </tr>
-                    <tr>
-                        <td>成员1</td>
-                        <td>41811022</td>
-                        <td>thj</td>
-                        <td>信管一班</td>
-                    </tr>
-                    <tr>
-                        <td>成员2</td>
-                        <td>41811025</td>
-                        <td>song jia</td>
-                        <td>金信</td>
-                    </tr>
-                    <tr>
-                        <td>成员3</td>
-                        <td>41811062</td>
-                        <td>Ruili Jin</td>
-                        <td>信管一班</td>
-                    </tr>
-                    <tr>
-                        <td>成员4</td>
-                        <td>41811062</td>
-                        <td>Ruili Jin</td>
-                        <td>信管一班</td>
-                    </tr>
-                    <tr>
-                        <td>成员5</td>
-                        <td>41811062</td>
-                        <td>Ruili Jin</td>
-                        <td>信管一班</td>
-                    </tr>
+                <tbody id="tbo112">
+
                 </tbody>
             </table>
             <hr>
             <h2 id="section-3">选题信息</h2>
-            <table class="table table-striped table-responsive table-bordered table-hover" style="text-align: center;">
-                <thead>
-                    <tr>
-                        <th>
-                            <p style="text-align: center">
+            <table id="tab113" class="table table-striped table-responsive table-bordered table-hover"
+                style="text-align: center;">
 
-                                <span>实训辅助管理信息系统</span>
-                        </th>
-                        </p>
-                    </tr>
-                </thead>
-                <tbody>
 
-                    <tr height="500px" text-align="center">
-                        <th>
-                            <p style="text-align: center">
 
-                                <img src="../image/xuanti.png" style="width: 400px; height: 500px;"></img>
-                        </th>
-                        </p>
 
-                    </tr>
-            </table>
             </table>
 
             <hr>
@@ -147,48 +204,8 @@
                     <p><strong><span
                                 style="line-height: 115%; font-family: 微软雅黑,sans-serif; font-size: 18pt;"></span></strong>
                     </p>
-                    <table>
-                        <tbody>
-                            <tr class="firstRow">
-                                <td width="175px" height="175px" text-align="center" valign="top"
-                                    style="padding: 5px 10px; border: 1px solid rgb(51, 51, 51); word-break: break-all;">
-                                    <p style="text-align: center">
-                                        <img src="https://it.swufe.edu.cn/__local/7/BE/9D/4631668C88EFE4DE01630B195D3_75F3A674_18FD3.png"
-                                            style="width: 175px; height: 175px;">
-                                    </p>
-                                </td>
-                                <td width="500" text-align="center" valign="top"
-                                    style="padding: 5px 10px; border: 1px solid rgb(51, 51, 51); border-image: none; -ms-word-break: break-all;">
-                                    <span
-                                        style="line-height: 200%; font-family: 微软雅黑; font-size: 12pt;text-align: center;">周峰
-                                    </span>
-                                    <p>
-                                        <span
-                                            style="line-height: 115%; font-family: 微软雅黑,sans-serif; font-size: 10.5pt;">信息技术综合实验室
-                                        </span>
-                                    </p>
-                                    <p><span
-                                            style="line-height: 115%; font-family: 微软雅黑,sans-serif; font-size: 10.5pt;">办公室：经世楼D503
-                                        </span>
-                                    </p>
-                                    <p><span
-                                            style="line-height: 115%; font-family: 微软雅黑,sans-serif; font-size: 10.5pt;">电话：028-87092713
-                                        </span>
-                                    </p>
-                                    <p><span
-                                            style="line-height: 115%; font-family: 微软雅黑,sans-serif; font-size: 10.5pt;">Email
-                                        </span>
-                                        <span
-                                            style="line-height: 115%; font-family: 微软雅黑,sans-serif; font-size: 10.5pt;">：zhouf_t@swufe.edu.cn
-                                        </span>
-                                    </p>
-                                    <p><span
-                                            style="line-height: 115%; font-family: 微软雅黑,sans-serif; font-size: 10.5pt;">工作职位：信息技术综合实验室技术管理人员
-                                        </span>
-                                    </p>
-                                </td>
-                            </tr>
-                        </tbody>
+                    <table id="tab114">
+
                     </table>
                     <p><br></p>
                 </div>
@@ -199,7 +216,7 @@
                     style="text-align: center;">
                     <thead>
                         <tr>
-                            <th style="text-align:center">小组代号</th>
+                            <th style="text-align:center">小组编号</th>
                             <th style="text-align:center">场地</th>
                             <th style="text-align:center">时间</th>
                             <th style="text-align:center">答辩老师1</th>
@@ -208,15 +225,8 @@
 
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>TJ_O4</td>
-                            <td>经世楼D504</td>
-                            <td>2020年12月16日</td>
-                            <td>周峰</td>
-                            <td>王磊</td>
-                            <td>谢志龙</td>
-                        </tr>
+                    <tbody id="tbo115">
+
 
                     </tbody>
                 </table>
@@ -229,21 +239,15 @@
                     <thead>
                         <tr>
 
-                            <th style="text-align:center">小组代号</th>
+                            <th style="text-align:center">小组编号</th>
                             <th style="text-align:center">指导成绩</th>
                             <th style="text-align:center">答辩成绩</th>
                             <th style="text-align:center">总成绩</th>
 
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>TJ_04</td>
-                            <td>100</td>
-                            <td>98</td>
-                            <td>99</td>
+                    <tbody id="tbo116">
 
-                        </tr>
                     </tbody>
                 </table>
                 <a href="PrintGrade.html">

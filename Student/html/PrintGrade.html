@@ -4,16 +4,16 @@
 <head>
     <meta charset="utf-8">
     <title>成绩打印</title>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/PrintGrade.css">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css">
-
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript"></script>
+
     <script>
         windows.onload();
         function printdiv(printpage) {
@@ -24,6 +24,44 @@
             document.body.innerHTML = oldstr;
         }
 
+    </script>
+    <script>
+        window.onload = function () {
+            var name = "PrintGrade";//当前网页名
+            $.ajax({
+                url: "http://localhost:8080/",
+                type: "post",
+                data: name,
+                success: function (data) {
+                    /*这个方法里是ajax发送请求成功之后执行的代码*/
+                    var data=JSON.parse(data);//解析JSON数据
+                    getPrint(data);
+                },
+                error: function (msg) {
+                    alert("ajax连接异常：" + msg);
+                }
+            });
+        }
+        //展示需要打印的成绩
+        function getPrint(data) {
+            //展示小组成员表
+            var str = "";
+            var strr = "";
+            for (var i = 0; i < data.data1.length; i++) {
+                str = "<tr><td>" + data.data1[i].Teammate_id + "</td><td>"
+                    + data.data1[i].Teammate_name + "</td></tr>";
+            }
+            $("#tbo1111").html(str);
+            
+            for (var j = 0; j < data.data2.length; j++) {
+                //展示小组成绩表
+                strr = "<tr><td>" + data.data2[i].Guide_grade + "</td><td>" + data.data2[i].Reply_grade + "</td><td>"
+                    + data.data2[i].Team_grade + "</td></tr>";
+            }
+
+            $("#tbo1112").html(str);
+
+        }
     </script>
 
 
@@ -49,42 +87,12 @@
                     <caption style="text-align: center;">小组成员表</caption>
                     <thead>
                         <tr>
-                            <th style="text-align:center">小组编号：TJ_04</th>
                             <th style="text-align:center ">学号</th>
                             <th style="text-align:center">姓名</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>组长</td>
-                            <td>41811022</td>
-                            <td>谭贺娟</td>
-                        </tr>
-                        <tr>
-                            <td>成员</td>
-                            <td>41811023</td>
-                            <td>周炫怡</td>
-                        </tr>
-                        <tr>
-                            <td>成员</td>
-                            <td>41811032</td>
-                            <td>车佳妮</td>
-                        </tr>
-                        <tr>
-                            <td>成员</td>
-                            <td>41811040</td>
-                            <td>肖云彤</td>
-                        </tr>
-                        <tr>
-                            <td>成员</td>
-                            <td>41811041</td>
-                            <td>金锐丽</td>
-                        </tr>
-                        <tr>
-                            <td>成员</td>
-                            <td>41811070</td>
-                            <td>左丹</td>
-                        </tr>
+                    <tbody id="tbo1111">
+
                     </tbody>
                 </table>
                 <table class="table table-bordered">
@@ -96,12 +104,8 @@
                             <th style="text-align:center">总成绩</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>100</td>
-                            <td>98</td>
-                            <td>99</td>
-                        </tr>
+                    <tbody id="tbo1112">
+
                     </tbody>
                 </table>
             </table>

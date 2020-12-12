@@ -3,12 +3,36 @@
 <head>
     <meta charset="utf-8">
     <title>Bootstrap 布局实例</title>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/teamFill.css">
     <link rel="stylesheet" type="text/css" href="../../导航栏.css">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="http://libs.baidu.com/fontawesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
-    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript"></script>
+    <script>
+        function postTeam(){
+        var team=$("#form111").serialize();//将表单数据序列化
+        $.ajax({
+            type:"POST",
+            url:"http://localhost:8080/login",
+            data:JSON.stringify(team), //将序列化后的表单转换成json格式
+            dataType:"JSON",
+            async:'true',
+            success: function (data) {
+                        alert("提交成功！");
+                },
+                error : function() {
+                    alert("提交失败！");
+                }
+        })
+
+
+    }
+
+    </script>
+    
+    
 </head>
 
 <body>
@@ -39,48 +63,43 @@
         </div>
     </nav>
     <div class="container">
-        <table class="xiaozu" align="center">
-            <tr>
-                <td>小组名称：<input type="text" name="fname" /></td>
-                <td>小组人数：<select>
-                        <option value="volvo">1</option>
-                        <option value="saab">2</option>
-                        <option value="opel">3</option>
-                        <option value="audi">4</option>
-                        <option value="audi">5</option>
-                        <option value="audi">6</option>
-                    </select>人</td>
-            </tr>
-            <tr>
-                <td>组长姓名：<input type="text" name="fname" /></td>
-                <td>学号：<input type="text" name="fname" /></td>
-            </tr>
-            <tr>
-                <td>成员1：<input type="text" name="fname" /></td>
-                <td>学号：<input type="text" name="fname" /></td>
-            </tr>
-            <tr>
-                <td>成员2：<input type="text" name="fname" /></td>
-                <td>学号：<input type="text" name="fname" /></td>
-            </tr>
-            <tr>
-                <td>成员3：<input type="text" name="fname" /></td>
-                <td>学号：<input type="text" name="fname" /></td>
-            </tr>
-            <tr>
-                <td>成员4：<input type="text" name="fname" /></td>
-                <td>学号：<input type="text" name="fname" /></td>
-            </tr>
-            <tr>
-                <td>成员5：<input type="text" name="fname" /></td>
-                <td>学号：<input type="text" name="fname" /></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td class="sub" style="padding:20px"><button type="button" class="btn btn-default active"
-                        style="width:80px;">提 交</button>
-                </td>
-            </tr>
-        </table>
-    </div>
-</body>
+        <form id="form111">
+            <table class="xiaozu" align="center">
+                <tr>
+                    <td>小组名称：<input type="text" name="fname" /></td>
+                </tr>
+                <tr>
+                    <td>组长姓名：<input type="text" name="fname" /></td>
+                    <td>学号：<input type="text" name="fname" /></td>
+                </tr>
+                <tr>
+                    <td>成员1：<input type="text" name="fname" /></td>
+                    <td>学号：<input type="text" name="fname" /></td>
+                </tr>
+                <tr>
+                    <td>成员2：<input type="text" name="fname" /></td>
+                    <td>学号：<input type="text" name="fname" /></td>
+                </tr>
+                <tr>
+                    <td>成员3：<input type="text" name="fname" /></td>
+                    <td>学号：<input type="text" name="fname" /></td>
+                </tr>
+                <tr>
+                    <td>成员4：<input type="text" name="fname" /></td>
+                    <td>学号：<input type="text" name="fname" /></td>
+                </tr>
+                <tr>
+                    <td>成员5：<input type="text" name="fname" /></td>
+                    <td>学号：<input type="text" name="fname" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="sub" style="padding:20px">
+                        <button type="button" class="btn btn-default active" style="width:80px;" onclick="postTeam()">提 交</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        
+        </div>
+        </body>

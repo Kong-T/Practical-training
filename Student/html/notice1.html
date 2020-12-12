@@ -3,111 +3,50 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="../../导航栏.css">
+  <link rel="stylesheet" type="text/css" href="../../Student/css/StuNav.css">
+  <link rel="stylesheet" type="text/css" href="../css/tnotice.css">
+
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
     integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-  <link href="/Public/static/themes/css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
-  <link href="/Public/static/themes/css/global.css" rel="stylesheet" type="text/css" />
-  <link href="/Public/static/themes/css/fix.css" rel="stylesheet" type="text/css" />
-  <title>通知公告</title>
-  <style type="text/css">
-    body {
-      margin: 40px auto;
-      border-radius: 10px;
-      border: 1px, solid, black;
-    }
 
-    /* 导航栏start */
-    /* Stackoverflow preview fix, please ignore */
-    .navbar {
-      background-color: #ffffff;
-    }
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <title>教师端通知公告</title>
+  <script type="text/javascript">
+    window.onload = function () {
+      var name = "Tnotice";
+      $.ajax({
+        url: "http://localhost:8080/All_getnotice",
+        type: "post",
+        data: name, //点击页面名Tnotice
+        success: function (data) {
+          /*这个方法里是ajax发送请求成功之后执行的代码*/
+          console.log("from 后端");
+          console.log(data.time);
+          console.log(data.title);
+          window.length  =data.title.length;//获取一个全局变量 用于表示小组数量
+          console.log(window.length);
+          showData(data);//我们仅做数据展示
+        },
+        error: function (msg) {
+          alert("ajax连接异常：" + msg);
+          console.log("error");
+        }
+      })
+      function showData(data) {
+       
+        var str = "";//定义用于拼接的字符串
+        for (var j = 0; j < window.length; j++){
+          str += "<li>" + "<a href = notice.html?Notice_title="+data.title[j]+">"+data.title[j] + data.time[j] + "</a></li>";
+          console.log(str);
+          $("#ol").html(str);
 
-    .navbar-nav {
-      flex-direction: column;
-    }
+        }
 
-    .nav-link {
-      padding-right: .5rem !important;
-      padding-left: .5rem !important;
+      }
     }
-
-    /* Fixes dropdown menus placed on the right side */
-    .ml-auto .dropdown-menu {
-      left: auto !important;
-      right: 0px;
-    }
-
-    /* 导航栏end */
-
-    .title {
-      text-align: center;
-      font-family: "微软雅黑";
-      font-size: 28px;
-      padding-left: 20px;
-      padding-top: 5%;
-    }
-
-    hr {
-      width: 100%;
-      height: 10px;
-      background-color: #4a4e4a;
-    }
-
-    .container ul li {
-      width: 100% !important;
-      overflow: hidden;
-      border-bottom: 1px dashed #e8e8e8;
-    }
-
-    .list ul li a {
-      width: 60% !important;
-      float: left;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      display: block;
-    }
-
-    .pagi {
-      text-align: center;
-      padding-top: 100px;
-    }
-
-    li {
-      line-height: 20px;
-      margin: 10px 5px;
-      font-family: "微软雅黑";
-      font-size: 15px;
-      list-style-image: url(img/a.ico);
-    }
-
-    .b {
-      padding-left: 60%;
-      ;
-      font-family: "微软雅黑";
-      font-size: 18px;
-      text-align: left;
-    }
-
-    .page-footer {
-      background: linear-gradient(90deg, #5c5558 0%, #242a39 28%, #2d3543 30%, #231b0b 65%, #5c5857 100%);
-      padding-top: 20px;
-    }
-
-    .list-inline-item {
-      color: #ffffff;
-    }
-
-    .footer-copyright {
-      color: #ffffff;
-    }
-
-    .tan {
-      height: 100px;
-    }
-  </style>
+  </script>
 </head>
 
 <body>
@@ -117,20 +56,20 @@
         <ul class="nav navbar-nav">
           <li><a class="icon-bar" href="#">方正实训</a>
           </li>
-          <li class="active"><a href="notice1.html">通知公告</a>
+          <li class="active"><a href="Tnotice.html">通知公告</a>
           </li>
-          <li><a href="Board.html">留言板</a>
+          <li><a href="TBord.html">留言板</a>
           </li>
-          <li><a href="#">课程资源</a>
+          <li><a href="topicRelease.html">发布题目</a>
           </li>
-          <li><a href="Topic_Choose.html">填报选题</a>
+          <li><a href="guide_grade.html"  onclick="javascript:requestData()">录入指导成绩</a>
           </li>
-          <li><a href="teamFill.html">填报分组</a>
+          <li><a href="report_grade.html">答辩打分</a>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="..\..\usercenter\html\gerenzhongxin.html" id="navbarDropdown"
+            <a class="nav-link dropdown-toggle" href="..\..\usercenter\html\teacherCenter.html" id="navbarDropdown"
               role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">我的</a>
           </li>
         </ul>
@@ -141,34 +80,17 @@
   <div class="title">
     <div class="fz40"></div><a>通知公告</a>
   </div>
-  <div class="b"><a href="#" class="more"><i>查看更多>></i></a></div>
+  <div class="b"><a href="/notice/years.html" class="more"><i>查看更多>></i></a></div>
   </div>
   <hr />
-  <div class="container">
-    <div class="list">
-      <ul>
-        <li><a href="note2.html"> 关于答辩通知</a><span style="float:right;text-align: right;">2020年12月16日</span></li>
-        <li><a href="note2.html"> 关于组队通知</a><span style="float:right;text-align: right;">2020年11月16日</span></li>
-        <li><a href="note2.html"> 关于项目文档及进展安排通知</a><span style="float:right;text-align: right;">2020年11月15日</span>
-        </li>
-        <li><a href="note2.html"> 关于《项目管理与开发实训》课程选题通知</a><span style="float:right;text-align: right;">2020年11月11日</span>
-        </li>
-        <li><a href="note2.html">关于经济信息工程学院2020-2021学年第一学期《项目管理与开发实训》课程开课通知</a><span
-            style="float:right;text-align: right;">2020年11月01日</span></li>
 
-      </ul>
-    </div>
-    <div class="pagi">
-      <ul class="pagination">
-        <li><a href="#">&laquo;</a></li>
-        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li><a href="#">&raquo;</a></li>
-      </ul>
-
-    </div>
-  </div>
+  <ol id = "ol">
+    <li><a href="../../web/bord&notice/note2.html">关于《项目管理与开发实训》课程开课通知</a><a class="date">2020年11月01日</a< /li>
+    <li><a href="../../web/bord&notice/note2.html"> 关于组队通知</a><a class="date">2020年11月16日</a></li>
+    <li><a href="../../web/bord&notice/note2.html">关于选题通知</a><a class="date">2020年11月11日</a></li>
+    <li><a href="../../web/bord&notice/note2.html">关于项目文档及进展安排通知</a><a class="date">2020年11月15日</a></li>
+    <li> <a href="../../web/bord&notice/note2.html">关于答辩通知</a><a class="date">2020年12月16日</a></li>
+  </ol>
   <div class="tan"></div>
   <!-- Footer -->
   <footer class="page-footer font-small unique-color-dark pt-4">
