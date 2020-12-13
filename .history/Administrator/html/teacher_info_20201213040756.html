@@ -28,9 +28,8 @@
         // 展示数据
         function showData(data) {
             console.log(data);
-            console.log(data.T_name);
             var str = "";//定义用于拼接的字符串
-            for (var i = 0; i < data.T_name.length; i++) {
+            for (var i = 0; i < data.length; i++) {
                 // console.log(data[i].);
                 console.log(i);
                 console.log(data.T_name);
@@ -40,8 +39,7 @@
                         var idID = "id" + j;
                         for (var k in data.T_pw) {
                             var pwID = "pw" + k;
-                            var btnID = "btn" + k;
-                            str += "<tr><td id=\"" + nameID + "\">" + data.T_name[i] + "</td><td id=\"" + idID + "\">" + data.T_id[j] + "</td><td id=\"" + pwID + "\">" + data.T_pw[k] + "</td><td><button type=\"button\" onclick = \"change()\" class=\"btn btn - primary\" id=\"" + btnID + "\" >修改密码</button></td></tr>"
+                            str += "<tr><td id=\"nameID\">" + data.T_name[i] + "</td><td id=\"idID\">" + data.T_id[j] + "</td><td id=\"pwID\">" + data.T_pw[k] + "</td><td><button type=\"button\" class=\"btn btn - primary\" id=\"btn\"" + k + ">修改密码</button></td></tr>"
                             console.log(str);
                         }
 
@@ -49,58 +47,66 @@
                 }
             }
             $("#tbody1").html(str);
-             //管理员操作
-    //给每个按钮绑定事件
-    var btns = document.getElementsByTagName("button");//获取所有btn对象
-    console.log(btns);
-    for (var i = 0; i < btns.length; i++) {
-        console.log(btns[i].id);//输出获取到的每个按钮
-        btns[i].addEventListener("click", change);//给每个按钮绑定change事件
-    }
+
         }
-    }
-</Script>
-<script>
 
-
-    function change() {
-        var btn_now = this.id;//获取当前被点击的按钮
-        console.log(btn_now);
-        console.log(btn_now.substr(btn_now.length - 1, 1))//获取当前被点击的按钮的编号
-        var pwID = "pw" + btn_now.substr(btn_now.length - 1, 1)
-        var idID = "id" + btn_now.substr(btn_now.length - 1, 1)
-        // console.log(pwID, idID)
-        var pw = document.getElementById(pwID).innerHTML //获取密码单元格的值
-        var pw_new = prompt("请输入新密码：", pw);
-        if (pw_new != null && pw_new != "") {
-            document.getElementById(pwID).innerHTML = pw_new;
+        //管理员操作
+        //给每个按钮绑定事件
+        var btns = document.getElementsByTagName("button");//获取所有btn对象
+        for (var i = 0; i < btns.length; i++) {
+            console.log(btns[i].id);//输出获取到的每个按钮
+            btns[i].addEventListener("click", change);//给每个按钮绑定change事件
         }
-        //向后台提交账号和输入的密码
-        var T_pw = document.getElementById(pwID).innerHTML//获取新的密码
-        var T_id = document.getElementById(idID).innerHTML//获取这位老师的账号
-        $.ajax({
-            type: "POST",
-            url: "http://localhost:8080/AdTeacherInfo_1",
-            data: JSON.stringify({ "T_id": T_id, "T_pw": T_pw }), //将JSON对象转为字符串
-            dataType: "JSON",
-            contentType: "application/json",
-            async: 'true',
-            beforeSend: function (XMLHttpRequest, settings) {
-                //ShowLoading();
-                // console.log($.ajax.data);
-            },
-            success: function () {
-                alert("success");
-            },
-            error: function () {
-                //请求出错处理
-                console.log("error");
 
-            },
+        function change() {
+            var btn_now = this.id;//获取当前被点击的按钮
+            console.log(btn_now.substr(btn_now.length - 1, 1))//获取当前被点击的按钮的编号
+            var pwID = "pw" + btn_now.substr(btn_now.length - 1, 1)
+            var idID = "id" + btn_now.substr(btn_now.length - 1, 1)
+            // console.log(pwID, idID)
+            var pw = document.getElementById(pwID).innerHTML //获取密码单元格的值
+            var pw_new = prompt("请输入新密码：", pw);
+            if (pw_new != null && pw_new != "") {
+                document.getElementById(pwID).innerHTML = pw_new;
+            }
+            //向后台提交账号和输入的密码
+            var T_pw = document.getElementById(pwID).innerHTML//获取新的密码
+            var T_id = document.getElementById(idID).innerHTML//获取这位老师的账号
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/",
+                data: JSON.stringify({ "T_id": T_id, "T_pw": T_pw }), //将JSON对象转为字符串
+                dataType: "JSON",
+                contentType: "application/json",
+                async: 'true',
+                beforeSend: function (XMLHttpRequest, settings) {
+                    //ShowLoading();
+                    // console.log($.ajax.data);
+                },
+                success: function () {
+                    alert("success");
+                },
+                error: function () {
+                    //请求出错处理
+                    console.log("error");
 
-        })
+                },
+
+            })
+
+        }
+
+
 
     }
+
+
+
+
+
+
+
+
 </script>
 
 <body>
@@ -113,12 +119,11 @@
         <div class="exit ">
             <p>退出
                 <a href="../../website_tan/html/first.html"><i class="fa fa-arrow-circle-right"
-                        style="font-size:30px"></i></a>
-            </p>
+                        style="font-size:30px"></i></a></p>
         </div>
     </div>
     <div class="container">
-        <table class="table table-hover table-bordered" id="tbody1">
+        <table class="table table-hover table-bordered">
             <thead>
                 <tr>
                     <th>教师姓名</th>

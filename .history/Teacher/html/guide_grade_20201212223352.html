@@ -51,39 +51,44 @@
   <script>
    
     function guideGraderelease() {
-      // 第三种数组的定义
-      var grade={
-          "teamid":new Array(),
-          "grade":new Array()
-        };
-       
       var str0 = new Array();
       var teamID = new Array();
-
+      var gradeID = new Array();                  //小组分数
+      var test = [];
+      var str = "";
+      var zz = new Array();
+      
       for (var i = 0; i < window.length; i++) {
         str0[i] = "gradeID" + i;                    //成绩id
         teamID[i] = "teamID"+i;   //小组ID
+        console.log(document.getElementById(str0[i]).value);//获取成绩
+        console.log(document.getElementById(teamID[i]).innerText);//获取成绩
 
-        // 第三种
-        grade.teamid[i]=document.getElementById(teamID[i]).innerText;
-        grade.grade[i]=document.getElementById(str0[i]).value;
+        // console.log(data);
+        str = str + "{\""+ teamID[i] + "\":" + data[i] + ",\"" + str0[i]  + "\":" + document.getElementById(str0[i]).value + "},";
+        console.log(str)
+        zz = zz.concat(document.getElementById(teamID[i]).innerText,document.getElementById(str0[i]).value);
+        console.log("zz"+zz);
+        console.log(json.stringify(zz));
       }
-      // console.log("grade"+grade.teamid);
+      var guideGrade = "[" + str.substring(0,str.length-1) + "]";//转为json
+      console.log("guideGrade"+guideGrade);
 
+      console.log(JSON.stringify(guideGrade));
       $.ajax({
         type: "POST",
         url: "http://localhost:8080/Tguide_1",
-        data:JSON.stringify(grade),
+        data: JSON.stringify(guideGrade),
         dataType: "JSON",
         contentType: "application/json",
         async: 'true',
         success: function (data) {
-          console.log(data);
+          if (data.msg == true) {
             alert("指导成绩上传成功");
+          }
         },
-        error: function (data) {
+        error: function () {
           //请求出错处理
-          console.log(data);
           console.log("指导成绩上传失败");
 
         },
