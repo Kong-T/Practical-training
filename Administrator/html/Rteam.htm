@@ -9,17 +9,114 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+<script type="text/javascript">
+    window.onload = function () {
+        // 请求后端数据
+        // $.ajax({
+        //     url: "http://localhost:8080/",
+        //     type: "post",
+        //     data: name,
+        //     success: function (data) {
+        //         showData(data);//我们仅做数据展示
+        //     },
+        //     error: function (msg) {
+        //         alert("ajax连接异常：" + msg);
+        //         console.log("error");
+        //     }
+        // })
+
+        //展示数据
+        var jsonData = '[{"Team_id": "01", "Leader_name": "伤春楠", "Leader_id": "41811023", "member1": "程第", "member1_id": "41811023", "member2": "周炫怡", "member2_id": "41811203", "member3": "金瑞丽", "member3_id": "56132573", "member4":"mady","member4_id":"41811293", "member5": "gueid", "member5_id": "61533921" },{"Team_id": "02", "Leader_name": "伤春楠", "Leader_id": "41811023", "member1": "程第", "member1_id": "41811023", "member2": "周炫怡", "member2_id": "41811203", "member3": "金瑞丽", "member3_id": "56132573", "member4":"mady","member4_id":"41811293", "member5": "gueid", "member5_id": "61533921" }]'
+        //转为js对象
+        var obj = JSON.parse(jsonData);
+        console.log(obj)
+        str = "";
+        for (var i = 0; i < obj.length; i++) {
+            console.log(i)
+            for (var key in obj[i]) {
+                var value = obj[i][key]
+                str += "<td id=\"" + key + "[" + i + "]" + "\">" + value + "</td>"
+                console.log(str)
+            }
+            var show = $("<tr></tr>")
+            show.html(str);
+            $("tbody").append(show);
+            str = ""
+        }
+
+        //管理员操作
+        //给每个单元格绑定双击事件
+        var td = document.getElementsByTagName("td");//获取所有td对象
+        for (var i = 0; i < td.length; i++) {
+            console.log(td[i].id);
+            td[i].addEventListener("click", edit);//给每个否绑定delete事件
+        }
+
+        function edit() {
+            var td_now = this.id;
+            var tdValue = document.getElementById(td_now).innerHTML
+            tdValue = document.getElementById(td_now).innerHTML = "<input type=\"\" value='" + tdValue + "' id=\"input\"/>";
+            $("input").mouseenter(function () {
+                this.select()
+            });
+            $("input").blur(function () {
+                inputValue = document.getElementById("input").value
+                tdValue = document.getElementById(td_now).innerHTML = inputValue
+                console.log(td_now, tdValue)
+                function submit() {
+                    $.ajax({
+                        type: "POST",
+                        url: "http://localhost:8080/",
+                        data: JSON.stringify({ "td_id": td_now, "td_content": tdValue }), //将JSON对象转为字符串
+                        dataType: "JSON",
+                        contentType: "application/json",
+                        async: 'true',
+                        beforeSend: function (XMLHttpRequest, settings) {
+                            //ShowLoading();
+                            // console.log($.ajax.data);
+                        },
+                        success: function () {
+                            alert("success");
+                        },
+                        error: function () {
+                            //请求出错处理
+                            console.log("error");
+
+                        },
+
+                    })
+                }
+            });
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
 
 <body>
     <div class="jumbotron">
         <h1>方正实训</h1>
-        <span class="glyphicon glyphicon-bell" style="font-size:20px;"></span><b style="font-size: 20px;">当前位置：<a href="main.html"
-        style=" text-decoration:underline">首页</a>/分组调整</b>
-       
-</span>
-        <div class="exit " >
-        <p>退出
-        <a href="../../website_tan/html/first.html"><i class="fa fa-arrow-circle-right" style="font-size:30px"></i></a></p>
+        <span class="glyphicon glyphicon-bell" style="font-size:20px;"></span><b style="font-size: 20px;">当前位置：<a
+                href="main.html" style=" text-decoration:underline">首页</a>/分组调整</b>
+
+        </span>
+        <div class="exit ">
+            <p>退出
+                <a href="../../website_tan/html/first.html"><i class="fa fa-arrow-circle-right"
+                        style="font-size:30px"></i></a></p>
         </div>
     </div>
     <div class="container">
@@ -27,103 +124,41 @@
             <thead>
                 <tr>
                     <th style="text-align:center">编号</th>
-                    <th style="text-align:center">组长学号</th>
                     <th style="text-align:center">组长</th>
-                    <th style="text-align:center">成员</th>
-                    <th style="text-align:center">成员</th>
-                    <th style="text-align:center">成员</th>
-                    <th style="text-align:center">成员</th>
-                    <th style="text-align:center">成员</th>
-                    <th style="text-align:center">成员</th>
-                    <th style="text-align:center">成员</th>
-                    <th style="text-align:center">成员</th>
-                    <th style="text-align:center">成员</th>
-                    <th style="text-align:center">成员</th>
-                    <th></th>
+                    <th style="text-align:center">组长学号</th>
+                    <th style="text-align:center">成员1</th>
+                    <th style="text-align:center">学号</th>
+                    <th style="text-align:center">成员2</th>
+                    <th style="text-align:center">学号</th>
+                    <th style="text-align:center">成员3</th>
+                    <th style="text-align:center">学号</th>
+                    <th style="text-align:center">成员4</th>
+                    <th style="text-align:center">学号</th>
+                    <th style="text-align:center">成员5</th>
+                    <th style="text-align:center">学号</th>
 
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>01</td>
-                    <td>41811023</td>
-                    <td>商春楠</td>
-                    <td>41811023</td>
-                    <td>程笛</td>
-                    <td>41811023</td>
-                    <td>程笛</td>
-                    <td>41811023</td>
-                    <td>程笛</td>
-                    <td>41811023</td>
-                    <td>程笛</td>
-                    <td>41811023</td>
-                    <td>程笛</td>
-                    <td><button>修该</button></td>
-                </tr>
-                <tr>
-                    <td>02</td>
-                    <td>41811023</td>
-                    <td>王元浩</td>
-                    <td>41811023</td>
-                    <td>程笛</td>
-                    <td>41811023</td>
-                    <td>程笛</td>
-                    <td>41811023</td>
-                    <td>程笛</td>
-                    <td>41811023</td>
-                    <td>程笛</td>
-                    <td>41811023</td>
-                    <td>程笛</td>
-                    <td><button>修该</button></td>
-                </tr>
-                <tr>
-                    <td>03</td>
-                    <td>41811023</td>
-                    <td>项俊</td>
-                    <td>41811023</td>
-                    <td>程笛</td>
-                    <td>41811023</td>
-                    <td>程笛</td>
-                    <td>41811023</td>
-                    <td>程笛</td>
-                    <td>41811023</td>
-                    <td>程笛</td>
-                    <td>41811023</td>
-                    <td>程笛</td>
-                    <td><button>修该</button></td>
-                </tr>
-                <tr>
-                    <td>04</td>
-                    <td>41811022</td>
-                    <td>谭贺娟</td>
-                    <td>41811023</td>
-                    <td>周炫怡</td>
-                    <td>41811023</td>
-                    <td>车佳妮</td>
-                    <td>41811023</td>
-                    <td>肖云彤</td>
-                    <td>41811023</td>
-                    <td>金锐丽</td>
-                    <td>41811023</td>
-                    <td>左丹</td>
-                    <td><button>修该</button></td>
-                </tr>
-            </tbody>
+
+            </tbody id="tbody">
+
         </table>
-        
-<form class="form-inline" role="form">
-    <div class="form-group">
-      <label class="sr-only" for="name">名称</label>
-      <input type="text" class="form-control" id="name" placeholder="请输入名称">
-    </div>
-    <div class="form-group">
-      <label class="sr-only" for="inputfile">文件输入</label>
-      <input type="file" id="inputfile">
-    </div>
-    <button type="submit" class="btn btn-default">提交</button>
-  </form>
-  <button><b>完成</b></button>
-        
+
+        <form class="form-inline" role="form">
+            <div class="form-group">
+                <label class="sr-only" for="name">名称</label>
+                <input type="text" class="form-control" id="name" placeholder="请输入名称">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="inputfile">文件输入</label>
+                <input type="file" id="inputfile">
+            </div>
+            <button type="submit" class="btn btn-default">提交</button>
+        </form>
+        <button><b>完成</b></button>
+
     </div>
 </body>
+
 </html>

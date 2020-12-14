@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Jekyll v4.0.1">
+  <title>Dashboard Template · Bootstrap</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
+
+  <!-- Bootstrap core CSS -->
+  <link href="../../assets4.5/dist/css/bootstrap.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+  <!-- Custom styles for this template -->
+  <link href="../css/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">实训管理</a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
+      data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap">
+        <a class="nav-link" href="#">Sign out</a>
+      </li>
+    </ul>
+  </nav>
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <div class="sidebar-sticky pt-3">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">
+                <span data-feather="home"></span>
+                公共信息 <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file"></span>
+                通知公告
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="users"></span>
+                留言板
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="bar-chart-2"></span>
+                成绩报告
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="layers"></span>
+                答辩安排
+              </a>
+            </li>
+          </ul>
+
+          <a class="nav-link active" href="#">
+            <span data-feather="home"></span>
+            功能 <span class="sr-only">(current)</span>
+          </a>
+          <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span>功能</span> -->
+          <!-- <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
+            <span data-feather="plus-circle"></span>
+          </a> -->
+          </h6>
+          <ul class="nav flex-column mb-2">
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file-text"></span>
+                成绩
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file-text"></span>
+                导入名单
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file-text"></span>
+                信息管理
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file-text"></span>
+                题目发布
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file-text"></span>
+                分组填写
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file-text"></span>
+                分组调整
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">
+                <span data-feather="file-text"></span>
+                选题调整
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file-text"></span>
+                文档发布
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+ <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">选题调整</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group mr-2">
+            <button type="bustton" class="btn btn-sm btn-outline-secondary">提交</button>
+            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Export</button> -->
+          </div>
+          <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+            <span data-feather="calendar"></span>
+            This week
+          </button> -->
+        </div>
+      </div>
+
+        <div class="table-responsive">
+          <table class="table table-striped table-sm" id="tbody1">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Header</th>
+                <th>Header</th>
+                <th>Header</th>
+                <th>Header</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1,001</td>
+                <td>Lorem</td>
+                <td>ipsum</td>
+                <td>dolor</td>
+                <td>sit</td>
+              </tr>
+              <tr>
+                <td>1,006</td>
+                <td>nibh</td>
+                <td>elementum</td>
+                <td>imperdiet</td>
+                <td>Duis</td>
+              </tr>
+
+        
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="../../assets4.5/js/vendor/jquery.slim.min.js"><\/script>')</script>
+  <script src="../../assets4.5/dist/js/bootstrap.bundle.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+
+  <script src="../js/dashboard.js"></script>
+
+  <script type="text/javascript">
+    var jq = jQuery.noConflict();
+
+    window.onload = function () {
+      // 请求后端数据
+      $.ajax({
+        url: "http://localhost:8080/Ad_topic",
+        type: "post",
+        data: name,
+        success: function (data) {
+          showData(data);//我们仅做数据展示
+        },
+        error: function (msg) {
+          alert("ajax连接异常：" + msg);
+          console.log("error");
+        }
+      })
+
+      // 展示数据
+      function showData(data) {
+        var str = "<thead ><tr><th>编号</th><th>题目名称</th><th>选题简介</th><th>提交者</th><th>是否审核通过</th></tr></thead>";//定义用于拼接的字符串
+        // console.log(data);
+        window.length = data.Topic_title.length
+        for (var i = 0; i < data.Topic_title.length; i++) {
+
+          console.log(data.Topic_title);
+
+          j = i * 1 + 1;
+          var Topic_titleID = " Topic_title" + i;
+          var Topic_detailsID = "Topic_details" + i;
+          var TutorID = "Tutor" + i;
+          var denyID = "deny" + i;
+          var yesID = "yes" + i;
+          str += "<tr><td>" + j + "</td><td id=\"" + Topic_titleID + "\">" + data.Topic_title[i] + "</td><td id=\"" + Topic_detailsID + "\">" + data.Topic_details[i] + "</td><td id=\"" + TutorID + "\">" + data.Tutor[i] + "</td><td><input type=\"checkbox\" id = \""+ yesID +"\">是<input type =\"checkbox\" name=\"deny\" id=\"" + denyID + "\"onclick = \"delete_topic()\"" + "\"style = \"margin-left: 10px;\">否</td></tr>"
+          console.log(str);
+
+        }
+        $("#tbody1").html(str);
+      }
+
+
+      var Topic_title = new Array();//声明一个放title的数组
+      var btns = document.getElementsByTagName("button");//获取所有btn对象
+
+      //管理员操作
+      //设置不能同时选择是和否
+      $(function () {
+        $('table').on('click', 'input', function () {
+          // console.log($('this').html);
+          console.log("ta")
+          var now = this;
+          $('input').each(function (i, e) {
+            if (now !== e) {
+              $(e).attr('checked', false);
+              // console.log(this)
+            }
+          })
+        });
+      })
+    }
+
+  </script>
+
+  <script>
+
+    $(function () {
+      $(document).click(function (e) {
+        re = e.target.id;
+        console.log("函数内" + re);
+        delete_topic(re)
+      });
+    })
+
+    function delete_topic(e) {      
+      console.log("获取当前id" + re);
+      var temp = re.substring(re.length - 1, re.length);//编号
+      var retemp = re.substring(0, re.length-1);//结果
+      var titleID = " Topic_title" + temp
+      var titleValue = document.getElementById(titleID).innerText //获取topic_title单元格的值
+
+      console.log(temp,retemp,titleID,titleValue)
+       // 第三种数组的定义
+      //  0:待审核 1：通过 -1：不通过
+     var topic={
+          "topicname":new Array(5),
+          "result":new Array(5)
+        };
+       console.log(window.length);
+        // 必须按顺序填写
+      // for (var i = 0; i < window.length; i++) {
+        // if(temp ==i){
+          // 第三种
+          topic.topicname[temp]=titleValue;                                  
+          topic.result[temp]=retemp;
+          console.log(temp,topic.topicname[temp],topic.result[temp])
+        // }
+      // }
+      console.log(topic)
+    }
+    
+    //向后台传输title
+    function submit() {
+      $.ajax({
+        type: "POST",
+        url: "http://localhost:8080/Ad_topic_1",
+        data: JSON.stringify(titleValue), //将JSON对象转为字符串
+        dataType: "JSON",
+        contentType: "application/json",
+        async: 'true',
+        beforeSend: function (XMLHttpRequest, settings) {
+          //ShowLoading();
+          // console.log($.ajax.data);
+        },
+        success: function () {
+          alert("success");
+        },
+        error: function () {
+          //请求出错处理
+          console.log("error");
+        },
+      })
+    }
+  </script>
+
+</body>
+
+</html>
