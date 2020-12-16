@@ -38,7 +38,8 @@
        
         var str = "";//定义用于拼接的字符串
         for (var j = 0; j < window.length; j++){
-          str += "<li>" + "<a href = notice.html?Notice_title="+data.title[j]+">"+data.title[j] + data.time[j] + "</a></li>";
+          var searchUrl =encodeURI("notice.html?Notice_title="+data.title[j]);   //使用encodeURI编码
+          str += "<li>" + "<a href = \""+searchUrl+"\" target=\"_blank\">"+data.title[j] + data.time[j] + "</a></li>";
           console.log(str);
           $("#ol").html(str);
 

@@ -15,17 +15,15 @@
         var team=$("#form111").serializeArray();//将表单数据序列化
         $.ajax({
             type:"POST",
-            // url:"http://localhost:8088/insertTeam",
-            url:"http://localhost:8088/listTeam",
-
-            data:{"data":JSON.stringify(team)}, //将序列化后的表单转换成json格式
+            url:"http://localhost:8080/listTeam",
+            data:JSON.stringify(team), //将序列化后的表单转换成json格式
             dataType:"JSON",
+            contentType:"application/json",
             async:'true',
             success: function (data) {
-                        alert("提交成功！");
+                        alert(data.msg);
                 },
-                error : function(data) {
-                    console.log(data);
+                error : function() {
                     alert("提交失败！");
                 }
         })
@@ -70,14 +68,6 @@
             <table class="xiaozu" align="center">
                 <tr>
                     <td>小组名称：<input type="text" name="teamId" /></td>
-                    <td>小组人数：<select>
-                            <option value="volvo">1</option>
-                            <option value="saab">2</option>
-                            <option value="opel">3</option>
-                            <option value="audi">4</option>
-                            <option value="audi">5</option>
-                            <option value="audi">6</option>
-                        </select>人</td>
                 </tr>
                 <tr>
                     <td>组长姓名：<input type="text" name="teamLeaderName" /></td>

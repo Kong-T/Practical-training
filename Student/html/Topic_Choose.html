@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Bootstrap 布局实例</title>
+    <title>填报选题</title>
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/Topic_Choose.css">
     <link rel="stylesheet" type="text/css" href="../css/StuNav.css">
@@ -15,13 +15,14 @@
     window.onload = function () {
         var name = "Topic_Choose";//当前网页名
         $.ajax({
-            url: "",
+            url: "http://localhost:8080/querySubject",
             type: "post",
             data: name,
             success: function (data) {
                 /*这个方法里是ajax发送请求成功之后执行的代码*/
-                var data=JSON.parse(data);//解析JSON数据
+               // var data=JSON.parse(data);//解析JSON数据
                 showTopicData(data);
+			  console.log(data)
 
             },
             error: function (msg) {
@@ -34,10 +35,10 @@
     //展示选题概况
     function showTopicData(data) {
         var str = "";
-        for (var i = 0; i < data.data1.length; i++) {
+        for (var i = 0; i < data.subject.length; i++) {
             var Topicid ="Topicid"+i;
-            str = "<div class='col-sm-6 col-md-4'><div class='caption'><img src='../image/Topic7_img/实训题目.png' alt='...' style='width:100%; height:200px;'><h3>"
-                + data.data1[i].Subject_title + "</h3><p>指导教师：" + data.data1[i].Tutor
+            str += "<div class='col-sm-6 col-md-4'><div class='caption'><img src='../image/Topic_img/实训题目.png' alt='...' style='width:100%; height:200px;'><h3>"
+                + data.subject[i].subjectTitle + "</h3><p>指导教师：" + data.subject[i].tutor
                 + "</p><p><a href='#' class='btn btn-primary' role='button'id='"+Topicid+"' onclick='SentData()'>填报选题</a></p></div></div>"
 
         }
@@ -82,7 +83,7 @@
                     </li>
                     <li><a href="teamFill.html">填报分组</a>
                     </li>
-                </ul>
+                </ul>   
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="..\..\usercenter\html\gerenzhongxin.html"

@@ -6,24 +6,26 @@
 guide_grade.html正常连通  
 Tnotice.html正常连通  
 topicRelease.html正常连通  
-notice.html：正常连通 初步判断是解析url的错误 具体需再研究  
-report_grade.html:新代码未看到  
+notice.html：正常连通
+report_grade.html:正常连通
 TBord:肖和左在研究  
-teacher_center:未测试  
+teacher_center:正常连通 我的问答未写 界面仍需调整（固定元素和回顶部）  
+发布联系方式怎么写
 - 学生端：  
 未测试   
 - 管理员端：  
 teacher_info:正常连通 但有一个小bug 当修改密码点击取消时 也会传数据到后端并且弹出succeess的弹窗。   
 topic_admin.html: 正常连通 考虑历史功能的加入
-Rteam.html:  需讨论梳理逻辑
+Rteam.html:  需讨论梳理逻辑 利用修改加定位
 Rchoose.html:  js在重写
 
 
 2. 后端  
 - 教师端：
- addGuidegrade.java报错 因此无法把传回的新指导成绩传入数据库
+ addGuidegrade.java报错 因此无法把传回的新指导成绩传入数据库   
+ addReplyInfo.java报错  
+ 
 - 学生端：  
-仅有两个后端,其中一个貌似是登录的 另一个需学习mybatis和jpa 代码逻辑尚未完全理清  
 - 管理员端：  
 
 

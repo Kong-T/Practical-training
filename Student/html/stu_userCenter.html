@@ -23,20 +23,24 @@
         window.onload = function () {
             var name = "stu_userCenter";//当前网页名
             $.ajax({
-                url: "",
-                type: "post",
-                data: name,
+                url: "http://localhost:8080/studentCenter",
+                type: "POST",
+                data: {
+				"data":name
+				},
+				contentType:"application/json",
                 success: function (data) {
                     /*这个方法里是ajax发送请求成功之后执行的代码*/
-                    var data=JSON.parse(data);//解析JSON数据
-                    window.length = data.length;//获取一个全局变量 用于表示小组数量
-                    console.log(window.length);
-                    showStudentData(data);//我们仅做数据展示
-                    showTeamData(data);
-                    showTopicData(data);
-                    showTeacherData(data);
-                    showReplyData(data);
-                    showGradeData(data);
+                   // var data=JSON.parse(data);//解析JSON数据
+					console.log(data)
+                  //  window.length = data.length;//获取一个全局变量 用于表示小组数量
+                   // console.log(window.length);
+                   showStudentData(data);//我们仅做数据展示
+                  //  showTeamData(data);
+                  //  showTopicData(data);
+                   // showTeacherData(data);
+                   // showReplyData(data);
+                   // showGradeData(data);
                 },
                 error: function (msg) {
                     alert("ajax连接异常：" + msg);
@@ -48,10 +52,11 @@
         //展示个人简介的方法
         function showStudentData(data) {
             var str = "";
-            str = "<tr><td><span class='badge' style='margin-right:10px;'>姓名</span>" + data.data1[0].Student_name
-                + "</td><td><span class='badge' style='margin-right:10px;''>组号</span>" + data.data1[0].Student_id
+            str = "<tr><td><span class='badge' style='margin-right:10px;'>姓名</span>" + data.data.studentInfo[0].studentName
+                + "</td><td><span class='badge' style='margin-right:10px;''>组号</span>" + data.data.studentInfo[0].studentId
                 + "</td><td><span class='badge'style='margin-right:10px;'>指导老师</span>"
-                + data.data1[0].Team_id + "</td><td>" + data.data1[0].Teacher_name + "</td></tr>";
+                + data.data.studentInfo[0].teamId +
+				"</td></tr>";
             $("#tab111").html(str);
 
         }
