@@ -100,7 +100,7 @@
             <a>
               <small class="text-muted">+新成员</small>
 
-              <button type="button" class="btn btn-success btn-circle" id="addRow"><span
+              <button type="button" class="btn btn-success btn-circle" id="addRow" onclick = "addMember()"><span
                   class="glyphicon glyphicon-plus btn-default"></span></button>
               <span data-feather="patch-plus"></span>
 
@@ -135,27 +135,7 @@
   <!-- <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> -->
   <script src="../js/S_team.js"></script>
   <script>
-    function postman(){
-      console.log("111")
-    var team=$("#form111").serializeArray();//将表单数据序列化
-    console.log(team);
-    $.ajax({
-        type:"POST",
-        url:"http://localhost:8080/listTeam",
-        data:JSON.stringify(team), //将序列化后的表单转换成json格式
-        dataType:"JSON",
-        contentType:"application/json",
-        async:'true',
-        success: function (data) {
-                    // alert(data.msg);
-            },
-            error : function() {
-                alert("提交失败！");
-            }
-    })
-
-
-}
+   
 
 </script>
 </body>

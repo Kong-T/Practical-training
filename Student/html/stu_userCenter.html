@@ -7,10 +7,10 @@
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/stu_userCenter.css">
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-     
+
     <link href="../../Teacher/css/blog.css" rel="stylesheet">
     <link href="../../assets4.5/dist/css/bootstrap.css" rel="stylesheet">
-  
+
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript"></script>
     <script>
@@ -22,129 +22,7 @@
             });
         });
     </script>
-
-    <script>
-        window.onload = function () {
-            var name = "stu_userCenter";//当前网页名
-            $.ajax({
-                url: "http://localhost:8080/studentCenter",
-                type: "POST",
-                data: {
-				"data":name
-				},
-				contentType:"application/json",
-                success: function (data) {
-                    /*这个方法里是ajax发送请求成功之后执行的代码*/
-                   // var data=JSON.parse(data);//解析JSON数据
-                    console.log(data)
-                    // for ( index = 0; index < data.studentInfo.length; index++) {
-                    //     const element = array[index];
-                    //     console.log(data.studentInfo[i]);
-                    // }
-                    console.log(data.data.studentInfo[0].studentId)
-                  //  window.length = data.length;//获取一个全局变量 用于表示小组数量
-                   // console.log(window.length);
-                   showStudentData(data);//我们仅做数据展示
-                   showTeamData(data);
-                //    showTopicData(data);
-                //    showTeacherData(data);
-                   // showReplyData(data);
-                   // showGradeData(data);
-                },
-                error: function (msg) {
-                    alert("ajax连接异常：" + msg);
-                    console.log("error");
-
-                }
-            })
-        }
-        //展示个人简介的方法
-        function showStudentData(data) {
-            var str = "";
-            str = "<tr><td><span class='badge' style='margin-right:10px;'>姓名</span>" + data.data.studentInfo[0].studentName
-                + "</td><td><span class='badge' style='margin-right:10px;''>组号</span>" + data.data.studentInfo[0].studentId
-                + "</td><td><span class='badge'style='margin-right:10px;'>指导老师</span>"
-                + data.data.studentInfo[0].teamId +
-				"</td></tr>";
-            $("#tab111").html(str);
-
-        }
-        //展示分组信息的界面
-        function showTeamfData(data) {
-            var str = "";
-            for (var i = 0; i < data.data2.length; i++) {
-                str = "<tr><td>" + data.data2[i].Team_id + "</td><td>"  + data.data2[i].Teammate_id + "</td><td>"
-                    + data.data2[i].Teammate_name + "</td></tr>";
-
-            }
-            $("#tbo112").html(str);
-        }
-        //展示选题信息的界面
-        function showTopicData(data) {
-            var str = "";
-            str = "<thead><tr><th><p style='text-align: center'><span>" + data.data3[0].Subject_title
-                + "</span></th><th style='text-align:center'>选题内容</th><th style='text-align:center'>指导老师</th></tr></thead><tbody><tr><td>"
-                + data.data3[0].Details + "</td><td>" +data.data3[0].Tutor + "</td></tr>";
-
-            $("#tab113").html(str);
-        }
-        //展示指导老师信息的界面
-        function showTeacherData(data) {
-            var str = "";
-            if (data.data4[0].Teacher_name == "周峰") {
-                str = "<tbody><tr class='firstRow'><td width='175px' height='175px' text-align='center' valign='top' style='padding: 5px 10px; border: 1px solid rgb(51, 51, 51); word-break: break-all;'><p style='text-align: center'>"
-                    + "<img src='../image/Teacher_img/周峰.PNG' style='width: 100%px; height: 100%px;'></p></td></tr>";
-                $("#tab114").html(str);
-            }
-            else if (data.data4[0].Teacher_name == "王磊") {
-                str = "<tbody><tr class='firstRow'><td width='175px' height='175px' text-align='center' valign='top' style='padding: 5px 10px; border: 1px solid rgb(51, 51, 51); word-break: break-all;'><p style='text-align: center'>"
-                    + "<img src='../image/Teacher_img/王磊.PNG' style='width: 100%px; height: 100%px;'></p></td></tr>";
-                $("#tab114").html(str);
-            }
-            else if (data.data4[0].Teacher_name == "李自力") {
-                str = "<tbody><tr class='firstRow'><td width='175px' height='175px' text-align='center' valign='top' style='padding: 5px 10px; border: 1px solid rgb(51, 51, 51); word-break: break-all;'><p style='text-align: center'>"
-                    + "<img src='../image/Teacher_img/李自力.PNG' style='width: 100%px; height: 100%px;'></p></td></tr>";
-                $("#tab114").html(str);
-            }
-
-            else if (data.data4[0].Teacher_name == "韩延明") {
-                str = "<tbody><tr class='firstRow'><td width='175px' height='175px' text-align='center' valign='top' style='padding: 5px 10px; border: 1px solid rgb(51, 51, 51); word-break: break-all;'><p style='text-align: center'>"
-                    + "<img src='../image/Teacher_img/韩延明.PNG' style='width: 100%px; height: 100%px;'></p></td></tr>";
-                $("#tab114").html(str);
-            }
-            else if (data.data4[0].Teacher_name == "李瑾坤") {
-                str = "<tbody><tr class='firstRow'><td width='175px' height='175px' text-align='center' valign='top' style='padding: 5px 10px; border: 1px solid rgb(51, 51, 51); word-break: break-all;'><p style='text-align: center'>"
-                    + "<img src='../image/Teacher_img/李瑾坤.PNG' style='width: 100%px; height: 100%px;'></p></td></tr>";
-                $("#tab114").html(str);
-            }
-            else if (data.data4[0].Teacher_name== "陈久强") {
-                str = "<tbody><tr class='firstRow'><td width='175px' height='175px' text-align='center' valign='top' style='padding: 5px 10px; border: 1px solid rgb(51, 51, 51); word-break: break-all;'><p style='text-align: center'>"
-                    + "<img src='../image/Teacher_img/陈久强.PNG' style='width: 100%px; height: 100%px;'></p></td></tr>";
-                $("#tab114").html(str);
-            }
-            else {
-                str = "<tbody><tr class='firstRow'><td width='175px' height='175px' text-align='center' valign='top' style='padding: 5px 10px; border: 1px solid rgb(51, 51, 51); word-break: break-all;'><p style='text-align: center'>"
-                    + "<img src='../image/Teacher_img/谢志龙.PNG' style='width: 100%px; height: 100%px;'><img src='../image/Teacher_img/陈斌.PNG' style='width: 100%px; height: 100%px;'></p></td></tr>";
-                $("#tab114").html(str);
-            }
-        }
-        //展示答辩信息的界面
-        function showReplyData(data) {
-            var str = "";
-            str = "<tr><td>" + data.data5[0].Team_id + "</td><td>" + data.data5[0].Reply_place + "</td><td>" + data.data5[0].Reply_time + "</td><td>"
-                + data.data5[0].Teacher1_name + "</td><td>" + data.data5[0].Teacher2_name + "</td><td>" + data.data5[0].Teacher3_name + "</td></tr>";
-            $("#tbo115").html(str);
-
-        }
-        //展示成绩信息的页面
-        function showGradeData(data) {
-            var str = "";
-            str = "<tr><td>" + data.data6[0].Team_id + "</td><td>" + data.data6[0].Guide_grade + "</td><td>" + data.data6[0].Reply_grade + "</td><td>"
-                + data.data6[0].Team_grade + "</td><tr>";
-            $("#tbo116").html(str);
-        }
-
-    </script>
+    <script src="../js/S_center.js"></script>
 
 
 </head>
@@ -153,43 +31,33 @@
 
 
     <header class="blog-header py-3">
-    <div class="row flex-nowrap justify-content-between align-items-center">
-      <!-- <div class="col-4 pt-1">
-        <a class="text-muted" href="#">实训</a>
-      </div> -->
-      <div class="col-4">
-        <a class="blog-header-logo text-dark">实训</a>
-      </div>
-      <div class="col-4 d-flex justify-content-end align-items-center">
-        <a class="text-muted" href="#" aria-label="Search">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
-            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img"
-            viewBox="0 0 24 24" focusable="false">
-            <title>Search</title>
-            <circle cx="10.5" cy="10.5" r="7.5" />
-            <path d="M21 21l-5.2-5.2" />
-          </svg>
-        </a>
-        <a class="btn btn-sm btn-outline-secondary" href="Stu_userCenter.html">我的</a>
-      </div>
-    </div>
-  </header>
+        <div class="row flex-nowrap justify-content-between align-items-center">
+            <div class="col-4">
+                <a class="blog-header-logo text-dark">实训</a>
+            </div>
+            <div class="col-4 d-flex justify-content-end align-items-center">
+                <a class="text-muted" href="#" aria-label="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img"
+                        viewBox="0 0 24 24" focusable="false">
+                        <title>Search</title>
+                        <circle cx="10.5" cy="10.5" r="7.5" />
+                        <path d="M21 21l-5.2-5.2" />
+                    </svg>
+                </a>
+                <a class="btn btn-sm btn-outline-secondary" href="Stu_userCenter.html">我的</a>
+            </div>
+        </div>
+    </header>
 
-  <div class="nav-scroller py-1 mb-2">
-    <nav class="nav d-flex justify-content-between">
-      <a class="p-2 text-muted" href="notice1.html">通知公告</a>
-      <a class="p-2 text-muted" href="Board.html">留言板</a>
-      <a class="p-2 text-muted" href="teamfill.html">填报小组</a>
-      <a class="p-2 text-muted" href="Topic_Choose.html">填报选题</a>
-      <!-- <a class="p-2 text-muted" href="#">Business</a>
-      <a class="p-2 text-muted" href="#">Politics</a>
-      <a class="p-2 text-muted" href="#">Opinion</a>
-      <a class="p-2 text-muted" href="#">Science</a>
-      <a class="p-2 text-muted" href="#">Health</a>
-      <a class="p-2 text-muted" href="#">Style</a>
-      <a class="p-2 text-muted" href="#">Travel</a> -->
-    </nav>
-  </div>
+    <div class="nav-scroller py-1 mb-2">
+        <nav class="nav d-flex justify-content-between">
+            <a class="p-2 text-muted" href="notice1.html">通知公告</a>
+            <a class="p-2 text-muted" href="Board.html">留言板</a>
+            <a class="p-2 text-muted" href="teamfill.html">填报小组</a>
+            <a class="p-2 text-muted" href="Topic_Choose.html">填报选题</a>
+        </nav>
+    </div>
 
     <div class="row">
         <div class="col-xs-3" id="myScrollspy">
@@ -295,15 +163,7 @@
                 </table>
                 <a href="PrintGrade.html">
                     <button type="button" class="btn btn-large btn-block btn-default">生成我的成绩报告</button></a>
-                <hr>
-
-                <h2 id="section-7">我的问答</h2>
-                <p style="text-align: center;">
-                    暂无问答
-                    <br>快与指导老师互动，攒起小花花吧
-                </p>
-                </b>
-                <hr>
+               
             </div>
 
         </div>
