@@ -13,7 +13,8 @@
     <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
         integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
+ 
+     
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
@@ -177,33 +178,44 @@
     <div class="jumbotron">
         <h1>留言空间</h1>
     </div>
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse" id="example-navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a class="icon-bar" href="#">方正实训</a>
-                    </li>
-                    <li><a href="notice1.html">通知公告</a>
-                    </li>
-                    <li class="active"><a href="#">留言板</a>
-                    </li>
-                    <li><a href="#">课程资源</a>
-                    </li>
-                    <li><a href="Topic_Choose.html">填报选题</a>
-                    </li>
-                    <li><a href="teamFill.html">填报分组</a>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="stu_userCenter.html" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">我的</a>
-
-                    </li>
-                </ul>
-            </div>
+    <header class="blog-header py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+          <!-- <div class="col-4 pt-1">
+            <a class="text-muted" href="#">实训</a>
+          </div> -->
+          <div class="col-4">
+            <a class="blog-header-logo text-dark">实训</a>
+          </div>
+          <div class="col-4 d-flex justify-content-end align-items-center">
+            <a class="text-muted" href="#" aria-label="Search">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img"
+                viewBox="0 0 24 24" focusable="false">
+                <title>Search</title>
+                <circle cx="10.5" cy="10.5" r="7.5" />
+                <path d="M21 21l-5.2-5.2" />
+              </svg>
+            </a>
+            <a class="btn btn-sm btn-outline-secondary" href="Stu_userCenter.html">我的</a>
+          </div>
         </div>
-    </nav>
+      </header>
+    
+      <div class="nav-scroller py-1 mb-2">
+        <nav class="nav d-flex justify-content-between">
+          <a class="p-2 text-muted" href="notice1.html">通知公告</a>
+          <a class="p-2 text-muted" href="Board.html">留言板</a>
+          <a class="p-2 text-muted" href="teamfill.html">填报小组</a>
+          <a class="p-2 text-muted" href="Topic_Choose.html">填报选题</a>
+          <!-- <a class="p-2 text-muted" href="#">Business</a>
+          <a class="p-2 text-muted" href="#">Politics</a>
+          <a class="p-2 text-muted" href="#">Opinion</a>
+          <a class="p-2 text-muted" href="#">Science</a>
+          <a class="p-2 text-muted" href="#">Health</a>
+          <a class="p-2 text-muted" href="#">Style</a>
+          <a class="p-2 text-muted" href="#">Travel</a> -->
+        </nav>
+      </div>
 
     <div class="container">
         <!--第一块-->

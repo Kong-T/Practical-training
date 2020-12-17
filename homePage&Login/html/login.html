@@ -23,7 +23,9 @@
             dataType:"JSON",
             contentType:"application/json",
             async:'true',
-
+            xhrFields: {
+                            withCredentials: true,
+                        },
 		beforeSend: function(XMLHttpRequest,settings){
 			//ShowLoading();
 			// console.log($.ajax.data);
@@ -39,11 +41,11 @@
                     //  学生
                       location.href="../../Student/html/notice1.html";
                   }
-                  else if(data.flag == 1& data.msg == true ){
+                  else if(data.flag == 2& data.msg == true ){
                     location.href="../../Teacher/html/Tnotice.html";
                   }
-                  else if(data == 2& data.msg == true){
-                    location.href="main.html"; 
+                  else if(data.flag == 3& data.msg == true){
+                    location.href="../../Administrator/html/Ad_teacher_info.html"; 
                   }
                   else {
                       alert("不存在该用户或者密码错误");

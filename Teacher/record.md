@@ -26,8 +26,12 @@ Rchoose.html:  js在重写
  addReplyInfo.java报错  
  
 - 学生端：  
+选题界面：数据库插入有问题
 - 管理员端：  
 
+3. 前端
+- 学生端：
+选题界面：做好了做好了！！
 
 
 ### 待解决问题
@@ -156,4 +160,155 @@ $(function () {
 				//拿到选中的option的text
         
         console.log("text"+re.options[index]);
+```
+<!-- 导航 -->
+```
+ <header class="blog-header py-3">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+      <!-- <div class="col-4 pt-1">
+        <a class="text-muted" href="#">实训</a>
+      </div> -->
+      <div class="col-4">
+        <a class="blog-header-logo text-dark">实训</a>
+      </div>
+      <div class="col-4 d-flex justify-content-end align-items-center">
+        <a class="text-muted" href="#" aria-label="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img"
+            viewBox="0 0 24 24" focusable="false">
+            <title>Search</title>
+            <circle cx="10.5" cy="10.5" r="7.5" />
+            <path d="M21 21l-5.2-5.2" />
+          </svg>
+        </a>
+        <a class="btn btn-sm btn-outline-secondary" href="Stu_userCenter.html">我的</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+      <a class="p-2 text-muted" href="notice1.html">通知公告</a>
+      <a class="p-2 text-muted" href="Board.html">留言板</a>
+      <a class="p-2 text-muted" href="teamfill.html">填报小组</a>
+      <a class="p-2 text-muted" href="Topic_Choose.html">填报选题</a>
+      <!-- <a class="p-2 text-muted" href="#">Business</a>
+      <a class="p-2 text-muted" href="#">Politics</a>
+      <a class="p-2 text-muted" href="#">Opinion</a>
+      <a class="p-2 text-muted" href="#">Science</a>
+      <a class="p-2 text-muted" href="#">Health</a>
+      <a class="p-2 text-muted" href="#">Style</a>
+      <a class="p-2 text-muted" href="#">Travel</a> -->
+    </nav>
+  </div>
+
+```
+<!-- 新导航栏 -->
+```
+<nav style="opacity: 0.6;background-color:#6aacc3;color: black;" class="navbar navbar-expand-md navbar-dark fixed-top ">
+    <a class="navbar-brand" style="color:black;font-family: YouYuan;" href="#">实  训</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+      aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">通 知 <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">选 题</a>
+        </li>
+        <li class="nav-item">
+          <a class=" nav-link" href="#" tabindex="-1" aria-disabled="true">分 组</a>
+        </li>
+      </ul>
+      <div class="form-inline mt-2 mt-md-0">
+        <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"> -->
+        <a style="opacity: 0.95;color:white;" class="btn btn-outline-primary my-2  my-sm-0" type="submit">我的</a>
+      </div>
+    </div>
+  </nav>
+```
+```
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/navbar-fixed/">
+
+  <!-- Bootstrap core CSS -->
+  <link href="../assets/dist/css/bootstrap.css" rel="stylesheet">
+
+ <style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="generator" content="Jekyll v4.0.1">
+  <title>Fixed top navbar example · Bootstrap</title>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <link href="navbar-top-fixed.css" rel="stylesheet">
+
+```
+
+
+```
+var topicID = "topicID" +i;
+var btn = "btn"+i;
+"<div class=\"card \"> <div class=\"card-header\"><h4 class=\"my-0 font-weight-normal  text-center \" >"+ data.subject[i].tutor+"</h4></div>
+ <div class=\"card-body\"><h5 class=\"card-title\"id = \" "+topicID+"\" >"+data.subject[i].subjectTitle+"</h5>
+<p class=\"card-text\">"+ data.subject[i].details+"</p>
+ <button type=\"button\" onclick = \"SentData()\" class=\"btn btn-outline-primary text-center\" id =\"+ btn+"\">填报</button>
+
+          </div>
+        </div>"
+
+          str += "<div class='col-sm-6 col-md-4'><div class='caption'><img src='../image/Topic_img/实训题目.png' alt='...' style='width:100%; height:200px;'><h3>"
+          + data.subject[i].subjectTitle + "</h3><p>指导教师：" + data.subject[i].tutor
+          + "</p><p><a href='#' class='btn btn-primary' role='button'id='" + Topicid + "' onclick='SentData()'>填报选题</a></p></div></div>"
+
+  str += "<div class=\"card \"><div class=\"card-header\">
+
+"
+
+```
+
+<!-- 学生端选题侧边导航栏 -->
+```
+<div class="col-md-3 order-md-2 mb-4">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">组队信息</span>
+      </h4>
+      <ul class="list-group mb-3">
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">小组数量</h6>
+          </div>
+          <span class="text-muted">12</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">当前人数</h6>
+          </div>
+          <span class="text-muted">70</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">实训总人数</h6>
+          </div>
+          <span class="text-muted">70</span>
+        </li>       
+      </ul>
+    </div>
 ```

@@ -7,6 +7,10 @@
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/stu_userCenter.css">
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+     
+    <link href="../../Teacher/css/blog.css" rel="stylesheet">
+    <link href="../../assets4.5/dist/css/bootstrap.css" rel="stylesheet">
+  
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript"></script>
     <script>
@@ -32,13 +36,18 @@
                 success: function (data) {
                     /*这个方法里是ajax发送请求成功之后执行的代码*/
                    // var data=JSON.parse(data);//解析JSON数据
-					console.log(data)
+                    console.log(data)
+                    // for ( index = 0; index < data.studentInfo.length; index++) {
+                    //     const element = array[index];
+                    //     console.log(data.studentInfo[i]);
+                    // }
+                    console.log(data.data.studentInfo[0].studentId)
                   //  window.length = data.length;//获取一个全局变量 用于表示小组数量
                    // console.log(window.length);
                    showStudentData(data);//我们仅做数据展示
-                  //  showTeamData(data);
-                  //  showTopicData(data);
-                   // showTeacherData(data);
+                   showTeamData(data);
+                //    showTopicData(data);
+                //    showTeacherData(data);
                    // showReplyData(data);
                    // showGradeData(data);
                 },
@@ -143,15 +152,44 @@
 <body data-spy="scroll" data-target="#myScrollspy">
 
 
-    <div class="head">
-        <div class="smallhead">
-            <div class="img"><img src="../image/img.png" style="width: 100%;height: 100%"></div>
-            <div class="username" style="padding-left: 15px;">
-                <h3>Xuanyi Zhou</h3>
-            </div>
-            <div class="return"><a href="..\..\web\bord&notice\notice1.html">返回首页>></a></div>
-        </div>
+    <header class="blog-header py-3">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+      <!-- <div class="col-4 pt-1">
+        <a class="text-muted" href="#">实训</a>
+      </div> -->
+      <div class="col-4">
+        <a class="blog-header-logo text-dark">实训</a>
+      </div>
+      <div class="col-4 d-flex justify-content-end align-items-center">
+        <a class="text-muted" href="#" aria-label="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img"
+            viewBox="0 0 24 24" focusable="false">
+            <title>Search</title>
+            <circle cx="10.5" cy="10.5" r="7.5" />
+            <path d="M21 21l-5.2-5.2" />
+          </svg>
+        </a>
+        <a class="btn btn-sm btn-outline-secondary" href="Stu_userCenter.html">我的</a>
+      </div>
     </div>
+  </header>
+
+  <div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+      <a class="p-2 text-muted" href="notice1.html">通知公告</a>
+      <a class="p-2 text-muted" href="Board.html">留言板</a>
+      <a class="p-2 text-muted" href="teamfill.html">填报小组</a>
+      <a class="p-2 text-muted" href="Topic_Choose.html">填报选题</a>
+      <!-- <a class="p-2 text-muted" href="#">Business</a>
+      <a class="p-2 text-muted" href="#">Politics</a>
+      <a class="p-2 text-muted" href="#">Opinion</a>
+      <a class="p-2 text-muted" href="#">Science</a>
+      <a class="p-2 text-muted" href="#">Health</a>
+      <a class="p-2 text-muted" href="#">Style</a>
+      <a class="p-2 text-muted" href="#">Travel</a> -->
+    </nav>
+  </div>
 
     <div class="row">
         <div class="col-xs-3" id="myScrollspy">

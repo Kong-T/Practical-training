@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Jekyll v4.0.1">
+  <title>选题</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/pricing/">
+
+  <!-- Bootstrap core CSS -->
+  <link href="../../assets4.5/dist/css/bootstrap.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <!-- Custom styles for this template -->
+  <link href="../css/topic.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <!-- <h1 class="display-4">请仔细阅读并填报选题</h1> -->
+    <h2 class="lead" style="font-size:1.5rem">请仔细阅读并填报选题</h2>
+  </div>
+
+  <div class="container">
+    <div class="card-columns" id="topic">
+      <div class="card ">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal  text-center">周峰</h4>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <button type="button" class="btn btn-outline-primary text-center">填报</button>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+  <script>window.jQuery || document.write('<script src="../../assets4.5/js/vendor/jquery.slim.min.js"><\/script>')</script>
+  <script src="../../assets4.5/dist/js/bootstrap.bundle.js"></script>
+
+  <script>
+    //请求选题数据
+    window.onload = function () {
+      var name = "Topic_Choose";//当前网页名
+      $.ajax({
+        url: "http://localhost:8080/querySubject",
+        type: "post",
+        data: name,
+        success: function (data) {
+          /*这个方法里是ajax发送请求成功之后执行的代码*/
+          // var data=JSON.parse(data);//解析JSON数据
+          showTopicData(data);
+          // console.log(data)
+          window.data = data
+        },
+        error: function (msg) {
+          // alert("ajax连接异常：" + msg);
+          console.log("error");
+
+        }
+      });
+    }
+    //展示选题概况
+    var str = "";
+    function showTopicData(data) {
+      for (var i = 0; i < data.subject.length; i++) {
+        var topicID = "topicID" + i;
+        var btn = "btn" + i;
+        str += "<div class=\"card \"> <div class=\"card-header\"><h4 class=\"my-0 font-weight-normal  text-center \" >"
+          + data.subject[i].tutor + "</h4></div><div class=\"card-body\"><h5 class=\"card-title\"id = \" "
+          + topicID + "\" >"
+          + data.subject[i].subjectTitle + "</h5><p class=\"card-text\">"
+          + data.subject[i].details + "</p><button type=\"button\" onclick = \"SentData()\" class=\"btn btn-outline-primary text-center\" id =\"" + btn + "\">填报</button> </div></div>"
+      }
+      $("#topic").html(str);
+    }
+    $(document).click(function (e) {
+      btn = e.target.id;
+      console.log("函数内" + btn);
+      num = btn.substr(btn.length-1,btn.length);
+      console.log(num);
+      SentData(num)
+    });
+    //传送选题情况
+    function SentData(Topic_id) {
+      console.log("window"+window.data.subject[num].subjectTitle)
+      var topic = window.data.subject[num].subjectTitle;
+      console.log("topic"+topic);
+      
+      $.ajax({
+        type: "POST",
+        url: "http://localhost:8080/addChoose",
+        data: JSON.stringify(Topic_id), //将JSON对象转为字符串
+        dataType: "JSON",
+        success: function () {
+          alert("填报成功！");
+        },
+        error: function () {
+          alert("填报出错！");
+          //请求出错处理
+        }
+      })
+      topic =""
+    }
+
+
+
+  </script>
+
+
+</body>
+
+</html>

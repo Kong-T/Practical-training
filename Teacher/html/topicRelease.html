@@ -5,6 +5,10 @@
   <title>教师发布题目</title>
   <link rel="stylesheet" type="text/css" href="../css/topicRelease.css">
   <link rel="stylesheet" type="text/css" href="../../Student/css/StuNav.css">
+  <link href="../css/blog.css" rel="stylesheet">
+  <link href="../../assets4.5/dist/css/bootstrap.css" rel="stylesheet">
+
+  
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -47,32 +51,47 @@
 
 <body>
   <div class = "tan"></div>
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="example-navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li><a class="icon-bar" href="#">方正实训</a>
-          </li>
-          <li><a href="Tnotice.html">通知公告</a>
-          </li>
-          <li><a href="TBord.html">留言板</a>
-          </li>
-          <li class="active"><a href="topicRelease.html">发布题目</a>
-          </li>
-          <li><a href="guide_grade.html" onclick="javascript:requestData()">录入指导成绩</a>
-          </li>
-          <li><a href="report_grade.html">答辩打分</a>
-          </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="..\usercenter\html\teacherCenter.html" id="navbarDropdown"
-              role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">我的</a>
-          </li>
-        </ul>
+  <header class="blog-header py-3">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+      <!-- <div class="col-4 pt-1">
+        <a class="text-muted" href="#">实训</a>
+      </div> -->
+      <div class="col-4">
+        <a class="blog-header-logo text-dark">实训</a>
+      </div>
+      <div class="col-4 d-flex justify-content-end align-items-center">
+        <a class="text-muted" href="#" aria-label="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img"
+            viewBox="0 0 24 24" focusable="false">
+            <title>Search</title>
+            <circle cx="10.5" cy="10.5" r="7.5" />
+            <path d="M21 21l-5.2-5.2" />
+          </svg>
+        </a>
+        <a class="btn btn-sm btn-outline-secondary" href="T_center.html">我的</a>
       </div>
     </div>
-  </nav>
+  </header>
+
+  <div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+      <a class="p-2 text-muted" href="Tnotice.html">通知公告</a>
+      <a class="p-2 text-muted" href="TBord.html">留言板</a>
+      <a class="p-2 text-muted" href="#">课程资源</a>
+      <a class="p-2 text-muted" href="report_grade.html">答辩成绩</a>
+      <a class="p-2 text-muted" href="guide_grade.html">指导成绩</a>
+
+      <a class="p-2 text-muted" href="topicRelease.html">填报选题</a>
+      <!-- <a class="p-2 text-muted" href="#">Business</a>
+      <a class="p-2 text-muted" href="#">Politics</a>
+      <a class="p-2 text-muted" href="#">Opinion</a>
+      <a class="p-2 text-muted" href="#">Science</a>
+      <a class="p-2 text-muted" href="#">Health</a>
+      <a class="p-2 text-muted" href="#">Style</a>
+      <a class="p-2 text-muted" href="#">Travel</a> -->
+    </nav>
+  </div>
   <div class="container">
     <form action="" method="get">
       <h5>选题名称：</h5>
