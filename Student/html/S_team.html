@@ -29,12 +29,18 @@
         font-size: 3.5rem;
       }
     }
+    .tan{
+      height:40px;
+    }
   </style>
   <!-- Custom styles for this template -->
   <link href="../css/S_team.css" rel="stylesheet">
+  
 </head>
 
 <body class="bg-light">
+  <div id = "navbarCode"></div>
+  <div class="tan"></div>
   <div class="container">
     <div class="py-5 text-center">
       <p class="lead">请组内任意一位同学填写以下分组信息，成功提交后可在个人中心看到自己的分组信息</p>
@@ -135,9 +141,10 @@
   <!-- <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> -->
   <script src="../js/S_team.js"></script>
   <script>
-   
-
-</script>
+    $(function() {
+        $("#navbarCode").load("StuNav.html");
+    });
+  </script>
 </body>
 
 </html>
