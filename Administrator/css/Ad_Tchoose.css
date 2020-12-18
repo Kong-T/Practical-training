@@ -1,0 +1,36 @@
+.exit{
+    float: right;
+    font-size: large;
+    
+  }
+  h3{
+      font-size: large;
+      text-align: center;
+  }
+  p{
+      text-align: center;
+  }
+
+  .find {
+    float: right;
+    margin-right: 10%;
+    width: 50%;
+    margin-top: 2%;
+    margin-bottom: 10px;
+    height: 50px;
+    /* background-color:red; */
+
+}
+
+.find1,.find2,.find3,.find4 {
+    float: left;
+    /* background-color: #7FFFD4; */
+    margin-top: 2% ;
+    margin-left: 2.5%;
+}
+/* .btn{
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;  
+  /* 为了图标和文字居中  */
+} */

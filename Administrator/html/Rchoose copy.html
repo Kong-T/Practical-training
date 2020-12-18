@@ -1,0 +1,103 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>分组调整</title>
+    <link rel="stylesheet" type="text/css" href="../css/Rechoose.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <script src="../js/Rchoose copy.js">
+    </script>
+    <div class="jumbotron">
+        <h1>方正实训</h1>
+        <span class="glyphicon glyphicon-bell" style="font-size:20px;"></span><b style="font-size: 20px;">当前位置：<a
+                href="main.html" style=" text-decoration:underline">首页</a>/选题调整</b>
+
+        </span>
+        <div class="exit ">
+            <p>退出
+                <a href="../../website_tan/html/first.html"><i class="fa fa-arrow-circle-right"
+                        style="font-size:30px"></i></a></p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="find">
+            <div class="find1"><label>快捷查找</label></div>
+            <div class="find2">选题：</div>
+            <div class="find4"><button id="find_btn">搜索</button></div>
+        </div>
+
+        <table class="table table-striped table-responsive table-bordered table-hover" id="col"
+            style="text-align: center;">
+            <thead>
+                <tr>
+                    <th style="text-align:center">选题</th>
+                    <th style="text-align:center">组长学号</th>
+                    <th style="text-align:center">组长姓名</th>
+                    <th style="text-align:center">编辑</th>
+
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <!-- 模态框 -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <!-- 模态框中内容 -->
+                        <h4 class="modal-title" id="myModalLabel">
+                            调整选题
+                        </h4>
+                    </div>
+                    <div class="modal-body" style="padding:10%;">
+                        <form role="form">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">组长姓名</label>
+                                <div class=class="col-xs-12 col-sm-9 col-md-6 col-lg-3">
+                                    <input type="text" class="form-control" id="leader_name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">当前选题</label>
+                                <div class=class="col-xs-12 col-sm-9 col-md-6 col-lg-3">
+                                    <input type="text" class="form-control" id="topic_now">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">选题调整为</label>
+                                <div class=class="col-xs-12 col-sm-9 col-md-6 col-lg-3" id="topic_new">
+                                </div>
+                            </div>
+                            <br>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                </button>
+                                <button type="button" class="btn btn-primary" id="change">
+                                    提交更改
+                                </button>
+                            </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
+        </div>
+
+
+
+
+
+</body>
+
+</html>
