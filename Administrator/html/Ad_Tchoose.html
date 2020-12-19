@@ -77,19 +77,19 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="Ad_notice.html">
-                <span data-feather="file"></span>
+                <span class="glyphicon glyphicon glyphicon-info-sign"></span>
                 通知公告
               </a>
             </li>
 
             <li class="nav-item">
               <a class="nav-link" href="#">
-                <span data-feather="bar-chart-2"></span>
+                <span class="glyphicon glyphicon glyphicon-book"></span>
                 成绩报告
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="Ad_time.html">
                 <!-- <span data-feather="layers"></span> -->
                 <span class="glyphicon glyphicon glyphicon-time"></span>
                 答辩安排
@@ -104,38 +104,20 @@
           <ul class="nav flex-column mb-2">
             <li class="nav-item">
               <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                成绩
+                <span class="glyphicon glyphicon glyphicon-file"></span>
+                文档中心
               </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="#">
                 <span data-feather="file-text"></span>
                 导入名单
               </a>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a class="nav-link" href="Ad_teacher_info.html">
                 <span data-feather="file-text"></span>
                 信息管理
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                题目发布
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                分组填写
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Ad_team.html">
-                <span data-feather="file-text"></span>
-                分组调整
               </a>
             </li>
             <li class="nav-item">
@@ -144,12 +126,30 @@
                 选题调整
               </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="#">
                 <span data-feather="file-text"></span>
-                文档发布
+                分组填写
+              </a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="Ad_team.html">
+                <span data-feather="file-text"></span>
+                分组调整
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Ad_topic_admin.html">
+                <span data-feather="file-text"></span>
+                选题审核
+              </a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span class="glyphicon glyphicon glyphicon-cloud-upload"></span>
+                文档发布
+              </a>
+            </li> -->
           </ul>
         </div>
       </nav>
@@ -157,7 +157,7 @@
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap
             align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h2>选题调整</h2>
+          <h3>选题调整</h3>
           <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group mr-2">
 
@@ -167,7 +167,11 @@
         </div>
         <!-- 通知公告列表 -->
         <div class="my-3 p-3 bg-white rounded shadow-sm">
-
+          <div class="find">
+            <div class="find1"><label>快捷查找</label></div>
+            <div class="find2">选题：</div>
+            <div class="find4"><button id="find_btn">搜索</button></div>
+        </div>
           <table class="table">
             <!-- 表头 -->
             <thead>
@@ -180,7 +184,7 @@
               </tr>
             </thead>
             <!-- 表内容 -->
-            <tbody>
+            <tbody id = "tbody">
               <tr>
                 <th scope="row">1</th>
                 <td>实训辅助管理</td>
@@ -251,15 +255,15 @@
     </div>
   </div>
   <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script> -->
   <script>window.jQuery || document.write('<script src="../../assets4.5/js/vendor/jquery.slim.min.js"><\/script>')</script>
   <script src="../../assets4.5/dist/js/bootstrap.bundle.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
   <script src="../js/dashboard.js"></script>
-  <script src="../js/Ad_team.js"></script>
+  <script src="../js/Rchoose copy.js"></script>
 
 </body>
 
