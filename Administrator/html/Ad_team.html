@@ -10,9 +10,10 @@
   <title> Ad_分组调整</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
-  <link href = "../../dist4.3/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../dist4.3/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap core CSS -->
   <link href="../../assets4.5/dist/css/bootstrap.css" rel="stylesheet">
+  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 
   <style>
     .bd-placeholder-img {
@@ -35,7 +36,9 @@
   <link href="../css/dashboard.css" rel="stylesheet">
 </head>
 
+
 <body>
+
   <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
     <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">实训管理</a>
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
@@ -149,20 +152,125 @@
           <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group mr-2">
               <a>
-              <input  class="input">
-            </input>             
-            <span class="glyphicon glyphicon glyphicon-search"></span>
+                <input class="input">
+                </input>
+                <span class="glyphicon glyphicon glyphicon-search"></span>
               </a>
-             </div>
+            </div>
           </div>
         </div>
+
+
+        <!-- 第一个折叠框 -->
 
         <div class="accordion" id="accordionExample">
           <div class="card">
             <div class="card-header" id="headingOne">
               <h2 class="mb-0">
                 <!-- 展现组的信息和组长信息 -->
-                <button class=" btn " type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <button class=" btn " type="button" data-toggle="collapse" data-target="#collapseOne"
+                  aria-expanded="true" aria-controls="collapseOne">
+                  <thead class="thead">
+                    <tr>
+                      <th scope="col">组名:</th>
+                    </tr>
+                  </thead>
+                  <tbody id="direct_table0">
+                    <tr>
+                      <th scope="row">TA_01</th>
+                    </tr>
+                  </tbody>
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">组长:</th>
+                    </tr>
+                  </thead>
+                  <tbody id="direct_table">
+                    <tr>
+                      <th scope="row">谭贺娟</th>
+                    </tr>
+                  </tbody>
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">学号:</th>
+                    </tr>
+                  </thead>
+                  <tbody class="leaderid">
+                    <tr>
+                      <th scope="row" id="leaderid0">41811022</th>
+                    </tr>
+                  </tbody>
+                </button>
+                <!-- 增删改操作 -->
+                <a style="float:right">
+                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#add">
+                    <span class="glyphicon glyphicon-plus" name="add" id="plus0"></span>
+                  </button>
+
+                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#delete">
+                    <span class="glyphicon glyphicon glyphicon-minus" id="minus0"></span>
+                  </button>
+                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#change">
+                    <span class="glyphicon glyphicon glyphicon-remove" id="remove0"></span>
+                  </button>
+                </a>
+              </h2>
+            </div>
+            <!-- 在下拉界面展现组员信息 -->
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+
+              <div class=" text-center">
+
+                <table class="table table-hover table-borderless" id="team0">
+                  <thead>
+                    <tr>
+                      <th scope="col">编号</th>
+                      <th scope="col">名字</th>
+                      <th scope="col">学号</th>
+                    </tr>
+                  </thead>
+                  <!-- 在这里赋值 生成动态列表 -->
+                  <tbody id="member0">
+                    <tr id="row0">
+                      <th scope="row">1</th>
+                      <td id="row0name">谭贺娟</td>
+                      <td id="row0id">41811022</td>
+                    </tr>
+                    <tr id="row1">
+                      <th scope="row">2</th>
+                      <td id="row1name">周炫怡</td>
+                      <td id="row1id">41811023</td>
+                    </tr>
+                    <tr id="row2">
+                      <th scope="row">3</th>
+                      <td id="row1name">金锐丽</td>
+                      <td id="row1id">41811066</td>
+                    </tr>
+                    <tr id="row3">
+                      <th scope="row">4</th>
+                      <td id="row1name">肖云彤</td>
+                      <td id="row1id">41811057</td>
+                    </tr>
+                    <tr id="row4">
+                      <th scope="row">5</th>
+                      <td id="row1name">后端数</td>
+                      <td id="row1id">41811033</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- 第二个折叠 -->
+
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h2 class="mb-0">
+                <!-- 展现组的信息和组长信息 -->
+                <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
+                  aria-expanded="false" aria-controls="collapseTwo">
                   <thead class="thead-light">
                     <tr>
                       <th scope="col">组名:</th>
@@ -188,188 +296,249 @@
                       <th scope="col">学号:</th>
                     </tr>
                   </thead>
-                  <tbody id="direct_table">
+                  <tbody class="leaderid">
                     <tr>
-                      <th scope="row">41811022</th>
+                      <th scope="row" id="leaderid1">41811022</th>
                     </tr>
                   </tbody>
                 </button>
                 <!-- 增删改操作 -->
-                <a style="float:right">    
-                          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#add">
-                            <span class="glyphicon glyphicon-plus"></span>
-                        </button>
-                       
-                      <button type="button" class="btn btn-default"data-toggle="modal" data-target="#delete">
-                        <span class="glyphicon glyphicon glyphicon-minus"></span>
-                    </button>
-                    <button type="button" class="btn btn-default"data-toggle="modal" data-target="#change">
-                      <span class="glyphicon glyphicon glyphicon-remove"></span>
+                <a style="float:right">
+                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#add">
+                    <span class="glyphicon glyphicon-plus" id="plus1"></span>
+                  </button>
+
+                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#delete">
+                    <span class="glyphicon glyphicon glyphicon-minus" id="minus1"></span>
+                  </button>
+                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#change">
+                    <span class="glyphicon glyphicon glyphicon-remove" id="remove1"></span>
                   </button>
                 </a>
               </h2>
             </div>
-        <!-- 在下拉界面展现组员信息 -->
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-              
-              <div class=" text-center">
-
-              <table class="table table-hover table-borderless">
-                <thead >
-                  <tr>
-                    <th scope="col">编号</th>
-                    <th scope="col">名字</th>
-                    <th scope="col">学号</th>
-                  </tr>
-                </thead>
-                <!-- 在这里赋值 生成动态列表 -->
-                <tbody id="direct_table">
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>谭贺娟</td>
-                    <td>41811022</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            </div>
-          </div>
-          <!-- 第二个折叠 -->
-          <div class="card">
-            <div class="card-header" id="headingTwo">
-              <h2 class="mb-0">
-                <button class="btn  collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  Collapsible Group Item #2
-                </button>
-              </h2>
-            </div>
+            <!-- 在下拉界面展现组员信息 -->
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-              <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              <div class=" text-center">
+                <table class="table table-hover table-borderless" id="team1">
+                  <thead>
+                    <tr>
+                      <th scope="col">编号</th>
+                      <th scope="col">名字</th>
+                      <th scope="col">学号</th>
+                    </tr>
+                  </thead>
+                  <!-- 在这里赋值 生成动态列表 -->
+                  <tbody id="member1">
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>谭贺娟</td>
+                      <td>41811022</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>大声读</td>
+                      <td>41811029</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>相比的</td>
+                      <td>41811099</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
 
+
+
           <!-- 第三个折叠 -->
+
           <div class="card">
             <div class="card-header" id="headingThree">
               <h2 class="mb-0">
-                <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  Collapsible Group Item #3
+                <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
+                  aria-expanded="false" aria-controls="collapseThree">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">组名:</th>
+                    </tr>
+                  </thead>
+                  <tbody id="direct_table">
+                    <tr>
+                      <th scope="row">TA_01</th>
+                    </tr>
+                  </tbody>
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">组长:</th>
+                    </tr>
+                  </thead>
+                  <tbody id="direct_table">
+                    <tr>
+                      <th scope="row">谭贺娟</th>
+                    </tr>
+                  </tbody>
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">学号:</th>
+                    </tr>
+                  </thead>
+                  <tbody class="leaderid">
+                    <tr>
+                      <th scope="row" id="leaderid2">41811022</th>
+                    </tr>
+                  </tbody>
                 </button>
+                <!-- 增删改操作 -->
+                <a style="float:right">
+                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#add">
+                    <span class="glyphicon glyphicon-plus" id="plus2"></span>
+                  </button>
+
+                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#delete">
+                    <span class="glyphicon glyphicon glyphicon-minus" id="minus2"></span>
+                  </button>
+                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#change">
+                    <span class="glyphicon glyphicon glyphicon-remove" id="remove2"></span>
+                  </button>
+                </a>
               </h2>
             </div>
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-              <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              <div class=" text-center">
+                <table class="table table-hover table-borderless" id="team2">
+                  <thead>
+                    <tr>
+                      <th scope="col">编号</th>
+                      <th scope="col">名字</th>
+                      <th scope="col">学号</th>
+                    </tr>
+                  </thead>
+                  <!-- 在这里赋值 生成动态列表 -->
+                  <tbody id="member2">
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>谭贺娟</td>
+                      <td>41811022</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>的宿舍</td>
+                      <td>41272923</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>左丹</td>
+                      <td>418318234</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
         </div>
 
         <!-- 模态框 -->
-<!-- 增加 -->
-<div class="modal fade 	" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">增加成员</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>输入新成员信息</p>
-        <form>
-          <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-3 col-form-label">名字：</label>
-            <div class="col-sm-9">
-              <input  class="form-control" id="inputEmail3" placeholder="请输入新成员名字">
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-3 col-form-label">学号</label>
-            <div class="col-sm-9 ">
-              <input  class="form-control" id="inputPassword3" placeholder="请输入新成员学号">
-            </div>
-          </div>
-        </form>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary">确定</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- 删除 -->
-<div class="modal fade 	" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">删除成员</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>请选择该组需删除的成员</p>
-        <form>
-          <select class="form-control form-control-sm">
-            <option>S谭贺娟</option>
-            <option>金锐丽</option>
-            
-          </select>
-        </form>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary">确定</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- 修改 -->
-<div class="modal fade 	" id="change" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">移动成员</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>将该组的</p>
-
-        <form>
-          <div class="form-group row ">
-            <div class="col-sm-9">
-              <select class="form-control form-control-sm">
-                <option>S谭贺娟</option>
-                <option>金锐丽</option>
-                
-              </select>
+        <!-- 增加 -->
+        <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">增加成员</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div>
-          </div>
-        <p>移动至</p>
-          <div class="form-group row">
-            <div class="col-sm-9 ">
-              <input  class="form-control" id="inputPassword3" placeholder="请输入新组的组长学号">
+              <div class="modal-body">
+                <p>输入新成员信息</p>
+                <form>
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">名字：</label>
+                    <div class="col-sm-9">
+                      <input class="form-control" id="Addname" placeholder="请输入新成员名字">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-3 col-form-label">学号</label>
+                    <div class="col-sm-9 ">
+                      <input class="form-control" id="Addid" placeholder="请输入新成员学号">
+                    </div>
+                  </div>
+                </form>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="btn_add">确定</button>
+              </div>
             </div>
           </div>
-        </form>
+        </div>
+        <!-- 删除 -->
+        <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">删除成员</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group row">
+                  <label for="inputEmail3" class="col-sm-3 col-form-label">名字：</label>
+                  <div class="col-sm-9">
+                    <input class="form-control" id="Deletename" placeholder="请输入删除成员的名字">
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="btn_dele">确定</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 修改 -->
+        <div class="modal fade" id="change" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">移动成员</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>将该组的</p>
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary">确定</button>
-      </div>
-    </div>
-  </div>
-</div>
+                <form>
+                  <div class="form-group row ">
+                    <div class="col-sm-9">
+                      <input class="form-control" id="Changename" placeholder="请输入成员的名字">
+                    </div>
+                  </div>
+                  <p>移动至</p>
+                  <div class="form-group row">
+                    <div class="col-sm-9 ">
+                      <input class="form-control" id="Newteam" placeholder="请输入新组的组长学号">
+                    </div>
+                  </div>
+                </form>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="btn_remove">确定</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   </div>
