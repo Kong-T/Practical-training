@@ -66,93 +66,93 @@
   <div class="container-fluid">
     <div class="row">
       <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light
-          sidebar collapse">
-        <div class="sidebar-sticky pt-3">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link active" href="#">
-                <span data-feather="home"></span>
-                公共信息 <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Ad_notice.html">
-                <span data-feather="file"></span>
-                通知公告
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="bar-chart-2"></span>
-                成绩报告
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="Ad_time.html">
-                <!-- <span data-feather="layers"></span> -->
-                <span class="glyphicon glyphicon glyphicon-time"></span>
-                答辩安排
-              </a>
-            </li>
-          </ul>
-
+      sidebar collapse">
+    <div class="sidebar-sticky pt-3">
+      <ul class="nav flex-column">
+        <li class="nav-item">
           <a class="nav-link active" href="#">
             <span data-feather="home"></span>
-            功能 <span class="sr-only">(current)</span>
+            公共信息 <span class="sr-only">(current)</span>
           </a>
-          <ul class="nav flex-column mb-2">
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                成绩
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                导入名单
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Ad_teacher_info.html">
-                <span data-feather="file-text"></span>
-                信息管理
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                题目发布
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                分组填写
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Ad_team.html">
-                <span data-feather="file-text"></span>
-                分组调整
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Ad_Tchoose.html">
-                <span data-feather="file-text"></span>
-                选题调整
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                文档发布
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Ad_notice.html">
+            <span class="glyphicon glyphicon glyphicon-info-sign"></span>
+            通知公告
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="Ad_grade_all.html">
+            <span class="glyphicon glyphicon glyphicon-book"></span>
+            成绩报告
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="Ad_time.html">
+            <!-- <span data-feather="layers"></span> -->
+            <span class="glyphicon glyphicon glyphicon-time"></span>
+            答辩安排
+          </a>
+        </li>
+      </ul>
+
+      <a class="nav-link active" href="#">
+        <span data-feather="home"></span>
+        功能 <span class="sr-only">(current)</span>
+      </a>
+      <ul class="nav flex-column mb-2">
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <span class="glyphicon glyphicon glyphicon-file"></span>
+            文档中心
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#">
+            <span data-feather="file-text"></span>
+            导入名单
+          </a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="Ad_teacher_info.html">
+            <span data-feather="file-text"></span>
+            信息管理
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Ad_Tchoose.html">
+            <span data-feather="file-text"></span>
+            选题调整
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#">
+            <span data-feather="file-text"></span>
+            分组填写
+          </a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="Ad_team.html">
+            <span data-feather="file-text"></span>
+            分组调整
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Ad_topic_admin.html">
+            <span data-feather="file-text"></span>
+            选题审核
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#">
+            <span class="glyphicon glyphicon glyphicon-cloud-upload"></span>
+            文档发布
+          </a>
+        </li> -->
+      </ul>
+    </div>
+  </nav>
       <!-- 导航文字 -->
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap
@@ -171,12 +171,16 @@
         <!-- 动态生成1 -->
         <div class="my-3 p-3 bg-white rounded shadow-sm">
           <!-- 根据答辩教师进行分类 -->
-          <h6 style="text-align:left">D504</h6>
+          <div class="find">
+            <div class="find1"><label>快捷查找</label></div>
+            <div class="find2">地点：</div>
+            <div class="find4"><button id="find_btn">搜索</button></div>
+        </div>
           <hr>
           <table class="table table-hover">
             <!-- 表头 -->
             <!-- 评委老师放在一起写就行 不需要分开 -->
-            <thead>
+            <thead id = "tbody">
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">答辩时间</th>
@@ -202,39 +206,7 @@
           </table>
         </div>
 
-        <!-- 动态生成2 -->
-        <div class="my-3 p-3 bg-white rounded shadow-sm">
-          <!-- 根据答辩教师进行分类 -->
-          <h6 style="text-align:left">D502</h6>
-          <hr>
-          <table class="table table-hover">
-            <!-- 表头 -->
-            <!-- 评委老师放在一起写就行 不需要分开 -->
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">答辩时间</th>
-                <th scope="col">答辩地点</th>
-                <th scope="col">答辩小组</th>
-                <th scope="col">组长名字</th>
-                <th scope="col">评委老师</th>
-              </tr>
-            </thead>
-            <!-- 表内容 -->
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>14：00-15：00</td>
-                <td>D502</td>
-                <td>TA_03</td>
-                <td>谭贺娟</td>
-                <td>
-                  周峰 张正军 王涛
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+       
       </main>
     </div>
   </div>

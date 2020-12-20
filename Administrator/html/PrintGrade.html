@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>成绩打印</title>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/PrintGrade.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css">
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript"></script>
+
+    <script>
+        function printdiv(printpage) {
+            var newstr = printpage.innerHTML;
+            var oldstr = document.body.innerHTML;
+            document.body.innerHTML = newstr;
+            window.print();
+            document.body.innerHTML = oldstr;
+        }
+    
+    </script>
+    <script>
+        window.onload = function () {
+            var name = "PrintGrade";//当前网页名
+            $.ajax({
+                url: "http://localhost:8080/",
+                type: "post",
+                data: name,
+                success: function (data) {
+                    /*这个方法里是ajax发送请求成功之后执行的代码*/
+                    var data=JSON.parse(data);//解析JSON数据
+                    getPrint(data);
+                },
+                error: function (msg) {
+                    alert("ajax连接异常：" + msg);
+                }
+            });
+        }
+        //展示需要打印的成绩
+        function getPrint(data) {
+            //展示小组成员表
+            var str = "";
+            var strr = "";
+            for (var i = 0; i < data.data1.length; i++) {
+                str = "<tr><td>" + data.data1[i].Teammate_id + "</td><td>"
+                    + data.data1[i].Teammate_name + "</td></tr>";
+            }
+            $("#tbo1111").html(str);
+            
+            for (var j = 0; j < data.data2.length; j++) {
+                //展示小组成绩表
+                strr = "<tr><td>" + data.data2[i].Guide_grade + "</td><td>" + data.data2[i].Reply_grade + "</td><td>"
+                    + data.data2[i].Team_grade + "</td></tr>";
+            }
+
+            $("#tbo1112").html(str);
+
+        }
+    </script>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">小组成绩报告</h1>
+        <!--打印-->
+        <!--第一种直接从学校官网抄的，但JS好像没用-->
+        <!--第二个好像也没有用-->
+        <button type="button" class="btn btn-primary btn-lg active " onclick="printdiv(printpage)">打印</button>
+        <!--第三种
+            1):使用Html模板,直接使用WEB浏览器的打印
+
+            2):转换成word,excel,pdf等格式后进行打印
+
+            3):利用ActiveX控件实现打印-->
+        <div id="printpage">
+            <table class="table table-striped table-responsive table-bordered table-hover">
+                <caption style="text-align: center ;text-emphasis:inherit">2020经济信息工程学院项目管理与开发实训成绩</caption>
+                <table class="table table-bordered">
+                    <caption style="text-align: center;">小组成员表</caption>
+                    <thead>
+                        <tr>
+                            <th style="text-align:center ">学号</th>
+                            <th style="text-align:center">姓名</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbo1111">
+
+                    </tbody>
+                </table>
+                <table class="table table-bordered">
+                    <caption style="text-align: center;">小组成绩表</caption>
+                    <thead>
+                        <tr>
+                            <th style="text-align:center">指导成绩</th>
+                            <th style="text-align:center ">答辩成绩</th>
+                            <th style="text-align:center">总成绩</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbo1112">
+
+                    </tbody>
+                </table>
+            </table>
+        </div>
+
+
+
+    </div>
+
+
+</body>
+
+</html>

@@ -160,7 +160,7 @@
             align-items-center pt-3 pb-2 mb-3 border-bottom">
           <h5>生成答辩安排</h5>
           <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group mr-2" >
+            <div class="btn-group mr-2">
               <a href="Ad_time.html" type="button" class="btn btn-sm btn-outline-secondary">查看安排</a>
             </div>
 
@@ -169,54 +169,54 @@
         </div>
         <!-- 填写信息 -->
 
+          <!-- 教室和教师信息收集 -->
+          <div class="my-3 p-3 bg-white rounded shadow-sm">
+            <h6 style="text-align:left">填写教室和老师信息</h6>
+            <hr>
+            <form class="form-inline" id="example">
+              <div class="form-group col-md-6">
+                <label for="inputPassword6">教室</label>
+                <input id="inputPassword6" class="form-control mx-sm-3" aria-describedby="passwordHelpInline">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword6">评委数量</label>
+                <input id="inputPassword6" class="form-control mx-sm-3" aria-describedby="passwordHelpInline">
+              </div>
 
-        <!-- 教室和教师信息收集 -->
-        <div class="my-3 p-3 bg-white rounded shadow-sm">
-          <h6 style="text-align:left">填写教室和老师信息</h6>
-          <hr>
-          <form  class="form-inline" id = "example">
-            <div class="form-group col-md-6">
-              <label for="inputPassword6">教室</label>
-              <input id="inputPassword6" class="form-control mx-sm-3" aria-describedby="passwordHelpInline">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="inputPassword6">评委数量</label>
-              <input  id="inputPassword6" class="form-control mx-sm-3" aria-describedby="passwordHelpInline">
-            </div>
 
-           
-          </form>
-          <div style="text-align:right" >
-            <a type="button" onclick="addMember()">
-              <span id="addRow" style="color:rgb(75, 129, 201);" class="glyphicon glyphicon-plus"></span></button>
-            </a>
+            </form>
+            <div style="text-align:right">
+              <a type="button" onclick="addMember()">
+                <span id="addRow" style="color:rgb(75, 129, 201);" class="glyphicon glyphicon-plus"></span></button>
+              </a>
+            </div>
           </div>
-        </div>
+          <div class="my-3 p-3 bg-white rounded shadow-sm">
+            <h6 style="text-align:left">填写时间信息</h6>
+            <hr>
+            <form id="example111">
+              <div class="form-row">
+                <div class="col-5">
+                  <input type="text" class="form-control" placeholder="答辩日">
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="开始时间">
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="单次答辩时长">
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="答辩间隔">
+                </div>
+              </div>
+              <div class="col" style="text-align:center;padding-top: 30px;">
+                <button type="submit" class="btn btn-sm btn-primary" onclick="postTime()">确定</button>
+              </div>
+            </form>
+          </div>
+  
+        <!-- 时间信息收集 -->
 
-         <!-- 时间信息收集 -->
-         <div class="my-3 p-3 bg-white rounded shadow-sm">
-          <h6 style="text-align:left">填写时间信息</h6>
-          <hr>
-          <form>
-            <div class="form-row">
-              <div class="col-5">
-                <input type="text" class="form-control" placeholder="答辩日">
-              </div>
-              <div class="col">
-                <input type="text" class="form-control" placeholder="开始时间">
-              </div>
-              <div class="col">
-                <input type="text" class="form-control" placeholder="单次答辩时长">
-              </div>
-              <div class="col">
-                <input type="text" class="form-control" placeholder="答辩间隔">
-              </div>
-            </div>
-            <div class = "col" style="text-align:center;padding-top: 30px;">
-              <button class="btn btn-sm btn-primary" >确定</button>
-            </div>
-          </form>
-        </div>
       </main>
     </div>
   </div>

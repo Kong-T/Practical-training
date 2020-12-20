@@ -164,103 +164,7 @@
         <!-- 第一个折叠框 -->
 
         <div class="accordion" id="accordionExample">
-          <div class="card">
-            <div class="card-header" id="headingOne">
-              <h2 class="mb-0">
-                <!-- 展现组的信息和组长信息 -->
-                <button class=" btn " type="button" data-toggle="collapse" data-target="#collapseOne"
-                  aria-expanded="true" aria-controls="collapseOne">
-                  <thead class="thead">
-                    <tr>
-                      <th scope="col">组名:</th>
-                    </tr>
-                  </thead>
-                  <tbody id="direct_table0">
-                    <tr>
-                      <th scope="row">TA_01</th>
-                    </tr>
-                  </tbody>
-                  <thead class="thead-light">
-                    <tr>
-                      <th scope="col">组长:</th>
-                    </tr>
-                  </thead>
-                  <tbody id="direct_table">
-                    <tr>
-                      <th scope="row">谭贺娟</th>
-                    </tr>
-                  </tbody>
-                  <thead class="thead-light">
-                    <tr>
-                      <th scope="col">学号:</th>
-                    </tr>
-                  </thead>
-                  <tbody class="leaderid">
-                    <tr>
-                      <th scope="row" id="leaderid0">41811022</th>
-                    </tr>
-                  </tbody>
-                </button>
-                <!-- 增删改操作 -->
-                <a style="float:right">
-                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#add">
-                    <span class="glyphicon glyphicon-plus" name="add" id="plus0"></span>
-                  </button>
-
-                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#delete">
-                    <span class="glyphicon glyphicon glyphicon-minus" id="minus0"></span>
-                  </button>
-                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#change">
-                    <span class="glyphicon glyphicon glyphicon-remove" id="remove0"></span>
-                  </button>
-                </a>
-              </h2>
-            </div>
-            <!-- 在下拉界面展现组员信息 -->
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-
-              <div class=" text-center">
-
-                <table class="table table-hover table-borderless" id="team0">
-                  <thead>
-                    <tr>
-                      <th scope="col">编号</th>
-                      <th scope="col">名字</th>
-                      <th scope="col">学号</th>
-                    </tr>
-                  </thead>
-                  <!-- 在这里赋值 生成动态列表 -->
-                  <tbody id="member0">
-                    <tr id="row0">
-                      <th scope="row">1</th>
-                      <td id="row0name">谭贺娟</td>
-                      <td id="row0id">41811022</td>
-                    </tr>
-                    <tr id="row1">
-                      <th scope="row">2</th>
-                      <td id="row1name">周炫怡</td>
-                      <td id="row1id">41811023</td>
-                    </tr>
-                    <tr id="row2">
-                      <th scope="row">3</th>
-                      <td id="row1name">金锐丽</td>
-                      <td id="row1id">41811066</td>
-                    </tr>
-                    <tr id="row3">
-                      <th scope="row">4</th>
-                      <td id="row1name">肖云彤</td>
-                      <td id="row1id">41811057</td>
-                    </tr>
-                    <tr id="row4">
-                      <th scope="row">5</th>
-                      <td id="row1name">后端数</td>
-                      <td id="row1id">41811033</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+          <div class='card'><div class='card-header id='heading0'><h2 class='mb-0'><button class=' btn' type='button' data-toggle='collapse' data-target='#collapse0'aria-expanded='true' aria-controls='collapse0'><thead class='thead-light'><tr><th scope='col'>组号:</th></tr></thead><tbody><tr><th id='team0' scope='row'>TA_01</th></tr> </tbody><thead class='thead-light'><tr><th scope='col'>组长:</th></tr></thead><tbody ><tr><th id='leadername0' scope='row'>黄金龙</th></tr></tbody><thead class='thead-light'><tr><th scope='col'>学号:</th></tr></thead><tbody class=''><tr><th scope='row' id=leader0>41811063</th></tr></tbody></button><a style='float:right'><button type='button' class='btn btn-default' data-toggle='modal' data-target='#add'><span class='glyphicon glyphicon-plus' name='add' id='plus0'></span></button><button type='button' class='btn btn-default' data-toggle='moda' data-target='#delete'><span class='glyphicon glyphicon glyphicon-minus' id='minus0'></span></button><button type='button' class='btn btn-default' data-toggle='modal' data-target='#change'><span class='glyphicon glyphicon glyphicon-remove' id='remove0'></span></button></a></h2></div><div id='collapse0' class='collapse show' aria-labelledby='heading0' data-parent='#accordionExample'><div class='text-center'><table class='table table-hover table-borderless'><thead><tr><th scope='col'>编号</th><th scope='col'>名字</th><th scope='col'>学号</th></tr></thead><tbody id='member0'><tr id='row0'><th scope='row'>1</th><td >41811063</td><td>雷有萍</td></tr><tr id='row0'><th scope='row'>2</th><td >41811048</td><td>张彤</td></tr><tr id='row0'><th scope='row'>3</th><td >41811049</td><td>张释之</td></tr><tr id='row0'><th scope='row'>4</th><td >41811047</td><td>张语嫣</td></tr><tr id='row0'><th scope='row'>5</th><td >41811036</td><td>undefined</td></tr></tbody></table ></div></div></div>
 
 
           <!-- 第二个折叠 -->
@@ -526,7 +430,7 @@
                   <p>移动至</p>
                   <div class="form-group row">
                     <div class="col-sm-9 ">
-                      <input class="form-control" id="Newteam" placeholder="请输入新组的组长学号">
+                      <input class="form-control" id="Newteam" placeholder="请输入所需移动到的组号">
                     </div>
                   </div>
                 </form>
@@ -543,10 +447,10 @@
     </div>
   </div>
   <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="../../assets4.5/js/vendor/jquery.slim.min.js"><\/script>')</script>
+    crossorigin="anonymous"></script> -->
+  <!-- <script>window.jQuery || document.write('<script src="../../assets4.5/js/vendor/jquery.slim.min.js"><\/script>')</script> -->
   <script src="../../assets4.5/dist/js/bootstrap.bundle.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
