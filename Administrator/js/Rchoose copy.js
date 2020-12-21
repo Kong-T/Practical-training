@@ -34,18 +34,18 @@ function showData(data) {
     var topic_content = ""
     var topic_select = ""
     for (var i = 0; i < data.Topic.length; i++) {
-        topic_content += "<option value='"+ data.Topic[i] + "'>" + data.Topic[i] + "</option>"
+        topic_content += "<option value='" + data.Topic[i] + "'>" + data.Topic[i] + "</option>"
     }
-    topic_select = "<select id='basic' class='selectpicker show-tick form-control'><option></option> " 
-    + topic_content + "</select> ";
+    topic_select = "<select id='basic' class='selectpicker show-tick form-control'><option></option> "
+        + topic_content + "</select> ";
     $("#topic_new").append(topic_select);
-// topic_new:调整后的选题对应的div
+    // topic_new:调整后的选题对应的div
 
     // 查找部分
     var topicFind = ""
-    topicFind = "<select id=\"topicFind\"><option></option>"+topic_content + "</select> ";
+    topicFind = "<select id=\"topicFind\"><option></option>" + topic_content + "</select> ";
     $(".find2").append(topicFind);
-    var find = document.getElementById("find_btn")                                                                                                                          
+    var find = document.getElementById("find_btn")
     find.addEventListener("click", findtop)
 
     function findtop() {
@@ -54,9 +54,9 @@ function showData(data) {
         console.log(topic_find)//输出当前获得值
         var table = document.getElementById('tbody');//获取table 
         var rowsLength = data.CTopic.length;//表格总共有多少行
-        console.log(rowsLength)  
+        console.log(rowsLength)
         var searchCol_topic = 1;//要搜索的哪一列，这里是第一列，从0开始数起  
-        for (var i=0; i < rowsLength; i++) {//按表的行数进行循环（从0数起）  
+        for (var i = 0; i < rowsLength; i++) {//按表的行数进行循环（从0数起）  
             //取得table的行 并读取第一列的值是多少
             var searchTopic = table.rows[i].cells[searchCol_topic].innerHTML;//取得table行，列的值 
             console.log(searchTopic)
@@ -71,22 +71,22 @@ function showData(data) {
     // 列表展示数据
     var str = "";//定义用于拼接的字符串
     for (var i = 0; i < data.CTopic.length; i++) {
-    //     console.log(data.length);
-    //     console.log(i);
-    //     console.log(data[i]);
+        //     console.log(data.length);
+        //     console.log(i);
+        //     console.log(data[i]);
         var LeaderID = "Leader_id" + i;
         var LeaderNameID = "LeaderName_id" + i;
         var TopicID = "Topic_id" + i;
         // var TutorID = "Tutor_id" + i;
-        var btnID = "btn" +i;
-        var j = i*1+1;
+        var btnID = "btn" + i;
+        var j = i * 1 + 1;
 
-        str += "<tr><th scope='row'>"+ j +"</th><td id ='" + TopicID
-        +"'>"+data.CTopic[i]+"</td><td id = '"+LeaderID
-        +"'>"+ data.CLeader_id[i]+"</td><td id='"+ LeaderNameID+"'>"+data.CLeader_name[i] 
-        +"</td><td><a><span type='button'id = '"+btnID
-        +"' class='edit glyphicon glyphicon glyphicon-edit' data-toggle='modal' data-target='#change'></span></a></td></tr>"
-      }
+        str += "<tr><th scope='row'>" + j + "</th><td id ='" + TopicID
+            + "'>" + data.CTopic[i] + "</td><td id = '" + LeaderID
+            + "'>" + data.CLeader_id[i] + "</td><td id='" + LeaderNameID + "'>" + data.CLeader_name[i]
+            + "</td><td><a><span type='button'id = '" + btnID
+            + "' class='edit glyphicon glyphicon glyphicon-edit' data-toggle='modal' data-target='#change'></span></a></td></tr>"
+    }
     // console.log("123");
     console.log(str);
     $("tbody").html(str);
@@ -95,7 +95,7 @@ function showData(data) {
 
 
 // 模态框数据展示事件
-function a(){
+function a() {
     //给每个编辑图标绑定事件
     var re = ""//re存放当前按钮的ID
     var topID = ""//存放当前按钮对应的topicID
@@ -103,7 +103,7 @@ function a(){
     // console.log(wdata)
 
     $(function () {
-            // console.log(data)
+        // console.log(data)
         $(".edit").click(function (e) {
             console.log(wdata)
             console.log("123")
@@ -162,10 +162,7 @@ function a(){
                 console.log("error");
 
             },
+        })
     })
+
 }
-
-
-
-
-
