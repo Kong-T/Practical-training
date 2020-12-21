@@ -14,49 +14,49 @@
           event.stopPropagation()
         }
         form.classList.add('was-validated')
-      
-      }, 
-      false)
+
+      },
+        false)
       console.log("222")
       postTeam()
     }
     )
   }, false)
-  
-}() 
+
+}()
 
 )
 
-    function addMember() {
-      var str = "";
-      str =  "<div class='col-md-6 mb-3'><label for='cc-name'>学号</label><input type='text' class='form-control' id='cc-name'placeholder=''></div>" +
-        "<div class='col-md-6 mb-3'><label for='cc-number'>名字</label><input type='text' class='form-control' id='cc-number' placeholder=''></div>"
-      $("#example").append(str);
+function addMember() {
+  var str = "";
+  str = "<div class='col-md-6 mb-3'><label for='cc-name'>学号</label><input type='text' class='form-control' id='cc-name'placeholder=''></div>" +
+    "<div class='col-md-6 mb-3'><label for='cc-number'>名字</label><input type='text' class='form-control' id='cc-number' placeholder=''></div>"
+  $("#example").append(str);
+}
+
+
+function postTeam() {
+  console.log("postman触发")
+  var team = $("#form111").serializeArray();//将表单数据序列化
+  console.log(team);
+  $.ajax({
+    type: "POST",
+    url: "http://localhost:8080/listTeam",
+    data: JSON.stringify(team), //将序列化后的表单转换成json格式
+    dataType: "JSON",
+    contentType: "application/json",
+    async: 'true',
+    success: function (data) {
+      console.log(data);
+      // alert("提交成功！");
+    },
+    error: function () {
+      console.log("333");
+      // alert("提交失败！");
     }
+  })
 
 
-    function postTeam() {
-      console.log("postman触发")
-      var team = $("#form111").serializeArray();//将表单数据序列化
-      console.log(team);
-      $.ajax({
-        type: "POST",
-        url: "http://localhost:8080/listTeam",
-        data: JSON.stringify(team), //将序列化后的表单转换成json格式
-        dataType: "JSON",
-        contentType: "application/json",
-        async: 'true',
-        success: function (data) {
-          console.log(data);
-          alert("提交成功！");
-        },
-        error: function () {
-          console.log("333");
-          alert("提交失败！");
-        }
-      })
-
-
-    }
+}
 
 

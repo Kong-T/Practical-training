@@ -29,19 +29,20 @@
         font-size: 3.5rem;
       }
     }
-    .tan{
-      height:40px;
+
+    .tan {
+      height: 40px;
     }
   </style>
   <!-- Custom styles for this template -->
   <link href="../css/topic.css" rel="stylesheet">
-  
+
 </head>
 
 
 <body>
 
-  <div id = "navbarCode"></div>
+  <div id="navbarCode"></div>
   <div class="tan"></div>
   <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
     <!-- <h1 class="display-4">请仔细阅读并填报选题</h1> -->
@@ -57,15 +58,19 @@
         <div class="card-body">
           <h5 class="card-title">Special title treatment</h5>
           <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <ul><li><p class="text-left"> 当前填报人数:</p></li><p></p>
-          <button type="button" class="btn btn-outline-primary text-center">填报</button>
+          <ul>
+            <li>
+              <p class="text-left"> 当前填报人数:</p>
+            </li>
+            <p></p>
+            <button type="button" class="btn btn-outline-primary text-center">填报</button>
         </div>
-       
+
       </div>
 
     </div>
   </div>
-  
+
   <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
   <script>window.jQuery || document.write('<script src="../../assets4.5/js/vendor/jquery.slim.min.js"><\/script>')</script>
   <script src="../../assets4.5/dist/js/bootstrap.bundle.js"></script>
@@ -84,6 +89,7 @@
           showTopicData(data);
           // console.log(data)
           window.data = data
+
         },
         error: function (msg) {
           // alert("ajax连接异常：" + msg);
@@ -102,24 +108,23 @@
           + data.subject[i].tutor + "</h4></div><div class=\"card-body\"><h5 class=\"card-title\"id = \" "
           + topicID + "\" >"
           + data.subject[i].subjectTitle + "</h5><p class=\"card-text\">"
-          + data.subject[i].details + "</p><ul><li><p class=\"text-left\"> 当前填报人数:"
-          +data.subject[i].subjectTitle+"</p></li><p></p><button type=\"button\" onclick = \"SentData()\" class=\"btn btn-outline-primary text-center\" id =\"" + btn + "\">填报</button> </div></div>"
+          + data.subject[i].details + "</p></li><p></p><button type=\"button\" onclick = \"SentData()\" class=\"btn btn-outline-primary text-center\" id =\"" + btn + "\">填报</button> </div></div>"
       }
       $("#topic").html(str);
     }
     $(document).click(function (e) {
       btn = e.target.id;
       console.log("函数内" + btn);
-      num = btn.substr(btn.length-1,btn.length);
+      num = btn.substr(btn.length - 1, btn.length);
       console.log(num);
       SentData(num)
     });
     //传送选题情况
     function SentData(Topic_id) {
-      console.log("window"+window.data.subject[num].subjectTitle)
+      console.log("window" + window.data.subject[num].subjectTitle)
       var topic = window.data.subject[num].subjectTitle;
-      console.log("topic"+topic);
-      
+      console.log("topic" + topic);
+
       $.ajax({
         type: "POST",
         url: "http://localhost:8080/addChoose",
@@ -133,15 +138,15 @@
           //请求出错处理
         }
       })
-      topic =""
+      topic = ""
     }
 
 
 
   </script>
   <script>
-    $(function() {
-        $("#navbarCode").load("StuNav.html");
+    $(function () {
+      $("#navbarCode").load("StuNav.html");
     });
   </script>
 
