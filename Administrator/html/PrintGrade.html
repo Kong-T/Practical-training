@@ -5,14 +5,18 @@
     <meta charset="utf-8">
     <title>成绩打印</title>
     <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/PrintGrade.css">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css">
-    <!-- Bootstrap JavaScript -->
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="../../assets4.5/dist/css/bootstrap.css" rel="stylesheet">
 
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/blog/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../assets4.5/dist/css/bootstrap.css" rel="stylesheet">
+
+    <link href="../../Teacher/css/blog.css" rel="stylesheet">
+
+    <!-- Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript"></script>
 
@@ -24,22 +28,28 @@
             window.print();
             document.body.innerHTML = oldstr;
         }
-    
+
     </script>
     <script>
         window.onload = function () {
+            var Url = window.location.href;
+            var Data = Url.split("=");        //截取 url中的“=”,获得“=”后面的参数
+            var Teamid = decodeURI(Data[1]);   //decodeURI解码
+            console.log("Dta" + Data, "TITLE" + Teamid)
+            // function getUrlParam(name) {
             var name = "PrintGrade";//当前网页名
             $.ajax({
-                url: "http://localhost:8080/",
+                url: "http://localhost:8080/Adprintgrade",
                 type: "post",
-                data: name,
+                data: JSON.stringify(Teamid),
                 success: function (data) {
                     /*这个方法里是ajax发送请求成功之后执行的代码*/
-                    var data=JSON.parse(data);//解析JSON数据
+                    console.log(data)
                     getPrint(data);
                 },
                 error: function (msg) {
-                    alert("ajax连接异常：" + msg);
+                    console.log(msg)
+                    // alert("ajax连接异常：" + msg);
                 }
             });
         }
@@ -47,20 +57,27 @@
         function getPrint(data) {
             //展示小组成员表
             var str = "";
-            var strr = "";
-            for (var i = 0; i < data.data1.length; i++) {
-                str = "<tr><td>" + data.data1[i].Teammate_id + "</td><td>"
-                    + data.data1[i].Teammate_name + "</td></tr>";
+            // var strr = "";
+            for (var i = 0; i < data.teaminfo.length; i+=2) {
+                str += "<tr><td style='text-align: center;' scope='col'>" + data.teaminfo[i] 
+                    + "</td><td style='text-align: center;' scope='col'>"
+                    + data.teaminfo[i+1] + "</td></tr>";
             }
             $("#tbo1111").html(str);
-            
-            for (var j = 0; j < data.data2.length; j++) {
-                //展示小组成绩表
-                strr = "<tr><td>" + data.data2[i].Guide_grade + "</td><td>" + data.data2[i].Reply_grade + "</td><td>"
-                    + data.data2[i].Team_grade + "</td></tr>";
-            }
 
-            $("#tbo1112").html(str);
+            $("#guide").html(data.gradeinfo[0])
+            $("#guide").html(data.gradeinfo[1])
+            $("#guide").html(data.gradeinfo[2])
+
+            // for (var j = 0; j < data.gradeinfo.length; j++) {
+            //     //展示小组成绩表
+            //     strr = "<tr><td style='text-align: center;' scope='col'>" +
+            //          data.gradeinfo[i] + "</td><td style='text-align: center;' scope='col'>" +
+            //              data.data[i].Reply_grade + "</td><td>"
+            //         + data.data2[i].Team_grade + "</td></tr>";
+            // }
+
+            // $("#tbo1112").html(str);
 
         }
     </script>
@@ -69,46 +86,57 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1 class="text-center">小组成绩报告</h1>
-        <!--打印-->
-        <!--第一种直接从学校官网抄的，但JS好像没用-->
-        <!--第二个好像也没有用-->
-        <button type="button" class="btn btn-primary btn-lg active " onclick="printdiv(printpage)">打印</button>
-        <!--第三种
+
+    <!--打印-->
+    <!--第一种直接从学校官网抄的，但JS好像没用-->
+    <!--第二个好像也没有用-->
+    <button type="button" class="btn btn-primary btn-lg active " onclick="printdiv(printpage)">打印</button>
+    <!--第三种
             1):使用Html模板,直接使用WEB浏览器的打印
 
             2):转换成word,excel,pdf等格式后进行打印
 
             3):利用ActiveX控件实现打印-->
-        <div id="printpage">
-            <table class="table table-striped table-responsive table-bordered table-hover">
-                <caption style="text-align: center ;text-emphasis:inherit">2020经济信息工程学院项目管理与开发实训成绩</caption>
-                <table class="table table-bordered">
-                    <caption style="text-align: center;">小组成员表</caption>
-                    <thead>
-                        <tr>
-                            <th style="text-align:center ">学号</th>
-                            <th style="text-align:center">姓名</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tbo1111">
+    <div id="printpage">
 
-                    </tbody>
-                </table>
-                <table class="table table-bordered">
-                    <caption style="text-align: center;">小组成绩表</caption>
-                    <thead>
-                        <tr>
-                            <th style="text-align:center">指导成绩</th>
-                            <th style="text-align:center ">答辩成绩</th>
-                            <th style="text-align:center">总成绩</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tbo1112">
+            <h6 class="blog-header-logo text-dark text-center" id="teaName">2020经济信息工程学院<BR>项目管理与开发实训成绩报告
+            </h6>
+            <hr style="filter: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color="#D3D3D3" size="3" />
+            <div class="container">
 
-                    </tbody>
-                </table>
+            <div class="row">
+                <div class="col-md-2"></div>
+              <div class="col-md-8">
+            <table class="table table-bordered">
+                <caption style="text-align: center;">小组成员表</caption>
+                <thead>
+                    <tr>
+                        <th style="text-align:center ">学号</th>
+                        <th style="text-align:center">姓名</th>
+                    </tr>
+                </thead>
+                <tbody id="tbo1111">
+                    <tr>
+                        <td style="text-align: center;" scope="col">11</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-bordered">
+                <caption style="text-align: center;">小组成绩表</caption>
+                <thead>
+                    <tr>
+                        <th style="text-align:center">指导成绩</th>
+                        <th style="text-align:center ">答辩成绩</th>
+                        <th style="text-align:center">总成绩</th>
+                    </tr>
+                </thead>
+                <tbody id="tbo1112">
+                    <td style="text-align: center;" scope="col" id="guide">11</td>
+                    <td style="text-align: center;" scope="col" id="report">11</td>
+                    <td style="text-align: center;" scope="col" id="total">11</td>
+
+                </tbody>
+            </table>
             </table>
         </div>
 

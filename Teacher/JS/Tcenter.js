@@ -11,7 +11,7 @@
         showData(data);//做数据展示
       },
       error: function (msg) {
-        alert("ajax连接异常：" + msg);
+        // alert("ajax连接异常：" + msg);
         console.log("error");
       }
     })

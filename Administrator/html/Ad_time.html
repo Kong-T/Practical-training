@@ -67,92 +67,92 @@
     <div class="row">
       <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light
       sidebar collapse">
-    <div class="sidebar-sticky pt-3">
-      <ul class="nav flex-column">
-        <li class="nav-item">
+        <div class="sidebar-sticky pt-3">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">
+                <span data-feather="home"></span>
+                公共信息 <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Ad_notice.html">
+                <span class="glyphicon glyphicon glyphicon-info-sign"></span>
+                通知公告
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="Ad_grade_all.html">
+                <span class="glyphicon glyphicon glyphicon-book"></span>
+                成绩报告
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="Ad_time.html">
+                <!-- <span data-feather="layers"></span> -->
+                <span class="glyphicon glyphicon glyphicon-time"></span>
+                答辩安排
+              </a>
+            </li>
+          </ul>
+
           <a class="nav-link active" href="#">
             <span data-feather="home"></span>
-            公共信息 <span class="sr-only">(current)</span>
+            功能 <span class="sr-only">(current)</span>
           </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Ad_notice.html">
-            <span class="glyphicon glyphicon glyphicon-info-sign"></span>
-            通知公告
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="Ad_grade_all.html">
-            <span class="glyphicon glyphicon glyphicon-book"></span>
-            成绩报告
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="Ad_time.html">
-            <!-- <span data-feather="layers"></span> -->
-            <span class="glyphicon glyphicon glyphicon-time"></span>
-            答辩安排
-          </a>
-        </li>
-      </ul>
-
-      <a class="nav-link active" href="#">
-        <span data-feather="home"></span>
-        功能 <span class="sr-only">(current)</span>
-      </a>
-      <ul class="nav flex-column mb-2">
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <span class="glyphicon glyphicon glyphicon-file"></span>
-            文档中心
-          </a>
-        </li>
-        <!-- <li class="nav-item">
+          <ul class="nav flex-column mb-2">
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span class="glyphicon glyphicon glyphicon-file"></span>
+                文档中心
+              </a>
+            </li>
+            <!-- <li class="nav-item">
           <a class="nav-link" href="#">
             <span data-feather="file-text"></span>
             导入名单
           </a>
         </li> -->
-        <li class="nav-item">
-          <a class="nav-link" href="Ad_teacher_info.html">
-            <span data-feather="file-text"></span>
-            信息管理
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Ad_Tchoose.html">
-            <span data-feather="file-text"></span>
-            选题调整
-          </a>
-        </li>
-        <!-- <li class="nav-item">
+            <li class="nav-item">
+              <a class="nav-link" href="Ad_teacher_info.html">
+                <span data-feather="file-text"></span>
+                信息管理
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Ad_Tchoose.html">
+                <span data-feather="file-text"></span>
+                选题调整
+              </a>
+            </li>
+            <!-- <li class="nav-item">
           <a class="nav-link" href="#">
             <span data-feather="file-text"></span>
             分组填写
           </a>
         </li> -->
-        <li class="nav-item">
-          <a class="nav-link" href="Ad_team.html">
-            <span data-feather="file-text"></span>
-            分组调整
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Ad_topic_admin.html">
-            <span data-feather="file-text"></span>
-            选题审核
-          </a>
-        </li>
-        <!-- <li class="nav-item">
+            <li class="nav-item">
+              <a class="nav-link" href="Ad_team.html">
+                <span data-feather="file-text"></span>
+                分组调整
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Ad_topic_admin.html">
+                <span data-feather="file-text"></span>
+                选题审核
+              </a>
+            </li>
+            <!-- <li class="nav-item">
           <a class="nav-link" href="#">
             <span class="glyphicon glyphicon glyphicon-cloud-upload"></span>
             文档发布
           </a>
         </li> -->
-      </ul>
-    </div>
-  </nav>
+          </ul>
+        </div>
+      </nav>
       <!-- 导航文字 -->
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap
@@ -160,7 +160,14 @@
           <h3>答辩安排</h3>
           <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group mr-2">
-              <a href="Ad_time_auto.html" type="button" class="btn btn-sm btn-outline-secondary">一键生成</a>
+              <a>
+                按答辩场地进行搜索：<input class="input">
+                </input>
+
+                <span onclick="search()" type="button" class="btn glyphicon glyphicon glyphicon-search"></span>
+
+              </a>
+              <a href="Ad_time_auto.html" type="button" class="btn  btn-outline-secondary">一键生成</a>
             </div>
 
           </div>
@@ -170,56 +177,99 @@
 
         <!-- 动态生成1 -->
         <div class="my-3 p-3 bg-white rounded shadow-sm">
-          <!-- 根据答辩教师进行分类 -->
-          <div class="find">
-            <div class="find1"><label>快捷查找</label></div>
-            <div class="find2">地点：</div>
-            <div class="find4"><button id="find_btn">搜索</button></div>
-        </div>
           <hr>
           <table class="table table-hover">
             <!-- 表头 -->
             <!-- 评委老师放在一起写就行 不需要分开 -->
-            <thead id = "tbody">
+            <thead id="tbody">
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">答辩时间</th>
+                <th scope="col">开始时间</th>
+                <th scope="col">答辩时长</th>
                 <th scope="col">答辩地点</th>
                 <th scope="col">答辩小组</th>
                 <th scope="col">组长名字</th>
                 <th scope="col">评委老师</th>
+                <th scope="col">操作</th>
               </tr>
             </thead>
             <!-- 表内容 -->
             <tbody>
               <tr>
                 <th scope="row">1</th>
-                <td>14：00-15：00</td>
+                <td>15：00</td>
+                <td>30</td>
                 <td>D504</td>
                 <td>TA_03</td>
                 <td>谭贺娟</td>
                 <td>
                   周峰 张正军 王涛
                 </td>
+                <td>
+                  <a>
+                    <span type="button" data-toggle="modal" data-target="#edit"
+                      class="glyphicon glyphicon glyphicon-edit" id="printi"></span>
+                  </a>
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
 
-       
+        <!-- 模态框 -->
+        <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+
+                <!-- 模态框中内容 -->
+                <h4 class="modal-title" id="myModalLabel">
+                  修改当前小组答辩安排
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                  &times;
+                </button>
+              </div>
+              <!-- 模态框主体内容 -->
+              <div class="modal-body" style="padding:10%;">
+                <form role="form">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">答辩时间调整为</label>
+                    <div class=class="col-xs-12 col-sm-9 col-md-6 col-lg-3">
+                      <input type="text" class="form-control" id="leader_name">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">答辩地点调整为</label>
+                    <div class=class="col-xs-12 col-sm-9 col-md-6 col-lg-3">
+                      <input type="text" class="form-control" id="topic_now">
+                    </div>
+                  </div>
+                  
+                  <br>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" id="btn_add">
+                      提交更改
+                    </button>
+                  </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+
+          </div>
+        </div>
       </main>
     </div>
   </div>
   <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="../../assets4.5/js/vendor/jquery.slim.min.js"><\/script>')</script>
+
   <script src="../../assets4.5/dist/js/bootstrap.bundle.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
   <script src="../js/dashboard.js"></script>
-  <script src="../js/Ad_team.js"></script>
+  <script src="../js/Ad_time.js"></script>
 
 </body>
 

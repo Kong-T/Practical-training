@@ -1,3 +1,4 @@
+
 window.onload = function () {
     var name = "report_grade";
     $.ajax({
@@ -28,7 +29,8 @@ window.onload = function () {
         var team = "team"+i;
         var grade ="gradeID"+i
         // str += "<tr><td>" + data[i] + "</td><td><input type=\"text\"  id=" +gradeid +" placeholder = \"请输入分数\"></td></tr>"
-        str += "<tr><td><div id = " + time + ">" + data.R_team[i] + "</div></td><td><div id = " + place + ">" + data.R_place[i] + "</div><td><div id = " + team + ">" + data.R_team[i] + "</div></td><td><input type=\"text\""+" "+"id="+"\""+grade+"\""+" "+"placeholder=\"请输入分数\"></td></tr>"
+        str += "<tr><td><div style='text-align: center;' id = " + time + ">" + data.R_team[i] + "</div></td><td><div style='text-align: center;'  id = " + place + ">" + data.R_place[i] + "</div><td><div style='text-align: center;'  id = " + team + ">" + data.R_team[i] + "</div></td><td style='text-align: center;' ><input type=\"text\""+" "+"id="+"\""+grade+"\""+" "
+        +"placeholder=' 请输入分数   ' style='text-align: center;'  value='' required><div class='invalid-feedback'>答辩成绩为为必填段</div></td></tr>"
         console.log(str);
       }
       $("#table1").html(str);

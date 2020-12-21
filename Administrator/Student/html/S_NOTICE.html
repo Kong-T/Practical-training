@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="generator" content="Jekyll v4.0.1">
+
+  <title>通知公告</title>
+
+  <link href="../../assets4.5/dist/css/bootstrap.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    /* a:link{text-decoration: none;color: gray} */
+    a:active {
+      text-decoration: blink
+    }
+  </style>
+  <link href="../css/S_NOTICE.css" rel="stylesheet">
+</head>
+
+<body >
+  <div id = "navbarCode"></div>
+  <div class="tan"></div>
+
+  <div class="title">
+    <div class="fz40"></div><h1>通知公告</h1>
+  </div>
+  <div class="b"><a href="/notice/years.html" class="more"><i>查看更多>></i></a></div>
+  <!-- <hr /> -->
+  <div class="main">
+  <ul id="ol">
+  <a href="../../web/bord&notice/note2.html" class="list-group-item link"><h6>关于《项目管理与开发实训》课程开课通知</h6><p class="date">2020年11月01日</p></a>
+  <a href="../../web/bord&notice/note2.html" class="list-group-item link"><h6>关于组队通知</h6><p class="date">2020年11月16日</p></a>
+  <a href="../../web/bord&notice/note2.html" class="list-group-item link"><h6>关于选题通知</h6><p class="date">2020年11月11日</p></a>
+  <a href="../../web/bord&notice/note2.html" class="list-group-item link"><h6>关于项目文档及进展安排通知</h6><p class="date">2020年11月15日</p></a>
+  <a href="../../web/bord&notice/note2.html" class="list-group-item link"><h6>关于答辩通知</h6><p class="date">2020年12月16日</p></a>
+  </ul>
+  </div>
+
+  <!-- <div class="tan"></div> -->
+
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+  <script>window.jQuery || document.write('<script src="../../assets4.5/js/vendor/jquery.slim.min.js"><\/script>')</script>
+  <script src="../../assets4.5/dist/js/bootstrap.bundle.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+  <!-- <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> -->
+  <script>
+    $(function() {
+        $("#navbarCode").load("StuNav.html");
+    });
+  </script>
+  <script>
+    window.onload = function () {
+      var name = "Tnotice";
+      $.ajax({
+        url: "http://localhost:8080/All_getnotice",
+        type: "post",
+        data: name, //点击页面名Tnotice
+        success: function (data) {
+          /*这个方法里是ajax发送请求成功之后执行的代码*/
+          console.log("from 后端");
+          console.log(data.time);
+          console.log(data.title);
+          window.length = data.title.length;//获取一个全局变量 用于表示小组数量
+          console.log(window.length);
+          showData(data);//我们仅做数据展示
+        },
+        error: function (msg) {
+          alert("ajax连接异常：" + msg);
+          console.log("error");
+        }
+      })
+      function showData(data) {
+
+        var str = "";//定义用于拼接的字符串
+        for (var j = 0; j < window.length; j++) {
+          var searchUrl = encodeURI("notice.html?Notice_title=" + data.title[j]);   //使用encodeURI编码
+          str += "<a style=\"color:black\" href = \"" + searchUrl + "\" target=\"_blank\" class=\"list-group-item link\">"+"<h6>" + data.title[j] +"</h6>"+"<p class=\"date\">"+data.time[j] + "</p></a>";
+          console.log(str);
+          $("#ol").html(str);
+
+        }
+
+      }
+    }
+  </script>
+
+</body>
+
+</html>

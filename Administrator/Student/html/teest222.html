@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Jekyll v4.0.1">
+  <title>分组</title>
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/checkout/">
+
+  <!-- Bootstrap core CSS -->
+  <link href="../../assets4.5/dist/css/bootstrap.css" rel="stylesheet">
+
+    <script>
+
+
+        (function () {
+            'use strict'
+
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation')
+
+                // Loop over them and prevent submission
+                Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+
+                    },
+                        false)
+                    console.log("222")
+                    postTeam()
+                })
+            }, false)
+        }()
+
+        )
+
+    </script>
+</head>
+
+<body>
+
+    <form id="form111" class="needs-validation" novalidate>
+        <div class="container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">我指导的小组</th>
+                        <th style="text-align: center;">指导教师评分</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody1">
+                    <tr>
+                        <td>
+                            <div id="teamid ">+ data[i]
+                            </div>
+                        </td>
+                        <td>
+                            <input type="text" id="gradeid" placeholder="请输入分数" value="" required>
+                            <div class="invalid-feedback">
+                                指导成绩为为必填段
+                            </div>
+                        </td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+            <button type="submit" class="btn btn-primary" onclick="guideGraderelease()" style="margin-top: 30px;">提
+                交</button>
+        </div>
+    </form>
+</body>
+
+</html>

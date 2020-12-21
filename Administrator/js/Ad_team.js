@@ -55,11 +55,11 @@ function showData(data) {
             + "<thead class='thead-light'><tr><th scope='col'> 学号: </th></tr></thead><tbody class='"
             + "'><tr><th scope='row' id=" + leaderID + ">" + data.Already[i][2] + "</th></tr></tbody></button><a style='float:right'><button type='button'onclick='add()' id='" + plusbtnID
             + "'class='btn btn-default' data-toggle='modal' data-target='#add'>"
-            + "<span class='glyphicon glyphicon-plus' name='add'id='" + plusID
+            + "<span type='button' onclick='add()' data-toggle='modal' data-target='#add' class='glyphicon glyphicon-plus' name='add'id='" + plusID
             + "' ></span></button><button type='button' onclick='del()' class='btn btn-default' id='" + minusbtnID
-            + "' data-toggle='modal' data-target='#delete'><span class='glyphicon glyphicon glyphicon-minus' id='" + minusID
+            + "' data-toggle='modal' data-target='#delete'><span  data-toggle='modal' data-target='#delete' type='button' onclick='del()' class='glyphicon glyphicon glyphicon-minus' id='" + minusID
             + "'></span></button><button type='button' onclick='remove()' class='btn btn-default'id='" + removebtnID
-            + "' data-toggle='modal' data-target='#change'><span class='glyphicon glyphicon glyphicon-remove' id='" + removeID + "'></span></button></a></h2></div>"
+            + "' data-toggle='modal' data-target='#change'><span  data-toggle='modal' data-target='#change' type='button' onclick='remove()' class='glyphicon glyphicon glyphicon-remove' id='" + removeID + "'></span></button></a></h2></div>"
             + "<div id='" + ariaID + "' class='collapse show' aria-labelledby='" + heading + "' data-parent='#accordionExample'><div class='text-center'>"
             + "<table class='table table-hover table-borderless' ><thead><tr><th scope='col'>编号</th><th scope='col'>名字</th><th scope='col'>学号</th></tr></thead><tbody id='"
             + menberID + "'>";

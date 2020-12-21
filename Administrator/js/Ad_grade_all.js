@@ -27,12 +27,12 @@ function showdata(a){
         var k = 1*i+1;
         str+="<tr><th scope='col'>"+k+"</th>"
         for(j =0;j<wdata.returnIteam[i].length;j++){
-            str += " <th scope='col'>"+wdata.returnIteam[i][j]+"</th>"
+            str += " <td scope='col'>"+wdata.returnIteam[i][j]+"</td>"
         }
         //成绩界面传值小组id 即 teamid
-        var searchUrl =encodeURI("notice.html?teamid="+wdata.returnIteam[i][0]);   //使用encodeURI编码
-        str += "<li>" + "<a href = \""+searchUrl+"\" target=\"_blank\">"+wdata.returnIteam[i][j] + wdata.returnIteam[i][j] + "</a></li>";
-        str += "<td><a><span type='button' class='glyphicon glyphicon glyphicon-print' id='"+printid +"'></span></a></td></tr>"
+        var searchUrl =encodeURI("PrintGrade.html?teamid="+wdata.returnIteam[i][0]);   //使用encodeURI编码
+        // str += "<li>" + "<a href = \""+searchUrl+"\" target=\"_blank\">"+wdata.returnIteam[i][j] + wdata.returnIteam[i][j] + "</a></li>";
+        str += "<td><a href='"+ searchUrl+"'><span type='button' class='glyphicon glyphicon glyphicon-print' id='"+printid +"'></span></a></td></tr>"
     }
     $("#tbody").html(str)
 

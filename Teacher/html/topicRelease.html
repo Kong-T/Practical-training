@@ -2,108 +2,89 @@
 
 <head>
   <meta charset="utf-8">
-  <title>教师发布题目</title>
-  <link rel="stylesheet" type="text/css" href="../css/topicRelease.css">
-  <link rel="stylesheet" type="text/css" href="../../Student/css/StuNav.css">
+  <title>选题</title>
+
+
   <link href="../css/blog.css" rel="stylesheet">
   <link href="../../assets4.5/dist/css/bootstrap.css" rel="stylesheet">
-
-  
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="../css/topicRelease.css" rel="stylesheet">
+  <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!-- <script src="guide_grade.js"></script> -->
-  <script src="D:\Practical-training-2\Teacher\JS\Tnotice.js"></script>
-
- <script type="text/javascript">
-  function topic_release() {
-     var name = $("#topicname").val();                     //选题名
-     var intro = $("#topicintro").val();                     //选题简介
-     console.log("上传的选题"+name);
-     console.log("上传的详细信息"+intro);
-     $.ajax({
-         type:"POST",
-         url:"http://localhost:8080/topicRelease",
-         data:JSON.stringify({"name":name,"intro":intro}), //将JSON对象转为字符串
-         dataType:"JSON",
-         contentType:"application/json",
-         async:'true',
-
- beforeSend: function(XMLHttpRequest,settings){
-   //ShowLoading();
-   // console.log($.ajax.data);
-     },
-         success:function(data) {
-          if(data == true){
-                   alert("选题上传成功");}     
-         },
-         error: function(){
-   //请求出错处理
-         console.log("选题上传失败");
-
- },
-
-     })
-
- }
- </script>
+  <!-- <script src="D:\Practical-training\Teacher\JS\guide_grade.js"></script> -->
+  <script>
+    $(function () {
+      $("#navbarCode").load("T_nav.html");
+    });
+  </script>
+  <style>
+    .tan {
+      height: 100px;
+    }
+  </style>
 </head>
 
 <body>
-  <div class = "tan"></div>
-  <header class="blog-header py-3">
-    <div class="row flex-nowrap justify-content-between align-items-center">
-      <!-- <div class="col-4 pt-1">
-        <a class="text-muted" href="#">实训</a>
-      </div> -->
-      <div class="col-4">
-        <a class="blog-header-logo text-dark">实训</a>
-      </div>
-      <div class="col-4 d-flex justify-content-end align-items-center">
-        <a class="text-muted" href="#" aria-label="Search">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
-            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img"
-            viewBox="0 0 24 24" focusable="false">
-            <title>Search</title>
-            <circle cx="10.5" cy="10.5" r="7.5" />
-            <path d="M21 21l-5.2-5.2" />
-          </svg>
-        </a>
-        <a class="btn btn-sm btn-outline-secondary" href="T_center.html">我的</a>
-      </div>
-    </div>
-  </header>
 
-  <div class="nav-scroller py-1 mb-2">
-    <nav class="nav d-flex justify-content-between">
-      <a class="p-2 text-muted" href="Tnotice.html">通知公告</a>
-      <a class="p-2 text-muted" href="TBord.html">留言板</a>
-      <a class="p-2 text-muted" href="#">课程资源</a>
-      <a class="p-2 text-muted" href="report_grade.html">答辩成绩</a>
-      <a class="p-2 text-muted" href="guide_grade.html">指导成绩</a>
+  <div id="navbarCode"></div>
+  <div class="tan"></div>
+  <div class=" text-center"></div>
 
-      <a class="p-2 text-muted" href="topicRelease.html">填报选题</a>
-      <!-- <a class="p-2 text-muted" href="#">Business</a>
-      <a class="p-2 text-muted" href="#">Politics</a>
-      <a class="p-2 text-muted" href="#">Opinion</a>
-      <a class="p-2 text-muted" href="#">Science</a>
-      <a class="p-2 text-muted" href="#">Health</a>
-      <a class="p-2 text-muted" href="#">Style</a>
-      <a class="p-2 text-muted" href="#">Travel</a> -->
-    </nav>
-  </div>
+  </head>
+
+
   <div class="container">
-    <form action="" method="get">
-      <h5>选题名称：</h5>
-      <input type="text" id="topicname" placeholder="请输入选题名称" />
-      <br>
-      <br>
-      <h5>选题简介：</h5>
-      <textarea rows="10" cols="70" id='topicintro'></textarea>
-      <br>
-      <br>
-      <button type="button" onclick = "topic_release()" class="btn btn-primary" style="margin-left: 30%;">提 交</button>
-    </form>
+    <div class="py-2 text-center">
+      <p class="lead">请老师填写以下选题信息，成功提交后可在个人中心看到相关信息</p>
+    </div>
+    <div class="row justify-content-center align-items-center">
+      
 
+        <form action="" method="get">
+          <h5>选题名称：</h5>
+          <input type="text" id="topicname" placeholder="请输入选题名称" />
+          <br>
+          <br>
+          <h5>选题简介：</h5>
+          <textarea rows="10" cols="70" id='topicintro' wrap="hard"></textarea>
+          <br>
+          <br>
+          <button type="button" onclick="topic_release()" class="btn btn-primary" style="margin-left: 44%;">提 交</button>
+        </form>
+    </div>
   </div>
+  <script type="text/javascript">
+    function topic_release() {
+      var name = $("#topicname").val();                     //选题名
+      var intro = $("#topicintro").val();
+      console.log(intro);                    //选题简介
+      console.log("上传的选题" + name);
+      console.log("上传的详细信息" + intro);
+      $.ajax({
+        type: "POST",
+        url: "http://localhost:8080/topicRelease",
+        data: JSON.stringify({ "name": name, "intro": intro }), //将JSON对象转为字符串
+        dataType: "JSON",
+        contentType: "application/json",
+        async: 'true',
+
+        beforeSend: function (XMLHttpRequest, settings) {
+          //ShowLoading();
+          // console.log($.ajax.data);
+        },
+        success: function (data) {
+          if (data == true) {
+            alert("选题上传成功");
+          }
+        },
+        error: function () {
+          //请求出错处理
+          console.log("选题上传失败");
+
+        },
+
+      })
+
+    }
+  </script>
 </body>

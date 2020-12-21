@@ -3,19 +3,86 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="../../Student/css/StuNav.css">
-  <link rel="stylesheet" type="text/css" href="../css/tnotice.css">
-  <link href="../css/blog.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="generator" content="Jekyll v4.0.1">
+
+  <title>通知公告</title>
+
   <link href="../../assets4.5/dist/css/bootstrap.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
-    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
 
-    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <title>通知公告</title>
-  <script type="text/javascript">
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    /* a:link{text-decoration: none;color: gray} */
+    a:active {
+      text-decoration: blink
+    }
+  </style>
+  <!-- Custom styles for this template -->
+  <link href="../css/tnotice.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+  <div id="navbarCode"></div>
+  <div class="tan"></div>
+
+
+  <div class="title">
+    <div class="fz40"></div><a>通知公告</a>
+  </div>
+  <div class="b"><a href="/notice/years.html" class="more"><i>查看更多>></i></a></div>
+  </div>
+  <div class="main">
+    <ul id="ol">
+      <a href="../../web/bord&notice/note2.html" class="list-group-item link">
+        <h6>关于《项目管理与开发实训》课程开课通知</h6>
+        <p class="date">2020年11月01日</p>
+      </a>
+      <a href="../../web/bord&notice/note2.html" class="list-group-item link">
+        <h6>关于组队通知</h6>
+        <p class="date">2020年11月16日</p>
+      </a>
+      <a href="../../web/bord&notice/note2.html" class="list-group-item link">
+        <h6>关于选题通知</h6>
+        <p class="date">2020年11月11日</p>
+      </a>
+      <a href="../../web/bord&notice/note2.html" class="list-group-item link">
+        <h6>关于项目文档及进展安排通知</h6>
+        <p class="date">2020年11月15日</p>
+      </a>
+      <a href="../../web/bord&notice/note2.html" class="list-group-item link">
+        <h6>关于答辩通知</h6>
+        <p class="date">2020年12月16日</p>
+      </a>
+    </ul>
+  </div>
+
+  <ol id="ol">
+
+  </ol>
+
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+  <script>window.jQuery || document.write('<script src="../../assets4.5/js/vendor/jquery.slim.min.js"><\/script>')</script>
+  <script src="../../assets4.5/dist/js/bootstrap.bundle.js"></script>
+
+  <script>
     window.onload = function () {
       var name = "Tnotice";
       $.ajax({
@@ -27,7 +94,7 @@
           console.log("from 后端");
           console.log(data.time);
           console.log(data.title);
-          window.length  =data.title.length;//获取一个全局变量 用于表示小组数量
+          window.length = data.title.length;//获取一个全局变量 用于表示小组数量
           // window.time = data.time;
           // window.title = data.title;
 
@@ -40,11 +107,14 @@
         }
       })
       function showData(data) {
-       
+
         var str = "";//定义用于拼接的字符串
-        for (var j = 0; j < window.length; j++){
-          var searchUrl =encodeURI("notice.html?Notice_title="+data.title[j]);   //使用encodeURI编码
-          str += "<li>" + "<a href = \""+searchUrl+"\" target=\"_blank\">"+data.title[j] + data.time[j] + "</a></li>";
+        for (var j = 0; j < window.length; j++) {
+          var searchUrl = encodeURI("notice.html?Notice_title=" + data.title[j]);   //使用encodeURI编码
+          str += "<a style=\"color:black\" href = \"" + searchUrl
+            + "\" target=\"_blank\" class=\"list-group-item link\">" + "<h6>" + data.title[j]
+            + "</h6>" + "<p class=\"date\">" + data.time[j] + "</p></a>";
+          console.log(str);
           console.log(str);
           $("#ol").html(str);
 
@@ -52,64 +122,10 @@
 
       }
     }
+    $(function () {
+      $("#navbarCode").load("T_Nav.html");
+    });
   </script>
-  
-</head>
-
-<body>
-  <header class="blog-header py-3">
-    <div class="row flex-nowrap justify-content-between align-items-center">
-      <!-- <div class="col-4 pt-1">
-        <a class="text-muted" href="#">实训</a>
-      </div> -->
-      <div class="col-4">
-        <a class="blog-header-logo text-dark">实训</a>
-      </div>
-      <div class="col-4 d-flex justify-content-end align-items-center">
-        <a class="text-muted" href="#" aria-label="Search">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
-            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img"
-            viewBox="0 0 24 24" focusable="false">
-            <title>Search</title>
-            <circle cx="10.5" cy="10.5" r="7.5" />
-            <path d="M21 21l-5.2-5.2" />
-          </svg>
-        </a>
-        <a class="btn btn-sm btn-outline-secondary" href="T_center.html">我的</a>
-      </div>
-    </div>
-  </header>
-
-  <div class="nav-scroller py-1 mb-2">
-    <nav class="nav d-flex justify-content-between">
-      <a class="p-2 text-muted" href="Tnotice.html">通知公告</a>
-      <a class="p-2 text-muted" href="TBord.html">留言板</a>
-      <a class="p-2 text-muted" href="#">课程资源</a>
-      <a class="p-2 text-muted" href="report_grade.html">答辩成绩</a>
-      <a class="p-2 text-muted" href="guide_grade.html">指导成绩</a>
-
-      <a class="p-2 text-muted" href="topicRelease.html">填报选题</a>
-      <!-- <a class="p-2 text-muted" href="#">Business</a>
-      <a class="p-2 text-muted" href="#">Politics</a>
-      <a class="p-2 text-muted" href="#">Opinion</a>
-      <a class="p-2 text-muted" href="#">Science</a>
-      <a class="p-2 text-muted" href="#">Health</a>
-      <a class="p-2 text-muted" href="#">Style</a>
-      <a class="p-2 text-muted" href="#">Travel</a> -->
-    </nav>
-  </div>
-
-  <div class="title">
-    <div class="fz40"></div><a>通知公告</a>
-  </div>
-  <div class="b"><a href="/notice/years.html" class="more"><i>查看更多>></i></a></div>
-  </div>
-  <hr />
-
-  <ol id = "ol">
-    
-  </ol>
-  <div class="tan"></div>
 
 
 </body>

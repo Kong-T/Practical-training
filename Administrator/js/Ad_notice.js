@@ -20,7 +20,7 @@ function showdata(data) {
     for (i = 0; i < data.title.length; i++) {
         var j = i * 1 + 1;
         var noticeID="notice"+i;
-        var searchUrl = encodeURI("Ad_notice_info.html?Notice_title=" + data.title[i]);   //使用encodeURI编码
+        var searchUrl = encodeURI("Ad_notice_detail.html?Notice_title=" + data.title[i]);   //使用encodeURI编码
         str += "<tr><th scope='row'>" + j + "</th><td ><a href='" + searchUrl
             + "'>" + data.title[i] + "</a></td><td> " + data.time[i] + "</td ><td><input id='"+noticeID+" ' type='checkbox' onclick = 'del()'></input></td></tr>"
             console.log(str)

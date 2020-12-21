@@ -1,165 +1,91 @@
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
-  <title>Bootstrap 布局实例</title>
-  <link rel="stylesheet" type="text/css" href="../css/guide_grade.css">
-  <link rel="stylesheet" type="text/css" href="../css/footer.css">
-  <link href="../css/blog.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Jekyll v4.0.1">
+  <title>指导成绩</title>
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/pricing/">
+  <!-- Bootstrap core CSS -->
   <link href="../../assets4.5/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="../css/guide_grade.css" rel="stylesheet">
 
-  <link rel="stylesheet" type="text/css" href="../../Student/css/StuNav.css">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script type="text/javascript">
-    window.onload = function () {
-      var name = "guide_grade";
-      $.ajax({
-        url: "http://localhost:8080/Tguide",
-        type: "post",
-        data: name, //点击页面名guide_grade
-        success: function (data) {
-          /*这个方法里是ajax发送请求成功之后执行的代码*/
-          // console.log(data);
-          window.data = data;
-          window.length  =data.length;//获取一个全局变量 用于表示小组数量
-          console.log(window.length);
-          showData(data);//我们仅做数据展示
-        },
-        error: function (msg) {
-          alert("ajax连接异常：" + msg);
-          console.log("error");
-        }
-      })
-      function showData(data) {
-        console.log("showdata调用全局变量"+window.length);
-        console.log("showdata中的"+data);
-        var str = "";//定义用于拼接的字符串
-        for (var i = 0; i < data.length; i++) {
-          console.log(data[i]);
-          var gradeid ="gradeID"+i;
-          var teamid = "teamID" +i;
-          // str += "<tr><td>" + data[i] + "</td><td><input type=\"text\"  id=" +gradeid +" placeholder = \"请输入分数\"></td></tr>"
-          str += "<tr><td><div id =\"" + teamid + "\">" + data[i] + "</div></td><td><input type=\"text\""+" "+"id="+"\""+gradeid+"\""+" "+"placeholder=\"请输入分数\"></td></tr>"
-          console.log(str);
-        }
-        $("#tbody1").html(str);
-
-      }
-    }
-  </script>
-
-  <script>
-   
-    function guideGraderelease() {
-      // 第三种数组的定义
-      var grade={
-          "teamid":new Array(),
-          "grade":new Array()
-        };
-       
-      var str0 = new Array();
-      var teamID = new Array();
-
-      for (var i = 0; i < window.length; i++) {
-        str0[i] = "gradeID" + i;                    //成绩id
-        teamID[i] = "teamID"+i;   //小组ID
-
-        // 第三种
-        grade.teamid[i]=document.getElementById(teamID[i]).innerText;
-        grade.grade[i]=document.getElementById(str0[i]).value;
-      }
-      // console.log("grade"+grade.teamid);
-
-      $.ajax({
-        type: "POST",
-        url: "http://localhost:8080/Tguide_1",
-        data:JSON.stringify(grade),
-        dataType: "JSON",
-        contentType: "application/json",
-        async: 'true',
-        success: function (data) {
-          console.log(data);
-            alert("指导成绩上传成功");
-        },
-        error: function (data) {
-          //请求出错处理
-          console.log(data);
-          console.log("指导成绩上传失败");
-
-        },
-
-      })
-
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
 
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
 
-  </Script>
+    .tan {
+      height: 40px;
+    }
+  </style>
+  <!-- Custom styles for this template -->
+
 
 </head>
 
+
 <body>
-  
-  <div class="nav-scroller py-1 mb-2">
-    <nav class="nav d-flex justify-content-between">
-      <a class="p-2 text-muted" href="Tnotice.html">通知公告</a>
-      <a class="p-2 text-muted" href="TBord.html">留言板</a>
-      <a class="p-2 text-muted" href="#">课程资源</a>
-      <a class="p-2 text-muted" href="report_grade.html">答辩成绩</a>
-      <a class="p-2 text-muted" href="guide_grade.html">指导成绩</a>
 
-      <a class="p-2 text-muted" href="topicRelease.html">填报选题</a>
-      
-    </nav>
-  </div>
+  <div id="navbarCode"></div>
+  <div class="tan"></div>
   <div class="container">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th style="text-align: center;">我指导的小组</th>
-          <th style="text-align: center;">指导教师评分</th>
-        </tr>
-      </thead>
-      <tbody id="tbody1">
-        <!-- <tr>
-          <td>
-            
-          </td>
-        </tr> -->
-      </tbody>
-    </table>
-    <button type="button" class="btn btn-primary" onclick="guideGraderelease()" style="margin-top: 30px;">提 交</button>
+    <div class="py-5 text-center">
+      <p class="lead">请老师填写以下成绩信息，成功提交后可在个人中心看到相关信息</p>
+    </div>
+    <form id="form111" class="needs-validation" novalidate>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th style="text-align: center;" scope="col">我指导的小组</th>
+            <th style="text-align: center;" scope="col">指导教师评分</th>
+          </tr>
+        </thead>
+        <tbody id="tbody1">
+          <tr>
+            <td>
+              <div id="+ teamid +"></div>
+            </td>
+            <td>
+              <input type="text" id=" 7 " placeholder="           请输入分数   " value='' required>
+              <div class='invalid-feedback'>指导成绩为为必填段</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="submit" class="btn  btn-primary btn-lg" onclick="guideGraderelease()"
+      style="display:block;margin:0 auto">提 交</button>
+        
+    </form>
   </div>
 
-  <!-- Footer -->
-  <footer class="page-footer font-small unique-color-dark pt-4">
 
-    <!-- Footer Elements -->
-    <div class="container">
-      <footer>
-        <div class="container">
-          <div class="row">
-            <div class="school-logo col-xs-12 col-sm-6 col-md-4">
-              <img class="img-responsive center-block" src="..\..\homePage&Login\image\logo2.png" />
-            </div>
-            <div class="school-slogan col-xs-12 col-sm-6 col-md-4">
-              <img class="img-responsive center-block" src="..\..\homePage&Login\image\slogan.png" />
-            </div>
-            <div class="school-contact school-contact-text col-xs-12 col-md-4">
 
-              <ul>
-                <li>邮编: 611130</li>
-                <li>电话: 87092220 (办公)</li>
-                <li>E-mail: xxzz@swufe.edu.cn</li>
-                <li>地址: 四川成都温江区柳台大道 555 号 通博楼 B 座</li>
-              </ul>
-            </div>
-          </div>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+  <script>window.jQuery || document.write('<script src="../../assets4.5/js/vendor/jquery.slim.min.js"><\/script>')</script>
+  <script src="../../assets4.5/dist/js/bootstrap.bundle.js"></script>
 
-          <div class="row">
-            <div class="footer-copyright1 col-xs-12">Copyright © 2020 西南财经大学经济信息工程学院 版权所有</div>
-          </div>
-        </div>
-      </footer>
+      
+  <script>
+   
+    $(function () {
+      $("#navbarCode").load("T_Nav.html");
+    });
+  </script>
 </body>
+
+</html>

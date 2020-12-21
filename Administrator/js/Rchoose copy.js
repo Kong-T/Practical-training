@@ -86,13 +86,7 @@ function showData(data) {
         +"'>"+ data.CLeader_id[i]+"</td><td id='"+ LeaderNameID+"'>"+data.CLeader_name[i] 
         +"</td><td><a><span type='button'id = '"+btnID
         +"' class='edit glyphicon glyphicon glyphicon-edit' data-toggle='modal' data-target='#change'></span></a></td></tr>"
-        // str += "<tr><td class=\"topic\" id=\"TopicID" 
-        // + i + "\">" + Topic[i] 
-        // + "</td><td id=\"LeaderID" + i + "\">" 
-        // + Leader_id[i] 
-        // + "</td><td id=\"LeaderNameID" + i + "\">" + Leader_name[i] 
-        // + "<td><button type=\"button\" class=\"edit\" id=\"btn" + i + "\" data-toggle=\"modal\" data-target=\"#myModal\">编辑</button></td></tr>"
-    }
+      }
     // console.log("123");
     console.log(str);
     $("tbody").html(str);
@@ -142,8 +136,6 @@ function a(){
         topicChange.innerHTML = newTopic;
         $('#myModal').modal('hide');//关闭模态框
 
-
-
         // bt.addEventListener("click", function () {
 
         //向后台传递数据
@@ -151,25 +143,25 @@ function a(){
         leaderID = "LeaderID" + re.substr(re.length - 1, 1)
         var ID = document.getElementById(leaderID).innerHTML//获取组长学号
         console.log(newTopic, ID)
-        // $.ajax({
-        //     type: "POST",
-        //     url: "http://localhost:8080/AdTeacherInfo_1",
-        //     data: JSON.stringify({ "Topic": Topic, "Leader_id": ID }), //将JSON对象转为字符串
-        //     dataType: "JSON",
-        //     contentType: "application/json",
-        //     async: 'true',
-        //     beforeSend: function (XMLHttpRequest, settings) {
-        //         //ShowLoading();
-        //         // console.log($.ajax.data);
-        //     },
-        //     success: function () {
-        //         alert("success");
-        //     },
-        //     error: function () {
-        //         //请求出错处理
-        //         console.log("error");
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/AdTeacherInfo_1",
+            data: JSON.stringify({ "Topic": Topic, "Leader_id": ID }), //将JSON对象转为字符串
+            dataType: "JSON",
+            contentType: "application/json",
+            async: 'true',
+            beforeSend: function (XMLHttpRequest, settings) {
+                //ShowLoading();
+                // console.log($.ajax.data);
+            },
+            success: function () {
+                alert("success");
+            },
+            error: function () {
+                //请求出错处理
+                console.log("error");
 
-        //     },
+            },
     })
 }
 

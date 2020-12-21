@@ -1,6 +1,7 @@
 .body {
     padding:0px;
 }
+
  /* 导航栏start */
 /* Stackoverflow preview fix, please ignore */
 .navbar {
@@ -22,12 +23,12 @@
   }
   /* 导航栏end */
   
-.container {
-    width:100px;
-    margin-top: 100px;
-    text-align:center; 
+  .container {
+    max-width: 960px;
+  }
     
-}
+.lh-condensed { 
+    line-height: 1.25; }
 .table {
     text-align: center;
 }

@@ -23,10 +23,10 @@
   /* 导航栏end */
   
 .container {
-    margin-top: 200px;
-    text-align:center; 
+    max-width: 960px;
+  } 
     
-}
+
 .table {
     padding: 50px;
     width:300px;
